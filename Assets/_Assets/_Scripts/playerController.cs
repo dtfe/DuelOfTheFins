@@ -27,6 +27,18 @@ public class playerController : MonoBehaviour
         movementY = movementVector.y;
     }
 
+    private void OnFire()
+    {
+        if (hasNose)
+        {
+            GameObject noseProj = Instantiate(noseProjectile, nose.transform.position, transform.rotation);
+            Vector3 shootDir = (transform.position - nose.transform.position).normalized;
+            noseProj.GetComponent<noseScript>().Setup(shootDir);
+            Debug.Log("nose has been shot");
+            hasNose = false;
+        }
+    }
+
     private void Update()
     {
         transform.up = rb2d.velocity.normalized;
@@ -47,18 +59,6 @@ public class playerController : MonoBehaviour
         rb2d.AddForce(movement * speed);
     }
 
-    void ShootNose()
-    {
-        if (hasNose)
-        {
-            GameObject noseProj = Instantiate(noseProjectile, nose.transform.position, transform.rotation);
-            Vector3 shootDir = (transform.position - nose.transform.position).normalized;
-            noseProj.GetComponent<noseScript>().Setup(shootDir);
-            Debug.Log("nose has been shot");
-            hasNose = false;
-        }
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "NoseProjectile(Clone)")
@@ -74,16 +74,15 @@ public class playerController : MonoBehaviour
     }
     private void Awake()
     {
-        controls = new PlayerControls();
-        controls.Player.Fire.performed += context => ShootNose();
+        //controls = new PlayerControls();
     }
 
     private void OnEnable()
     {
-        controls.Player.Enable();
+        //.Player.Enable();
     }
     private void OnDisable()
     {
-        controls.Player.Disable();
+        //controls.Player.Disable();
     }
 }
