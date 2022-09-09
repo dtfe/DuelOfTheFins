@@ -5,6 +5,7 @@ using UnityEngine;
 public class noseScript : MonoBehaviour
 {
     private BoxCollider2D hitbox;
+    private ParticleSystem ps;
     private Vector3 shootDir;
     private bool isActive;
     public float speed;
@@ -18,7 +19,9 @@ public class noseScript : MonoBehaviour
     void Start()
     {
         hitbox = GetComponent<BoxCollider2D>();
+        ps = GetComponent<ParticleSystem>();
         isActive = true;
+
     }
 
     // Update is called once per frame
@@ -35,7 +38,9 @@ public class noseScript : MonoBehaviour
         isActive = false;
         if (other.gameObject.CompareTag("Player"))
         {
-            //other.gameObject.GetComponent<playerController>().Penetrated();
+            var psEmission = ps.emission;
+            psEmission.enabled = true;
+            other.gameObject.GetComponent<playerController>().Penetrated();
             transform.Translate(depth * Vector2.up);
             transform.parent = other.transform;
             Destroy(gameObject.GetComponent<Rigidbody2D>());
@@ -43,7 +48,8 @@ public class noseScript : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Wall"))
         {
-            hitbox.offset = new Vector2(0, -0.37f);
+            hitbox.offset = new Vector2(0, -0.58f);
+            hitbox.size = new Vector2(5.86f, 0.68f);
             hitbox.isTrigger = true;
             transform.Translate(depth * Vector2.up);
         }

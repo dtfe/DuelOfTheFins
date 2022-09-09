@@ -1,5 +1,5 @@
 {
-    "name": "DuelOfTheFinsPlayer",
+    "name": "playerControls",
     "maps": [
         {
             "name": "Player",
@@ -18,6 +18,15 @@
                     "name": "Fire",
                     "type": "Button",
                     "id": "9237ae37-3573-47e9-b645-3875b4010ef1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Dash",
+                    "type": "Button",
+                    "id": "e7505535-37ca-43a5-9a95-c2af92606c51",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -209,6 +218,17 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "64afa3c3-bdd3-495d-a8b3-df21efd62848",
+                    "path": "<Gamepad>/rightShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
