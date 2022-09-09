@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class noseScript : MonoBehaviour
 {
-    private Rigidbody2D rb2d;
+    private BoxCollider2D hitbox;
     private Vector3 shootDir;
     private bool isActive;
     public float speed;
+    public float depth;
 
     public void Setup(Vector3 shootDir)
     {
@@ -16,7 +17,7 @@ public class noseScript : MonoBehaviour
 
     void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>();
+        hitbox = GetComponent<BoxCollider2D>();
         isActive = true;
     }
 
@@ -34,17 +35,17 @@ public class noseScript : MonoBehaviour
         isActive = false;
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<playerController>().Penetrated();
+            //other.gameObject.GetComponent<playerController>().Penetrated();
+            transform.Translate(depth * Vector2.up);
+            transform.parent = other.transform;
+            Destroy(gameObject.GetComponent<Rigidbody2D>());
+            Destroy(gameObject.GetComponent<Collider2D>());
         }
         if (other.gameObject.CompareTag("Wall"))
         {
-            StartCoroutine(hitWall());
+            hitbox.offset = new Vector2(0, -0.37f);
+            hitbox.isTrigger = true;
+            transform.Translate(depth * Vector2.up);
         }
-    }
-
-    private IEnumerator hitWall()
-    {
-        yield return new WaitForSeconds(0.2f);
-        rb2d.velocity = Vector3.zero;
     }
 }

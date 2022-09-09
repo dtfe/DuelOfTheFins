@@ -11,11 +11,13 @@ public class playerController : MonoBehaviour
     public GameObject noseProjectile;
     private float movementX, movementY;
     public float speed = 1;
+    public bool hasNose;
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>(); //Sets rb2d to be the component of the rigidbody of whatever gameobject this script is on
         nose = transform.Find("Nose").gameObject;
+        hasNose = true;
     }
 
     private void OnMove(InputValue movementValue)
@@ -25,15 +27,17 @@ public class playerController : MonoBehaviour
         movementY = movementVector.y;
     }
 
-    private void Awake()
-    {
-        controls = new PlayerControls();
-        controls.Player.Fire.performed += context => ShootNose();
-    }
-
     private void Update()
     {
         transform.up = rb2d.velocity.normalized;
+        if (hasNose)
+        {
+            nose.SetActive(true);
+        }
+        else
+        {
+            nose.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -45,17 +49,33 @@ public class playerController : MonoBehaviour
 
     void ShootNose()
     {
-        GameObject noseProj = Instantiate(noseProjectile, nose.transform.position, transform.rotation);
-        Vector3 shootDir = (transform.position - nose.transform.position).normalized;
-        noseProj.GetComponent<noseScript>().Setup(shootDir);
-        Debug.Log("nose has been shot");
-        nose.SetActive(false);
-
+        if (hasNose)
+        {
+            GameObject noseProj = Instantiate(noseProjectile, nose.transform.position, transform.rotation);
+            Vector3 shootDir = (transform.position - nose.transform.position).normalized;
+            noseProj.GetComponent<noseScript>().Setup(shootDir);
+            Debug.Log("nose has been shot");
+            hasNose = false;
+        }
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "NoseProjectile(Clone)")
+        {
+            Destroy(collision.gameObject);
+            hasNose = true;
+        }
+    }
+
     public void Penetrated()
     {
 
+    }
+    private void Awake()
+    {
+        controls = new PlayerControls();
+        controls.Player.Fire.performed += context => ShootNose();
     }
 
     private void OnEnable()
