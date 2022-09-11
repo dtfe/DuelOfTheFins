@@ -14,6 +14,7 @@ public class playerController : MonoBehaviour
     public float dashLength;
     private bool hasNose;
     private bool isDead;
+    private bool isDashing;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,11 +36,11 @@ public class playerController : MonoBehaviour
 
     private void OnFire()
     {
-        if (hasNose &! isDead)
+        if (hasNose &! isDead &! isDashing)
         {
             GameObject noseProj = Instantiate(noseProjectile, nose.transform.position, transform.rotation);
             Vector3 shootDir = (transform.position - nose.transform.position).normalized;
-            noseProj.GetComponent<noseScript>().Setup(shootDir);
+            noseProj.GetComponent<noseProjScript>().Setup(shootDir);
             Debug.Log("nose has been shot");
             hasNose = false;
         }
@@ -47,14 +48,19 @@ public class playerController : MonoBehaviour
 
     private void OnDash()
     {
-        if (!isDead)
+        if (!isDead &! isDashing)
         {
-            rb2d.AddForce(playerMovement * speed * 4);
+            StartCoroutine(Dash());
+            isDashing = true;
+            nose.GetComponent<BoxCollider2D>().enabled = true;
         }
     }
 
     private void Update()
     {
+        Vector2 lookDir = (nose.transform.position - transform.position).normalized;
+        playerMovement = lookDir;
+
         if(rb2d.velocity.magnitude > 0.1f)
         {
             transform.up = rb2d.velocity.normalized;
@@ -73,8 +79,10 @@ public class playerController : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 movement = new Vector2(movementX, movementY);
-        playerMovement = movement;
-        rb2d.AddForce(movement * speed);
+        if (!isDashing)
+        {
+            rb2d.AddForce(movement * speed);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -89,5 +97,13 @@ public class playerController : MonoBehaviour
     public void Penetrated()
     {
         isDead = true;
+    }
+
+    private IEnumerator Dash()
+    {
+        rb2d.AddForce(playerMovement * speed * 100);
+        yield return new WaitForSeconds(1);
+        isDashing = false;
+        nose.GetComponent<BoxCollider2D>().enabled = false;
     }
 }
