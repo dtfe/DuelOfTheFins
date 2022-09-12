@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 9173146861367528405}
   - component: {fileID: 2340994466914773849}
   - component: {fileID: 7470392878980326560}
-  m_Layer: 0
-  m_Name: NoseProjectile
+  m_Layer: 7
+  m_Name: PHYS_Nose_Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

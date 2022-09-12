@@ -79,7 +79,7 @@ public class playerController : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 movement = new Vector2(movementX, movementY);
-        if (!isDashing)
+        if (!isDashing &! isDead)
         {
             rb2d.AddForce(movement * speed);
         }
@@ -87,7 +87,7 @@ public class playerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "NoseProjectile(Clone)")
+        if (collision.gameObject.name == "NoseProjectile(Clone)" &! hasNose)
         {
             Destroy(collision.gameObject);
             hasNose = true;

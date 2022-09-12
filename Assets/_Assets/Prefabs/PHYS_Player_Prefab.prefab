@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 609830085165129541}
   - component: {fileID: 3716766834666824981}
   m_Layer: 6
-  m_Name: Nose
+  m_Name: PHYS_Player_Nose
   m_TagString: Nose
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -93,7 +93,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2345561215767130216}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 2345561217131000506}
   - component: {fileID: 2345561217131000453}
   m_Layer: 0
-  m_Name: Player
+  m_Name: PHYS_Player_Prefab
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
