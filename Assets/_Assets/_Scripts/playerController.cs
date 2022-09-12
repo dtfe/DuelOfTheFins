@@ -19,53 +19,53 @@ public class playerController : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>(); //Sets rb2d to be the component of the rigidbody of whatever gameobject this script is on
-        nose = transform.Find("Nose").gameObject;
+        nose = transform.Find("Nose").gameObject; //Sets nose to reference the child named "Nose"
         hasNose = true;
         isDead = false;
     }
 
     private void OnMove(InputValue movementValue)
     {
-        if (!isDead)
+        if (!isDead) //If the bool, isDead, is false then it gets the movement value from the input system and assigns the x and y values to the two floats
         {
-            Vector2 movementVector = movementValue.Get<Vector2>();
-            movementX = movementVector.x;
-            movementY = movementVector.y;
+            Vector2 movementVector = movementValue.Get<Vector2>(); //Assigns vector movementVector the values given from the input system.
+            movementX = movementVector.x; //Assigns the float movementX the x value of movementVector
+            movementY = movementVector.y; //Assigns the float movementY the y value of movementVector
         }
     }
 
-    private void OnFire()
+    private void OnFire() //Whenever the west most button on the gamepad is pressed, this activates
     {
-        if (hasNose &! isDead &! isDashing)
+        if (hasNose &! isDead &! isDashing) //Checks if the player has a nose, if its not dead and if its not dashing
         {
-            GameObject noseProj = Instantiate(noseProjectile, nose.transform.position, transform.rotation);
-            Vector3 shootDir = (transform.position - nose.transform.position).normalized;
-            noseProj.GetComponent<noseProjScript>().Setup(shootDir);
+            GameObject noseProj = Instantiate(noseProjectile, nose.transform.position, transform.rotation); //Creates a projectile assigned the reference noseProj
+            Vector3 shootDir = (transform.position - nose.transform.position).normalized; //Creates a vector for the direction the shot will go
+            noseProj.GetComponent<noseProjScript>().Setup(shootDir); //Calls on the method Setup with the vector 3 as a value to that method
             Debug.Log("nose has been shot");
-            hasNose = false;
+            hasNose = false; //Makes sure player cant shoot twice
         }
     }
 
-    private void OnDash()
+    private void OnDash() //Whenever the RB button is pressed on the gamepad, this activates
     {
-        if (!isDead &! isDashing)
+        if (!isDead &! isDashing) //Checks if the player is still alive and not dashing already
         {
-            StartCoroutine(Dash());
-            isDashing = true;
-            nose.GetComponent<BoxCollider2D>().enabled = true;
+            StartCoroutine(Dash()); //Starts coroutine which allows for delays using IENumerator
+            isDashing = true; //Sets isDashing to true so player cant spam dash while dashing
+            nose.GetComponent<BoxCollider2D>().enabled = true; //Makes the collider which can kill the opponent active
         }
     }
 
     private void Update()
     {
-        Vector2 lookDir = (nose.transform.position - transform.position).normalized;
-        playerMovement = lookDir;
+        Vector2 lookDir = (nose.transform.position - transform.position).normalized; //Vector which is in the direction of where your character is looking
+        playerMovement = lookDir; //Sets Vector2 playerMovement to be equal to vector2 lookDir
 
-        if(rb2d.velocity.magnitude > 0.1f)
+        if(rb2d.velocity.magnitude > 0.1f) //Checks if the player is 
         {
-            transform.up = rb2d.velocity.normalized;
+            transform.up = rb2d.velocity.normalized; // Keeps the player looking towards the direction they are moving
         }
-        if (hasNose)
+        if (hasNose) //Activates and deactivates the nose of the player
         {
             nose.SetActive(true);
         }
@@ -78,32 +78,32 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector2 movement = new Vector2(movementX, movementY);
-        if (!isDashing &! isDead)
+        Vector2 movement = new Vector2(movementX, movementY); //Creates a new vector2 based on the values from the floats MovementX and MovementY
+        if (!isDashing &! isDead) //Checks if you are not dashing and are not dead
         {
-            rb2d.AddForce(movement * speed);
+            rb2d.AddForce(movement * speed); //Adds vector 2 movement multiplied by your speed as a force on your Rigidbody2D
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "NoseProjectile(Clone)" &! hasNose)
+        if (collision.gameObject.name == "NoseProjectile(Clone)" &! hasNose) //Checks if you entered the trigger of a nose projectile and if you don't have a nose
         {
-            Destroy(collision.gameObject);
-            hasNose = true;
+            Destroy(collision.gameObject); //Destroys the nose projectile that you pick up
+            hasNose = true; //Gives you your nose back
         }
     }
 
-    public void Penetrated()
+    public void Penetrated() // Method which kills the player when called upon
     {
-        isDead = true;
+        isDead = true; //Sets isDead to true
     }
 
     private IEnumerator Dash()
     {
-        rb2d.AddForce(playerMovement * speed * 100);
-        yield return new WaitForSeconds(1);
-        isDashing = false;
-        nose.GetComponent<BoxCollider2D>().enabled = false;
+        rb2d.AddForce(playerMovement * speed * 100); //Adds a force in the direction of playerMovement which acts as a dash
+        yield return new WaitForSeconds(1); //Waits for 1 second
+        isDashing = false; //Then sets dash to false allowing the player to dash once more
+        nose.GetComponent<BoxCollider2D>().enabled = false; //Disables collider that allows you to kill the other player
     }
 }
