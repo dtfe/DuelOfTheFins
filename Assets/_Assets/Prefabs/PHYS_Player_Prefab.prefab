@@ -96,7 +96,7 @@ BoxCollider2D:
   m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.13194764}
@@ -337,6 +337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noseProjectile: {fileID: 5220877082785094627, guid: 47ce84f67d27cf849a74d331fb09a9ae, type: 3}
+  playerMovement: {x: 0, y: 0}
   speed: 7.5
   dashLength: 10
 --- !u!70 &2345561217131000453

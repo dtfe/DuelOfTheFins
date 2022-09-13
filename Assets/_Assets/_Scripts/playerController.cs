@@ -5,13 +5,17 @@ using UnityEngine.InputSystem;
 
 public class playerController : MonoBehaviour
 {
+    public int playerNumber;
     private Rigidbody2D rb2d;
     private GameObject nose;
     public GameObject noseProjectile;
     private float movementX, movementY;
-    private Vector2 playerMovement;
+    public Vector2 playerMovement;
     public float speed = 1;
     public float dashLength;
+    public bool activateNoseRecharge;
+    private float dodgeCooldownCur;
+    private float dodgeCooldownStatic = 2;
     private bool hasNose;
     private bool isDead;
     private bool isDashing;
@@ -19,9 +23,22 @@ public class playerController : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>(); //Sets rb2d to be the component of the rigidbody of whatever gameobject this script is on
-        nose = transform.Find("Nose").gameObject; //Sets nose to reference the child named "Nose"
+        nose = transform.Find("PHYS_Player_Nose").gameObject; //Sets nose to reference the child named "Nose"
         hasNose = true;
         isDead = false;
+        if (FindObjectsOfType<playerController>().Length == 1)
+        {
+            playerNumber = 1;
+        }
+        else
+        {
+            playerNumber = 2;
+        }
+
+        if (playerNumber == 1)
+        {
+            GetComponent<SpriteRenderer>().color = Color.magenta;
+        }else { GetComponent<SpriteRenderer>().color = Color.yellow; }
     }
 
     private void OnMove(InputValue movementValue)
@@ -34,6 +51,31 @@ public class playerController : MonoBehaviour
         }
     }
 
+    private void OnDodge(InputValue dodgeValue)
+    {
+        if (!isDead & !isDashing && dodgeCooldownCur <= 0)
+        {
+            Vector2 dodgeVector = dodgeValue.Get<Vector2>();
+            if (dodgeVector.y > 0.5)
+            {
+                rb2d.AddForce(Vector2.up * speed * 25);
+                dodgeCooldownCur = dodgeCooldownStatic;
+            } else if (dodgeVector.y < -0.5)
+            {
+                rb2d.AddForce(Vector2.down * speed * 25);
+                dodgeCooldownCur = dodgeCooldownStatic;
+            } else if (dodgeVector.x > 0.5)
+            {
+                rb2d.AddForce(Vector2.right * speed * 25);
+                dodgeCooldownCur = dodgeCooldownStatic;
+            } else if (dodgeVector.x < -0.5)
+            {
+                rb2d.AddForce(Vector2.left * speed * 25);
+                dodgeCooldownCur = dodgeCooldownStatic;
+            }
+        }
+    }
+
     private void OnFire() //Whenever the west most button on the gamepad is pressed, this activates
     {
         if (hasNose &! isDead &! isDashing) //Checks if the player has a nose, if its not dead and if its not dashing
@@ -43,6 +85,10 @@ public class playerController : MonoBehaviour
             noseProj.GetComponent<noseProjScript>().Setup(shootDir); //Calls on the method Setup with the vector 3 as a value to that method
             Debug.Log("nose has been shot");
             hasNose = false; //Makes sure player cant shoot twice
+            if (activateNoseRecharge)
+            {
+                StartCoroutine(RechargeNose());
+            }
         }
     }
 
@@ -58,6 +104,11 @@ public class playerController : MonoBehaviour
 
     private void Update()
     {
+        if (dodgeCooldownCur > 0)
+        {
+            dodgeCooldownCur -= Time.deltaTime;
+        }
+
         Vector2 lookDir = (nose.transform.position - transform.position).normalized; //Vector which is in the direction of where your character is looking
         playerMovement = lookDir; //Sets Vector2 playerMovement to be equal to vector2 lookDir
 
@@ -87,7 +138,7 @@ public class playerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "NoseProjectile(Clone)" &! hasNose) //Checks if you entered the trigger of a nose projectile and if you don't have a nose
+        if (collision.gameObject.name == "PHYS_Nose_Projectile(Clone)" & ! hasNose) //Checks if you entered the trigger of a nose projectile and if you don't have a nose
         {
             Destroy(collision.gameObject); //Destroys the nose projectile that you pick up
             hasNose = true; //Gives you your nose back
@@ -105,5 +156,14 @@ public class playerController : MonoBehaviour
         yield return new WaitForSeconds(1); //Waits for 1 second
         isDashing = false; //Then sets dash to false allowing the player to dash once more
         nose.GetComponent<BoxCollider2D>().enabled = false; //Disables collider that allows you to kill the other player
+    }
+
+    private IEnumerator RechargeNose()
+    {
+        yield return new WaitForSeconds(10);
+        if (!hasNose)
+        {
+            hasNose = true;
+        }
     }
 }
