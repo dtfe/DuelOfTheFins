@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2345561215767130216}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1.3131, z: 0}
-  m_LocalScale: {x: 0.1255, y: 0.98768616, z: 1}
+  m_LocalScale: {x: 0.1255, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2345561217131000510}
@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 570ff0f48214a7a49a17f81073518833, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blood: {fileID: 5249044970036148135, guid: 34c2a1d775f2e2343bb4c50e6ca45306, type: 3}
 --- !u!1 &2345561217131000508
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,8 +155,8 @@ Transform:
   m_GameObject: {fileID: 2345561217131000508}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2345561215767130219}
   m_Father: {fileID: 0}
@@ -336,10 +337,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef87f3988fced8843a234cc50b61e40f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNumber: 0
   noseProjectile: {fileID: 5220877082785094627, guid: 47ce84f67d27cf849a74d331fb09a9ae, type: 3}
   playerMovement: {x: 0, y: 0}
   speed: 7.5
-  dashLength: 10
+  activateNoseRecharge: 0
 --- !u!70 &2345561217131000453
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

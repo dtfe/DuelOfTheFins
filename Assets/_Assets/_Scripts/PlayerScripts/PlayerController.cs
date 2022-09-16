@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     private float movementX, movementY;
     public Vector2 playerMovement;
     public float speed = 1;
-    public float dashLength;
     public bool activateNoseRecharge;
     private float dodgeCooldownCur;
     private float dodgeCooldownStatic = 2;
@@ -26,14 +25,14 @@ public class PlayerController : MonoBehaviour
         nose = transform.Find("PHYS_Player_Nose").gameObject; //Sets nose to reference the child named "Nose"
         hasNose = true;
         isDead = false;
-        if (FindObjectsOfType<PlayerController>().Length == 1)
+        /*if (FindObjectsOfType<PlayerController>().Length == 1)
         {
             playerNumber = 1;
         }
         else
         {
             playerNumber = 2;
-        }
+        }*/
 
         if (playerNumber == 1)
         {
@@ -138,7 +137,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "PHYS_Nose_Projectile(Clone)" & ! hasNose) //Checks if you entered the trigger of a nose projectile and if you don't have a nose
+        if (collision.gameObject.name == "PHYS_Nose_Projectile(Clone)" & ! hasNose && collision.gameObject.GetComponent<NoseProjScript>().isPickable) //Checks if you entered the trigger of a nose projectile and if you don't have a nose
         {
             Destroy(collision.gameObject); //Destroys the nose projectile that you pick up
             hasNose = true; //Gives you your nose back
