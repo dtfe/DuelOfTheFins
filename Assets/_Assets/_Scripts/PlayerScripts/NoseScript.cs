@@ -38,7 +38,7 @@ public class NoseScript : MonoBehaviour
     IEnumerator deepStab()
     {
         yield return new WaitForSeconds((0.25f * GetComponentInParent<Transform>().localScale.y) / GetComponentInParent<Rigidbody2D>().velocity.magnitude);
-        hitPlayer.transform.parent = transform.parent;
+        hitPlayer.transform.parent = transform;
         GameObject Bleed = Instantiate(blood, transform.position, transform.rotation);
         Bleed.transform.Translate(0.25f * Vector2.up);
         Bleed.transform.parent = hitPlayer.transform;
