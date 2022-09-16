@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class noseScript : MonoBehaviour
+public class NoseScript : MonoBehaviour
 {
     private GameObject hitPlayer;
     // Start is called before the first frame update
@@ -25,11 +25,11 @@ public class noseScript : MonoBehaviour
             hitPlayer = collision.gameObject;
             Debug.Log("Collided with Player");
             GetComponent<BoxCollider2D>().enabled = false;
-            hitPlayer.GetComponent<playerController>().Penetrated();
+            hitPlayer.GetComponent<PlayerController>().Penetrated();
             StartCoroutine(deepStab());
             Destroy(hitPlayer.GetComponent<Rigidbody2D>());
             Destroy(hitPlayer.GetComponent<CapsuleCollider2D>());
-            Destroy(hitPlayer.GetComponent<playerController>());
+            Destroy(hitPlayer.GetComponent<PlayerController>());
             hitPlayer.GetComponent<SpriteRenderer>().sortingOrder -= 2;
         }
     }

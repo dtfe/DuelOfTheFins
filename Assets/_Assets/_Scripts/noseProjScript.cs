@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class noseProjScript : MonoBehaviour
+public class NoseProjScript : MonoBehaviour
 {
     private BoxCollider2D hitbox;
     private ParticleSystem ps;
@@ -40,7 +40,7 @@ public class noseProjScript : MonoBehaviour
         {
             var psEmission = ps.emission;
             psEmission.enabled = true;
-            other.gameObject.GetComponent<playerController>().Penetrated();
+            other.gameObject.GetComponent<PlayerController>().Penetrated();
             transform.Translate(depth * Vector2.up);
             transform.parent = other.transform;
             Destroy(gameObject.GetComponent<Rigidbody2D>());

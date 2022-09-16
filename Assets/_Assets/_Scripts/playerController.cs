@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class playerController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public int playerNumber;
     private Rigidbody2D rb2d;
@@ -26,7 +26,7 @@ public class playerController : MonoBehaviour
         nose = transform.Find("PHYS_Player_Nose").gameObject; //Sets nose to reference the child named "Nose"
         hasNose = true;
         isDead = false;
-        if (FindObjectsOfType<playerController>().Length == 1)
+        if (FindObjectsOfType<PlayerController>().Length == 1)
         {
             playerNumber = 1;
         }
@@ -82,7 +82,7 @@ public class playerController : MonoBehaviour
         {
             GameObject noseProj = Instantiate(noseProjectile, nose.transform.position, transform.rotation); //Creates a projectile assigned the reference noseProj
             Vector3 shootDir = (transform.position - nose.transform.position).normalized; //Creates a vector for the direction the shot will go
-            noseProj.GetComponent<noseProjScript>().Setup(shootDir); //Calls on the method Setup with the vector 3 as a value to that method
+            noseProj.GetComponent<NoseProjScript>().Setup(shootDir); //Calls on the method Setup with the vector 3 as a value to that method
             Debug.Log("nose has been shot");
             hasNose = false; //Makes sure player cant shoot twice
             if (activateNoseRecharge)
