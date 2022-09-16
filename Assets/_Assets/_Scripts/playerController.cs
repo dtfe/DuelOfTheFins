@@ -87,7 +87,7 @@ public class playerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "NoseProjectile(Clone)")
+        if (collision.gameObject.name == "NoseProjectile(Clone)" &! hasNose)
         {
             Destroy(collision.gameObject);
             hasNose = true;
