@@ -25,14 +25,6 @@ public class PlayerController : MonoBehaviour
         nose = transform.Find("PHYS_Player_Nose").gameObject; //Sets nose to reference the child named "Nose"
         hasNose = true;
         isDead = false;
-        /*if (FindObjectsOfType<PlayerController>().Length == 1)
-        {
-            playerNumber = 1;
-        }
-        else
-        {
-            playerNumber = 2;
-        }*/
 
         if (playerNumber == 1)
         {
@@ -81,8 +73,13 @@ public class PlayerController : MonoBehaviour
         {
             GameObject noseProj = Instantiate(noseProjectile, nose.transform.position, transform.rotation); //Creates a projectile assigned the reference noseProj
             Vector3 shootDir = (transform.position - nose.transform.position).normalized; //Creates a vector for the direction the shot will go
-            noseProj.GetComponent<NoseProjScript>().Setup(shootDir); //Calls on the method Setup with the vector 3 as a value to that method
+            noseProj.GetComponentInChildren<NoseProjScript>().Setup(shootDir); //Calls on the method Setup with the vector 3 as a value to that method
             Debug.Log("nose has been shot");
+            if (nose.transform.Find("PHYS_Player_Prefab(Clone)"))
+            {
+                GameObject deadPlayer = nose.transform.Find("PHYS_Player_Prefab(Clone)").gameObject;
+                deadPlayer.transform.parent = noseProj.transform;
+            }
             hasNose = false; //Makes sure player cant shoot twice
             if (activateNoseRecharge)
             {
@@ -137,9 +134,17 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "PHYS_Nose_Projectile(Clone)" & ! hasNose && collision.gameObject.GetComponent<NoseProjScript>().isPickable) //Checks if you entered the trigger of a nose projectile and if you don't have a nose
+        if (collision.gameObject.name == "PHYS_Nose_Projectile" & ! hasNose && collision.gameObject.GetComponent<NoseProjScript>().isPickable) //Checks if you entered the trigger of a nose projectile and if you don't have a nose
         {
-            Destroy(collision.gameObject); //Destroys the nose projectile that you pick up
+            if (collision.GetComponent<NoseProjScript>().parent.Find("PHYS_Player_Prefab(Clone)"))
+            {
+                GameObject deadPlayer = collision.GetComponent<NoseProjScript>().parent.Find("PHYS_Player_Prefab(Clone)").gameObject;
+                deadPlayer.transform.SetParent(nose.transform, true);
+                deadPlayer.transform.localPosition = collision.GetComponent<NoseProjScript>().deadPlayerLocalPos;
+                deadPlayer.transform.localEulerAngles = collision.GetComponent<NoseProjScript>().deadPlayerLocalRot;
+                //deadPlayer.transform.Translate(0.3f * playerMovement);
+            }
+            Destroy(collision.gameObject.GetComponent<NoseProjScript>().parent.gameObject); //Destroys the nose projectile that you pick up
             hasNose = true; //Gives you your nose back
         }
     }
