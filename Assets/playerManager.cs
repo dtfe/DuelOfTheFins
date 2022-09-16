@@ -15,6 +15,7 @@ public class playerManager : MonoBehaviour
             Debug.Log("PlayerInput ID: " + curPlayerNumber);
             transform.position = new Vector3(7, 0, 0);
             pInput.gameObject.GetComponent<Transform>().position = spawnlocations[curPlayerNumber - 1].position;
+            pInput.gameObject.GetComponent<PlayerController>().playerNumber = curPlayerNumber;
         }
     }
     

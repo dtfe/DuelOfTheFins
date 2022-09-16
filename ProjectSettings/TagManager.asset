@@ -15,7 +15,7 @@ TagManager:
   - UI
   - noWallCollision
   - Projectile
-  - 
+  - noPlayerCollision
   - 
   - 
   - 

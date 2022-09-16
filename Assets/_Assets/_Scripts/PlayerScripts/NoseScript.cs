@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class NoseScript : MonoBehaviour
 {
+    public GameObject blood;
     private GameObject hitPlayer;
     // Start is called before the first frame update
     void Start()
@@ -36,7 +37,10 @@ public class NoseScript : MonoBehaviour
 
     IEnumerator deepStab()
     {
-        yield return new WaitForSeconds(0.5f / GetComponentInParent<Rigidbody2D>().velocity.magnitude);
+        yield return new WaitForSeconds((0.25f * GetComponentInParent<Transform>().localScale.y) / GetComponentInParent<Rigidbody2D>().velocity.magnitude);
         hitPlayer.transform.parent = transform.parent;
+        GameObject Bleed = Instantiate(blood, transform.position, transform.rotation);
+        Bleed.transform.Translate(0.25f * Vector2.up);
+        Bleed.transform.parent = hitPlayer.transform;
     }
 }
