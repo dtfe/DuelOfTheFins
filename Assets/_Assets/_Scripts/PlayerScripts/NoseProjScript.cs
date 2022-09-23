@@ -31,6 +31,8 @@ public class NoseProjScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.position = parent.transform.position;
+        transform.rotation = parent.transform.rotation;
         if (isActive)
         {
             parent.position -= shootDir * speed * Time.deltaTime;
@@ -52,17 +54,15 @@ public class NoseProjScript : MonoBehaviour
             bloodyHit.transform.Translate(((depth * transform.localScale.y) * Vector2.up) * 2.5f);
             bloodyHit.transform.parent = other.transform;
             other.gameObject.GetComponent<PlayerController>().Penetrated();
+            GetComponent<BoxCollider2D>().enabled = false;
             parent.Translate((depth * transform.localScale.y) * Vector2.up);
             parent.parent = other.transform;
-            Destroy(gameObject.GetComponent<Rigidbody2D>());
-            Destroy(gameObject.GetComponent<BoxCollider2D>());
             isActive = false;
         }
         if (other.gameObject.CompareTag("Wall"))
         {
             isActive = false;
             hitbox.offset = new Vector2(0, -0.173f);
-            //hitbox.size = new Vector2(5.86f, 0.68f);
             hitbox.isTrigger = true;
             parent.Translate((depth * transform.localScale.y) * Vector2.up);
             isPickable = true;

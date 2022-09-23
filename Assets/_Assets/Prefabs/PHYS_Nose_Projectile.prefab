@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6872686238471594236}
   m_Layer: 7
   m_Name: PHYS_Nose_Projectile
-  m_TagString: Untagged
+  m_TagString: Deleteable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,6 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15fb2e762abdae742815a4865b843692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deadPlayerLocalPos: {x: 0, y: 0, z: 0}
+  deadPlayerLocalRot: {x: 0, y: 0, z: 0}
   parent: {fileID: 6872686238471594236}
   blood: {fileID: 5249044970036148135, guid: 34c2a1d775f2e2343bb4c50e6ca45306, type: 3}
   isActive: 0
