@@ -81,7 +81,7 @@ public class RoundManager : MonoBehaviour
     {
         Time.timeScale = 0.5f;
         Time.fixedDeltaTime = 0.02F * Time.timeScale;
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         hasScored = false;
         Restart();
     }
