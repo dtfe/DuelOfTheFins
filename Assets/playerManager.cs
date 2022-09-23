@@ -13,21 +13,8 @@ public class playerManager : MonoBehaviour
         {
             curPlayerNumber++;
             Debug.Log("PlayerInput ID: " + curPlayerNumber);
-            transform.position = new Vector3(7, 0, 0);
             pInput.gameObject.GetComponent<Transform>().position = spawnlocations[curPlayerNumber - 1].position;
             pInput.gameObject.GetComponent<PlayerController>().playerNumber = curPlayerNumber;
         }
-    }
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        transform.position = new Vector3(-7, 0, 0);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
