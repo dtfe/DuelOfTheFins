@@ -41,7 +41,7 @@ private void Pause()
     {
         SceneManager.LoadScene(MainMenu);
     }
-    public void resume()
+    public void Resume()
     {
         PauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
