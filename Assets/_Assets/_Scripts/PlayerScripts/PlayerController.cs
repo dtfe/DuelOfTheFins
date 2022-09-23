@@ -5,20 +5,28 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public int playerNumber;
+    private int playerIndex;
     private Rigidbody2D rb2d;
     private GameObject nose;
     public GameObject noseProjectile;
     private float movementX, movementY;
     public Vector2 playerMovement;
     public float speed = 1;
-    public bool activateNoseRecharge;
     private float dodgeCooldownCur;
     private float dodgeCooldownStatic = 2;
     private bool hasNose;
-    private bool isDead;
+    public bool isDead;
     private bool isDashing;
-    // Start is called before the first frame update
+    
+    public int SetPlayerIndex(int playerNumber)
+    {
+        return playerIndex = playerNumber;
+    }
+    public int GetPlayerIndex()
+    {
+        return playerIndex;
+    }
+    
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>(); //Sets rb2d to be the component of the rigidbody of whatever gameobject this script is on
@@ -26,10 +34,15 @@ public class PlayerController : MonoBehaviour
         hasNose = true;
         isDead = false;
 
-        if (playerNumber == 1)
+        if (playerIndex == 1)
         {
             GetComponent<SpriteRenderer>().color = Color.magenta;
-        }else { GetComponent<SpriteRenderer>().color = Color.yellow; }
+            FindObjectOfType<RoundManager>().player1 = gameObject;
+        }else 
+        { 
+            GetComponent<SpriteRenderer>().color = Color.yellow;
+            FindObjectOfType<RoundManager>().player2 = gameObject;
+        }
     }
 
     private void OnMove(InputValue movementValue)
@@ -81,10 +94,6 @@ public class PlayerController : MonoBehaviour
                 deadPlayer.transform.parent = noseProj.transform;
             }
             hasNose = false; //Makes sure player cant shoot twice
-            if (activateNoseRecharge)
-            {
-                StartCoroutine(RechargeNose());
-            }
         }
     }
 
@@ -162,12 +171,12 @@ public class PlayerController : MonoBehaviour
         nose.GetComponent<BoxCollider2D>().enabled = false; //Disables collider that allows you to kill the other player
     }
 
-    private IEnumerator RechargeNose()
+    public void ResetCharacter()
     {
-        yield return new WaitForSeconds(10);
-        if (!hasNose)
-        {
-            hasNose = true;
-        }
+        isDead = false;
+        hasNose = true;
+        isDashing = false;
+        gameObject.transform.parent = transform.parent;
+        rb2d.velocity = Vector2.zero;
     }
 }

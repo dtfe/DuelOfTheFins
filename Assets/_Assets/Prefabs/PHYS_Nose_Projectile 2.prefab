@@ -127,6 +127,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15fb2e762abdae742815a4865b843692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deadPlayerLocalPos: {x: 0, y: 0, z: 0}
+  deadPlayerLocalRot: {x: 0, y: 0, z: 0}
+  parent: {fileID: 0}
   blood: {fileID: 5249044970036148135, guid: 34c2a1d775f2e2343bb4c50e6ca45306, type: 3}
   isActive: 0
   isPickable: 0
