@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2345561215767130216}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.3131, z: 0}
+  m_LocalPosition: {x: 0, y: 1.3112, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 19
+  m_SortingOrder: 21
   m_Sprite: {fileID: 7482667652216324306, guid: 6bde5c6d9525cab48809def9fe1b6e5a, type: 3}
   m_Color: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
   m_FlipX: 0
@@ -337,11 +337,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef87f3988fced8843a234cc50b61e40f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNumber: 0
   noseProjectile: {fileID: 5220877082785094627, guid: 71e20be82cc91ff48bec7164d076f0ce, type: 3}
   playerMovement: {x: 0, y: 0}
   speed: 7.5
-  activateNoseRecharge: 0
+  isDead: 0
+  PM2D: {fileID: 6200000, guid: 7da955b888a865049b9170457da63bc8, type: 2}
 --- !u!70 &2345561217131000453
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

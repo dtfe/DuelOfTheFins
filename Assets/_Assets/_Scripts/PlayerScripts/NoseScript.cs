@@ -29,9 +29,7 @@ public class NoseScript : MonoBehaviour
             hitPlayer.GetComponent<PlayerController>().Penetrated();
             StartCoroutine(deepStab());
             Destroy(hitPlayer.GetComponent<Rigidbody2D>());
-            Destroy(hitPlayer.GetComponent<CapsuleCollider2D>());
-            Destroy(hitPlayer.GetComponent<PlayerController>());
-            hitPlayer.GetComponent<SpriteRenderer>().sortingOrder -= 2;
+            hitPlayer.GetComponent<CapsuleCollider2D>().enabled = false;
         }
     }
 
