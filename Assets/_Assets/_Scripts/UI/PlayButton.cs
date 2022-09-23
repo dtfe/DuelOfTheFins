@@ -8,6 +8,7 @@ public class PlayButton : MonoBehaviour
     public void LoadScene(string TestingGrounds)
     {
         SceneManager.LoadScene(TestingGrounds);
+        Time.timeScale = 1f;
     }
     public void QuitGame()
     {

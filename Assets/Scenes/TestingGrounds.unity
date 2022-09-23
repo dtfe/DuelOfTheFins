@@ -343,6 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 640e9d4ea4aa6a043b2b6f493cb2392e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PauseMenuUI: {fileID: 970705422}
 --- !u!4 &393963472
 Transform:
   m_ObjectHideFlags: 0
@@ -1326,6 +1327,7 @@ GameObject:
   - component: {fileID: 1388951226}
   - component: {fileID: 1388951225}
   - component: {fileID: 1388951224}
+  - component: {fileID: 1388951227}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -1397,7 +1399,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1388951225}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 393963471}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MainMenu
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1388951225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1436,6 +1450,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1388951222}
   m_CullTransparentMesh: 1
+--- !u!114 &1388951227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1388951222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83380b3a4b09040489ff0818da7f04ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1433068190
 GameObject:
   m_ObjectHideFlags: 0
@@ -1448,6 +1474,7 @@ GameObject:
   - component: {fileID: 1433068194}
   - component: {fileID: 1433068193}
   - component: {fileID: 1433068192}
+  - component: {fileID: 1433068195}
   m_Layer: 5
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -1503,7 +1530,7 @@ MonoBehaviour:
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0.2
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -1519,7 +1546,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1433068193}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 393963471}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1433068193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1558,6 +1597,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1433068190}
   m_CullTransparentMesh: 1
+--- !u!114 &1433068195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433068190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83380b3a4b09040489ff0818da7f04ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1483098514
 GameObject:
   m_ObjectHideFlags: 0
