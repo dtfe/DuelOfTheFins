@@ -3,23 +3,53 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class playerManager : MonoBehaviour
+public class PlayerManager : MonoBehaviour
 {
     public Transform[] spawnlocations;
+    private RoundManager roundManager;
     private int curPlayerNumber = 0;
+    private List<PlayerController> players;
 
     private void Awake()
     {
-        
+        players = new List<PlayerController>();
     }
+
+    private void Start()
+    {
+        roundManager = FindObjectOfType<RoundManager>();
+    }
+
     private void OnPlayerJoined(PlayerInput pInput)
     {
-        for (int i = 0; i < 1; i++)
+        if(curPlayerNumber == spawnlocations.Length)
         {
-            curPlayerNumber++;
-            Debug.Log("PlayerInput ID: " + curPlayerNumber);
-            pInput.gameObject.GetComponent<Transform>().position = spawnlocations[curPlayerNumber - 1].position;
-            pInput.gameObject.GetComponent<PlayerController>().SetPlayerIndex(curPlayerNumber);
+            return;
         }
+
+        Debug.Log("PlayerInput ID: " + curPlayerNumber);
+        pInput.transform.position = spawnlocations[curPlayerNumber].position;
+        var playerController = pInput.gameObject.GetComponent<PlayerController>();
+        players.Add(playerController);
+        curPlayerNumber++;
+
+        if (curPlayerNumber == 1)
+        {
+            pInput.GetComponent<SpriteRenderer>().color = Color.magenta;
+        }
+        else
+        {
+            pInput.GetComponent<SpriteRenderer>().color = Color.yellow;
+        }
+
+        if (curPlayerNumber == spawnlocations.Length)
+        {
+            roundManager.StartRound(players);
+        }
+    }
+
+    private void Update()
+    {
+
     }
 }

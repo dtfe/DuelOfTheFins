@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    private int playerIndex;
     private Rigidbody2D rb2d;
     private GameObject nose;
     public GameObject noseProjectile;
@@ -17,15 +16,8 @@ public class PlayerController : MonoBehaviour
     private bool hasNose;
     public bool isDead;
     private bool isDashing;
-    
-    public int SetPlayerIndex(int playerNumber)
-    {
-        return playerIndex = playerNumber;
-    }
-    public int GetPlayerIndex()
-    {
-        return playerIndex;
-    }
+    public PhysicsMaterial2D PM2D;
+    private Vector3 startPosition;
     
     void Start()
     {
@@ -33,16 +25,7 @@ public class PlayerController : MonoBehaviour
         nose = transform.Find("PHYS_Player_Nose").gameObject; //Sets nose to reference the child named "Nose"
         hasNose = true;
         isDead = false;
-
-        if (playerIndex == 1)
-        {
-            GetComponent<SpriteRenderer>().color = Color.magenta;
-            FindObjectOfType<RoundManager>().player1 = gameObject;
-        }else 
-        { 
-            GetComponent<SpriteRenderer>().color = Color.yellow;
-            FindObjectOfType<RoundManager>().player2 = gameObject;
-        }
+        startPosition = transform.position;
     }
 
     private void OnMove(InputValue movementValue)
@@ -116,11 +99,6 @@ public class PlayerController : MonoBehaviour
 
         Vector2 lookDir = (nose.transform.position - transform.position).normalized; //Vector which is in the direction of where your character is looking
         playerMovement = lookDir; //Sets Vector2 playerMovement to be equal to vector2 lookDir
-
-        if(rb2d.velocity.magnitude > 0.1f) //Checks if the player is 
-        {
-            transform.up = rb2d.velocity.normalized; // Keeps the player looking towards the direction they are moving
-        }
         if (hasNose) //Activates and deactivates the nose of the player
         {
             nose.SetActive(true);
@@ -128,6 +106,17 @@ public class PlayerController : MonoBehaviour
         else
         {
             nose.SetActive(false);
+        }
+        if (!isDead)
+        {
+            GetComponent<CapsuleCollider2D>().enabled = true;
+            GetComponent<PlayerInput>().enabled = true;
+            GetComponent<PlayerController>().enabled = true;
+
+            if (rb2d.velocity.magnitude > 0.1f) //Checks if the player is not moving
+            {
+                transform.up = rb2d.velocity.normalized; // Keeps the player looking towards the direction they are moving
+            }
         }
     }
 
@@ -174,9 +163,19 @@ public class PlayerController : MonoBehaviour
     public void ResetCharacter()
     {
         isDead = false;
+        if (!rb2d)
+        {
+            gameObject.AddComponent<Rigidbody2D>();
+            rb2d = GetComponent<Rigidbody2D>();
+            rb2d.gravityScale = 0;
+            rb2d.drag = 2;
+            rb2d.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+            rb2d.sharedMaterial = PM2D;
+        }
         hasNose = true;
         isDashing = false;
-        gameObject.transform.parent = transform.parent;
+        transform.parent = null;
         rb2d.velocity = Vector2.zero;
+        transform.position = startPosition;
     }
 }
