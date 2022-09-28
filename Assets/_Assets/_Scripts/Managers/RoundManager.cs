@@ -58,14 +58,14 @@ public class RoundManager : MonoBehaviour
             p1Score++;
             p1Counter.text = p1Score.ToString();
         }
-        if (p1Score == 3 || p2Score == 3)
+        if (p1Score == 5 || p2Score == 5)
         {
             gameOver = true;
             winnerTxt.gameObject.SetActive(true);
-            if (p1Score == 3)
+            if (p1Score == 5)
             {
                 winnerTxt.text = "Player 1 Wins!";
-            }else if (p2Score == 3)
+            }else if (p2Score == 5)
             {
                 winnerTxt.text = "Player 2 Wins!";
             }
