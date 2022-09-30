@@ -43,6 +43,11 @@ public class NoseProjScript : MonoBehaviour
             deadPlayerLocalPos = parent.Find("PHYS_Player_Prefab(Clone)").transform.localPosition;
             deadPlayerLocalRot = parent.Find("PHYS_Player_Prefab(Clone)").transform.localEulerAngles;
         }
+
+        if (transform.position.y > 6f || transform.position.y < -6f || transform.position.x > 9f || transform.position.x < -9f)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -50,13 +55,13 @@ public class NoseProjScript : MonoBehaviour
         
         if (other.gameObject.CompareTag("Player") && isActive &! isPickable)
         {
-            GameObject bloodyHit = Instantiate(blood, transform.position, transform.rotation);
-            bloodyHit.transform.Translate(((depth * transform.localScale.y) * Vector2.up) * 2.5f);
-            bloodyHit.transform.parent = other.transform;
             other.gameObject.GetComponent<PlayerController>().Penetrated();
             GetComponent<BoxCollider2D>().enabled = false;
             parent.Translate((depth * transform.localScale.y) * Vector2.up);
             parent.parent = other.transform;
+            GameObject bloodyHit = Instantiate(blood, transform.position, transform.rotation);
+            bloodyHit.transform.Translate(((depth * transform.localScale.y) * Vector2.up) * 2.5f);
+            bloodyHit.transform.parent = other.transform;
             isActive = false;
         }
         if (other.gameObject.CompareTag("Wall"))

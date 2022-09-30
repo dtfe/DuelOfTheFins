@@ -30,7 +30,7 @@ public class RoundManager : MonoBehaviour
         p2Counter = roundCounter.transform.Find("Player2Counter").gameObject.GetComponent<TextMeshProUGUI>();
     }
 
-    public void StartRound(List<PlayerController> players)
+    public void StartRound(List<GameObject> players)
     {
         player1 = players[0].GetComponent<PlayerController>();
         player2 = players[1].GetComponent<PlayerController>();
@@ -51,12 +51,19 @@ public class RoundManager : MonoBehaviour
             hasScored = true;
             p2Score++;
             p2Counter.text = p2Score.ToString();
+            p2Counter.color = Color.cyan;
         }
         else if (!player1.isDead && player2.isDead && !hasScored && !endGameActive)
         {
             hasScored = true;
             p1Score++;
             p1Counter.text = p1Score.ToString();
+            p1Counter.color = Color.cyan;
+        } else if (player1.isDead && player2.isDead && !hasScored && !endGameActive)
+        {
+            hasScored = true;
+            p1Counter.color = Color.cyan;
+            p2Counter.color = Color.cyan;
         }
         if (p1Score == 5 || p2Score == 5)
         {
@@ -79,11 +86,13 @@ public class RoundManager : MonoBehaviour
 
     IEnumerator endGame()
     {
-        Time.timeScale = 0.5f;
-        Time.fixedDeltaTime = 0.02F * Time.timeScale;
+        /*Time.timeScale = 0.5f;
+        Time.fixedDeltaTime = 0.02F * Time.timeScale;*/
         yield return new WaitForSeconds(2);
         hasScored = false;
         Restart();
+        p1Counter.color = Color.magenta;
+        p2Counter.color = Color.yellow;
     }
     private void Restart()
     {
@@ -94,6 +103,7 @@ public class RoundManager : MonoBehaviour
         {
             Destroy(cleanUp[i].gameObject);
         }
+        GetComponent<ModifierManager>().ApplyModifiers();
         Time.timeScale = 1;
         Time.fixedDeltaTime = 0.02F * Time.timeScale;
         endGameActive = false;
