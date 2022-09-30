@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     private float dodgeCooldownCur;
     private float dodgeCooldownStatic = 2;
     private bool hasNose;
+    public bool regenerateNose;
+    private bool isRegeneratingNose;
     public bool isDead;
     private bool isDashing;
     public PhysicsMaterial2D PM2D;
@@ -96,6 +98,12 @@ public class PlayerController : MonoBehaviour
         {
             dodgeCooldownCur -= Time.deltaTime;
         }
+        
+        if (!hasNose && !FindObjectOfType<NoseProjScript>() && !isRegeneratingNose)
+        {
+            isRegeneratingNose = true;
+            StartCoroutine(RegenerateSword());
+        }
 
         Vector2 lookDir = (nose.transform.position - transform.position).normalized; //Vector which is in the direction of where your character is looking
         playerMovement = lookDir; //Sets Vector2 playerMovement to be equal to vector2 lookDir
@@ -130,6 +138,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("deathWall"))
+        {
+            Penetrated();
+            rb2d.velocity = Vector3.zero;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "PHYS_Nose_Projectile" & ! hasNose && collision.gameObject.GetComponent<NoseProjScript>().isPickable) //Checks if you entered the trigger of a nose projectile and if you don't have a nose
@@ -158,6 +175,13 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(1); //Waits for 1 second
         isDashing = false; //Then sets dash to false allowing the player to dash once more
         nose.GetComponent<BoxCollider2D>().enabled = false; //Disables collider that allows you to kill the other player
+    }
+
+    IEnumerator RegenerateSword()
+    {
+        yield return new WaitForSeconds(5);
+        hasNose = true;
+        isRegeneratingNose = false;
     }
 
     public void ResetCharacter()

@@ -7,6 +7,8 @@ TagManager:
   - Wall
   - Nose
   - Deleteable
+  - invisWall
+  - deathWall
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - noWallCollision
   - Projectile
   - noPlayerCollision
-  - 
+  - invisWall
   - 
   - 
   - 

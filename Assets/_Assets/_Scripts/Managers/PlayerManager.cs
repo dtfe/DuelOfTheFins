@@ -7,17 +7,19 @@ public class PlayerManager : MonoBehaviour
 {
     public Transform[] spawnlocations;
     private RoundManager roundManager;
+    private ModifierManager modifierManager;
     private int curPlayerNumber = 0;
-    private List<PlayerController> players;
+    private List<GameObject> players;
 
     private void Awake()
     {
-        players = new List<PlayerController>();
+        players = new List<GameObject>();
     }
 
     private void Start()
     {
         roundManager = FindObjectOfType<RoundManager>();
+        modifierManager = FindObjectOfType<ModifierManager>();
     }
 
     private void OnPlayerJoined(PlayerInput pInput)
@@ -29,7 +31,7 @@ public class PlayerManager : MonoBehaviour
 
         Debug.Log("PlayerInput ID: " + curPlayerNumber);
         pInput.transform.position = spawnlocations[curPlayerNumber].position;
-        var playerController = pInput.gameObject.GetComponent<PlayerController>();
+        var playerController = pInput.gameObject;
         players.Add(playerController);
         curPlayerNumber++;
 
@@ -45,6 +47,7 @@ public class PlayerManager : MonoBehaviour
         if (curPlayerNumber == spawnlocations.Length)
         {
             roundManager.StartRound(players);
+            modifierManager.ApplyPlayerObjects(players);
         }
     }
 
