@@ -161,6 +161,7 @@ MonoBehaviour:
   deadPlayerLocalRot: {x: 0, y: 0, z: 0}
   parent: {fileID: 6872686238471594236}
   blood: {fileID: 5249044970036148135, guid: 34c2a1d775f2e2343bb4c50e6ca45306, type: 3}
+  hole: {fileID: 5662601518615719427, guid: 2665244ee57c9984b9de82e34aad23a2, type: 3}
   isActive: 0
   isPickable: 0
   speed: 15

@@ -177,7 +177,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2345561215767130216}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -209,6 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blood: {fileID: 5249044970036148135, guid: 34c2a1d775f2e2343bb4c50e6ca45306, type: 3}
+  hole: {fileID: 5662601518615719427, guid: 2665244ee57c9984b9de82e34aad23a2, type: 3}
   parent: {fileID: 2345561217131000508}
 --- !u!1 &2345561217131000508
 GameObject:
@@ -427,7 +428,9 @@ MonoBehaviour:
   playerMovement: {x: 0, y: 0}
   speed: 7.5
   regenerateNose: 0
+  isControllable: 1
   isDead: 0
+  isDashing: 0
   PM2D: {fileID: 6200000, guid: 7da955b888a865049b9170457da63bc8, type: 2}
 --- !u!70 &2345561217131000453
 CapsuleCollider2D:

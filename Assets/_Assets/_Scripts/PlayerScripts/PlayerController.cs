@@ -16,8 +16,9 @@ public class PlayerController : MonoBehaviour
     private bool hasNose;
     public bool regenerateNose;
     private bool isRegeneratingNose;
+    public bool isControllable = true;
     public bool isDead;
-    private bool isDashing;
+    public bool isDashing;
     public PhysicsMaterial2D PM2D;
     private Vector3 startPosition;
     
@@ -42,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnDodge(InputValue dodgeValue)
     {
-        if (!isDead & !isDashing && dodgeCooldownCur <= 0)
+        if (!isDead & !isDashing && dodgeCooldownCur <= 0 && isControllable)
         {
             Vector2 dodgeVector = dodgeValue.Get<Vector2>();
             if (dodgeVector.y > 0.5)
@@ -84,11 +85,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnDash() //Whenever the RB button is pressed on the gamepad, this activates
     {
-        if (!isDead &! isDashing) //Checks if the player is still alive and not dashing already
+        if (!isDead && ! isDashing) //Checks if the player is still alive and not dashing already
         {
             StartCoroutine(Dash()); //Starts coroutine which allows for delays using IENumerator
             isDashing = true; //Sets isDashing to true so player cant spam dash while dashing
-            nose.GetComponent<BoxCollider2D>().enabled = true; //Makes the collider which can kill the opponent active
+            //nose.GetComponent<BoxCollider2D>().enabled = true; //Makes the collider which can kill the opponent active
         }
     }
 
@@ -132,7 +133,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 movement = new Vector2(movementX, movementY); //Creates a new vector2 based on the values from the floats MovementX and MovementY
-        if (!isDashing &! isDead) //Checks if you are not dashing and are not dead
+        if (!isDashing &!isDead && isControllable) //Checks if you are not dashing and are not dead
         {
             rb2d.AddForce(movement * speed); //Adds vector 2 movement multiplied by your speed as a force on your Rigidbody2D
         }
@@ -163,6 +164,25 @@ public class PlayerController : MonoBehaviour
             hasNose = true; //Gives you your nose back
         }
     }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("PlayArea"))
+        {
+            isControllable = true;
+            rb2d.gravityScale = 0f;
+            rb2d.drag = 2;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("PlayArea"))
+        {
+            isControllable = false;
+            rb2d.gravityScale = 1f;
+            rb2d.drag = 1;
+        }
+    }
 
     public void Penetrated() // Method which kills the player when called upon
     {
@@ -174,7 +194,7 @@ public class PlayerController : MonoBehaviour
         rb2d.AddForce(playerMovement * speed * 100); //Adds a force in the direction of playerMovement which acts as a dash
         yield return new WaitForSeconds(1); //Waits for 1 second
         isDashing = false; //Then sets dash to false allowing the player to dash once more
-        nose.GetComponent<BoxCollider2D>().enabled = false; //Disables collider that allows you to kill the other player
+        //nose.GetComponent<BoxCollider2D>().enabled = false; //Disables collider that allows you to kill the other player
     }
 
     IEnumerator RegenerateSword()
@@ -198,8 +218,11 @@ public class PlayerController : MonoBehaviour
         }
         hasNose = true;
         isDashing = false;
+        isControllable = true;
         transform.parent = null;
         rb2d.velocity = Vector2.zero;
+        movementX = 0;
+        movementY = 0;
         transform.position = startPosition;
     }
 }
