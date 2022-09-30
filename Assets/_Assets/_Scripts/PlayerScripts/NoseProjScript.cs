@@ -10,6 +10,7 @@ public class NoseProjScript : MonoBehaviour
     public Vector3 deadPlayerLocalRot;
     public Transform parent;
     public GameObject blood;
+    public GameObject hole;
     public bool isActive;
     public bool isPickable;
     public float speed;
@@ -71,6 +72,13 @@ public class NoseProjScript : MonoBehaviour
             hitbox.isTrigger = true;
             parent.Translate((depth * transform.localScale.y) * Vector2.up);
             isPickable = true;
+            if (FindObjectOfType<ModifierManager>().WaterLevel)
+            {
+                GameObject Hole = Instantiate(hole, transform.position, transform.rotation);
+                Hole.transform.Translate(0.25f * Vector2.up);
+                hole.transform.parent = null;
+                FindObjectOfType<WaterLevel>().NewHole(Hole.transform);
+            }
         }
     }
 }

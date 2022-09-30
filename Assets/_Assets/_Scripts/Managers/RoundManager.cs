@@ -107,5 +107,10 @@ public class RoundManager : MonoBehaviour
         Time.timeScale = 1;
         Time.fixedDeltaTime = 0.02F * Time.timeScale;
         endGameActive = false;
+        if (FindObjectOfType<WaterLevel>())
+        {
+            Debug.Log("Found WaterLevel");
+            FindObjectOfType<WaterLevel>().GetComponent<WaterLevel>().Restart();
+        }
     }
 }
