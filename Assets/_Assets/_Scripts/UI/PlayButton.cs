@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayButton : MonoBehaviour
 {
-    public void LoadScene(string Aquarium)
+    public void LoadScene(string Ocean)
     {
-        SceneManager.LoadScene(Aquarium);
+        SceneManager.LoadScene(Ocean);
         Time.timeScale = 1f;
     }
     public void QuitGame()
