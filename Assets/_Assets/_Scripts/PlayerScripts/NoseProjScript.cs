@@ -67,18 +67,26 @@ public class NoseProjScript : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Wall"))
         {
-            isActive = false;
-            hitbox.offset = new Vector2(0, -0.173f);
-            hitbox.isTrigger = true;
-            parent.Translate((depth * transform.localScale.y) * Vector2.up);
-            isPickable = true;
-            if (FindObjectOfType<ModifierManager>().WaterLevel)
-            {
-                GameObject Hole = Instantiate(hole, transform.position, transform.rotation);
-                Hole.transform.Translate(0.25f * Vector2.up);
-                hole.transform.parent = null;
-                FindObjectOfType<WaterLevel>().NewHole(Hole.transform);
-            }
+            HitWall(false);
+        }
+        if (other.gameObject.CompareTag("GlassWall"))
+        {
+            HitWall(true);
+        }
+    }
+    private void HitWall(bool breakable)
+    {
+        isActive = false;
+        hitbox.offset = new Vector2(0, -0.173f);
+        hitbox.isTrigger = true;
+        parent.Translate((depth * transform.localScale.y) * Vector2.up);
+        isPickable = true;
+        if (breakable)
+        {
+            GameObject Hole = Instantiate(hole, transform.position, transform.rotation);
+            Hole.transform.Translate(0.25f * Vector2.up);
+            hole.transform.parent = null;
+            FindObjectOfType<WaterLevel>().NewHole(Hole.transform);
         }
     }
 }

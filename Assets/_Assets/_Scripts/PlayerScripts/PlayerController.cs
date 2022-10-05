@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnDodge(InputValue dodgeValue)
     {
-        if (!isDead & !isDashing && dodgeCooldownCur <= 0 && isControllable)
+        if (!isDead & !isDashing && dodgeCooldownCur <= 0)
         {
             Vector2 dodgeVector = dodgeValue.Get<Vector2>();
             if (dodgeVector.y > 0.5)
@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(Dash()); //Starts coroutine which allows for delays using IENumerator
             isDashing = true; //Sets isDashing to true so player cant spam dash while dashing
-            //nose.GetComponent<BoxCollider2D>().enabled = true; //Makes the collider which can kill the opponent active
+            nose.GetComponent<BoxCollider2D>().enabled = true; //Makes the collider which can kill the opponent active
         }
     }
 
@@ -126,6 +126,17 @@ public class PlayerController : MonoBehaviour
             {
                 transform.up = rb2d.velocity.normalized; // Keeps the player looking towards the direction they are moving
             }
+        }
+        if (transform.eulerAngles.z > 180)
+        {
+            transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = true;
+            var noseX = nose.transform.position.x;
+            noseX = -0.12f;
+        } else if (transform.eulerAngles.z < 180)
+        {
+            transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = false;
+            var noseX = nose.transform.position.x;
+            noseX = 0f;
         }
     }
 
@@ -194,7 +205,7 @@ public class PlayerController : MonoBehaviour
         rb2d.AddForce(playerMovement * speed * 100); //Adds a force in the direction of playerMovement which acts as a dash
         yield return new WaitForSeconds(1); //Waits for 1 second
         isDashing = false; //Then sets dash to false allowing the player to dash once more
-        //nose.GetComponent<BoxCollider2D>().enabled = false; //Disables collider that allows you to kill the other player
+        nose.GetComponent<BoxCollider2D>().enabled = false; //Disables collider that allows you to kill the other player
     }
 
     IEnumerator RegenerateSword()

@@ -135,8 +135,8 @@ GameObject:
   - component: {fileID: 17066473}
   - component: {fileID: 17066472}
   m_Layer: 3
-  m_Name: Wall (2)
-  m_TagString: Wall
+  m_Name: GlassWall
+  m_TagString: GlassWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -464,8 +464,8 @@ GameObject:
   - component: {fileID: 1554560950}
   - component: {fileID: 1554560949}
   m_Layer: 3
-  m_Name: Wall
-  m_TagString: Wall
+  m_Name: GlassWall
+  m_TagString: GlassWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -706,6 +706,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waterLevel: 4
   hole: []
+  sinkTo: {x: 0, y: 0, z: 0}
 --- !u!212 &1681908248
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -812,8 +813,8 @@ GameObject:
   - component: {fileID: 1704587398}
   - component: {fileID: 1704587397}
   m_Layer: 3
-  m_Name: Wall (1)
-  m_TagString: Wall
+  m_Name: GlassWall
+  m_TagString: GlassWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

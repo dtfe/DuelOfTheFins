@@ -17,6 +17,7 @@ public class WaterLevel : MonoBehaviour
     void Update()
     {
         Sink(sinkTo);
+
     }
 
     public void NewHole(Transform newHolePos)

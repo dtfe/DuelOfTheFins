@@ -10,6 +10,7 @@ TagManager:
   - invisWall
   - deathWall
   - PlayArea
+  - GlassWall
   layers:
   - Default
   - TransparentFX
