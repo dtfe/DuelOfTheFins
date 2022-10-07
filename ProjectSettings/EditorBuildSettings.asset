@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Ocean.unity
     guid: 388708b422d61304d95079b47e62de7f
   - enabled: 1
-    path: Assets/Scenes/AquariumTemplate.unity
+    path: Assets/Scenes/Aquarium.unity
     guid: d62e4737bdaa3014b920996d6529be9b
   - enabled: 1
     path: Assets/Scenes/RiverMap.unity
