@@ -5854,6 +5854,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ResetTheGame
       objectReference: {fileID: 0}
+    - target: {fileID: 5809345771234802104, guid: 60faa3a6f74d5634e954751ff678380b, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6962474078328272882, guid: 60faa3a6f74d5634e954751ff678380b, type: 3}
       propertyPath: m_IsActive
       value: 0

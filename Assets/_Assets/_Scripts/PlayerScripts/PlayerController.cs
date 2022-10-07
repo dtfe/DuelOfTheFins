@@ -138,13 +138,11 @@ public class PlayerController : MonoBehaviour
         if (transform.eulerAngles.z > 180)
         {
             transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = true;
-            var noseX = nose.transform.position.x;
-            noseX = -0.12f;
+            nose.transform.localPosition = new (-0.12f, nose.transform.localPosition.y, nose.transform.localPosition.z);
         } else if (transform.eulerAngles.z < 180)
         {
             transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = false;
-            var noseX = nose.transform.position.x;
-            noseX = 0f;
+            nose.transform.localPosition = new(0, nose.transform.localPosition.y, nose.transform.localPosition.z);
         }
     }
 
@@ -253,6 +251,7 @@ public class PlayerController : MonoBehaviour
         isControllable = true;
         transform.parent = null;
         rb2d.velocity = Vector2.zero;
+        rb2d.angularVelocity = 0;
         movementX = 0;
         movementY = 0;
         transform.position = startPosition;

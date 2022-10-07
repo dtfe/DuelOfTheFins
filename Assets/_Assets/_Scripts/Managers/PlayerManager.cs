@@ -22,6 +22,12 @@ public class PlayerManager : MonoBehaviour
         modifierManager = FindObjectOfType<ModifierManager>();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.O))
+            GetComponent<PlayerInputManager>().JoinPlayer(2);
+    }
+
     private void OnPlayerJoined(PlayerInput pInput)
     {
         if(curPlayerNumber == spawnlocations.Length)
@@ -37,11 +43,11 @@ public class PlayerManager : MonoBehaviour
 
         if (curPlayerNumber == 1)
         {
-            pInput.GetComponent<SpriteRenderer>().color = Color.magenta;
+            pInput.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.magenta;
         }
         else
         {
-            pInput.GetComponent<SpriteRenderer>().color = Color.yellow;
+            pInput.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.yellow;
         }
 
         if (curPlayerNumber == spawnlocations.Length)
