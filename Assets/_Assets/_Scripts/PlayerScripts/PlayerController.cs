@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public bool regenerateNose;
     private bool isRegeneratingNose;
     public bool isControllable = true;
+    public bool canDashAndDodge = true;
     public bool isDead;
     public bool isDashing;
     public PhysicsMaterial2D PM2D;
@@ -45,7 +46,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnDodge(InputValue dodgeValue)
     {
-        if (!isDead & !isDashing && dodgeCooldownCur <= 0)
+        if (!isDead & !isDashing && dodgeCooldownCur <= 0 && canDashAndDodge)
         {
             Vector2 dodgeVector = dodgeValue.Get<Vector2>();
             if (dodgeVector.y > 0.5)
@@ -87,7 +88,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnDash() //Whenever the RB button is pressed on the gamepad, this activates
     {
-        if (!isDead && ! isDashing) //Checks if the player is still alive and not dashing already
+        if (!isDead && ! isDashing && canDashAndDodge) //Checks if the player is still alive and not dashing already
         {
             StartCoroutine(Dash()); //Starts coroutine which allows for delays using IENumerator
             isDashing = true; //Sets isDashing to true so player cant spam dash while dashing
@@ -189,6 +190,10 @@ public class PlayerController : MonoBehaviour
             isControllable = true;
             rb2d.gravityScale = 0f;
             rb2d.drag = 2;
+            if (!canDashAndDodge)
+            {
+                canDashAndDodge = true;
+            }
         }
     }
 
@@ -197,8 +202,17 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayArea"))
         {
             isControllable = false;
-            rb2d.gravityScale = 1f;
-            rb2d.drag = 1;
+            if (!FindObjectOfType<WaterLevel>())
+            {
+                rb2d.gravityScale = 0f;
+                rb2d.drag = 0f;
+                canDashAndDodge = false;
+            }
+            else
+            {
+                rb2d.gravityScale = 1f;
+                rb2d.drag = 1f;
+            }
         }
     }
 

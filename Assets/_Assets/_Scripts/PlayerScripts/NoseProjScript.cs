@@ -47,7 +47,7 @@ public class NoseProjScript : MonoBehaviour
 
         if (transform.position.y > 6f || transform.position.y < -6f || transform.position.x > 9f || transform.position.x < -9f)
         {
-            Destroy(gameObject);
+            Destroy(parent.gameObject);
         }
     }
 
