@@ -16,8 +16,9 @@ public class PlayerController : MonoBehaviour
     private bool hasNose;
     public bool regenerateNose;
     private bool isRegeneratingNose;
+    public bool isControllable = true;
     public bool isDead;
-    private bool isDashing;
+    public bool isDashing;
     public PhysicsMaterial2D PM2D;
     private Vector3 startPosition;
     
@@ -84,7 +85,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnDash() //Whenever the RB button is pressed on the gamepad, this activates
     {
-        if (!isDead &! isDashing) //Checks if the player is still alive and not dashing already
+        if (!isDead && ! isDashing) //Checks if the player is still alive and not dashing already
         {
             StartCoroutine(Dash()); //Starts coroutine which allows for delays using IENumerator
             isDashing = true; //Sets isDashing to true so player cant spam dash while dashing
@@ -94,6 +95,11 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (transform.position.y < -6f || transform.position.x > 9f || transform.position.x < -9f)
+        {
+            Penetrated();
+        }
+
         if (dodgeCooldownCur > 0)
         {
             dodgeCooldownCur -= Time.deltaTime;
@@ -126,13 +132,24 @@ public class PlayerController : MonoBehaviour
                 transform.up = rb2d.velocity.normalized; // Keeps the player looking towards the direction they are moving
             }
         }
+        if (transform.eulerAngles.z > 180)
+        {
+            transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = true;
+            var noseX = nose.transform.position.x;
+            noseX = -0.12f;
+        } else if (transform.eulerAngles.z < 180)
+        {
+            transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = false;
+            var noseX = nose.transform.position.x;
+            noseX = 0f;
+        }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         Vector2 movement = new Vector2(movementX, movementY); //Creates a new vector2 based on the values from the floats MovementX and MovementY
-        if (!isDashing &! isDead) //Checks if you are not dashing and are not dead
+        if (!isDashing &!isDead && isControllable) //Checks if you are not dashing and are not dead
         {
             rb2d.AddForce(movement * speed); //Adds vector 2 movement multiplied by your speed as a force on your Rigidbody2D
         }
@@ -161,6 +178,25 @@ public class PlayerController : MonoBehaviour
             }
             Destroy(collision.gameObject.GetComponent<NoseProjScript>().parent.gameObject); //Destroys the nose projectile that you pick up
             hasNose = true; //Gives you your nose back
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("PlayArea"))
+        {
+            isControllable = true;
+            rb2d.gravityScale = 0f;
+            rb2d.drag = 2;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("PlayArea"))
+        {
+            isControllable = false;
+            rb2d.gravityScale = 1f;
+            rb2d.drag = 1;
         }
     }
 
@@ -198,8 +234,11 @@ public class PlayerController : MonoBehaviour
         }
         hasNose = true;
         isDashing = false;
+        isControllable = true;
         transform.parent = null;
         rb2d.velocity = Vector2.zero;
+        movementX = 0;
+        movementY = 0;
         transform.position = startPosition;
     }
 }

@@ -50,9 +50,4 @@ public class PlayerManager : MonoBehaviour
             modifierManager.ApplyPlayerObjects(players);
         }
     }
-
-    private void Update()
-    {
-
-    }
 }

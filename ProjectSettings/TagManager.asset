@@ -9,6 +9,8 @@ TagManager:
   - Deleteable
   - invisWall
   - deathWall
+  - PlayArea
+  - GlassWall
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Projectile
   - noPlayerCollision
   - invisWall
-  - 
+  - PlayArea
   - 
   - 
   - 

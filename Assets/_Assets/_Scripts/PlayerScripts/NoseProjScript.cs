@@ -10,6 +10,7 @@ public class NoseProjScript : MonoBehaviour
     public Vector3 deadPlayerLocalRot;
     public Transform parent;
     public GameObject blood;
+    public GameObject hole;
     public bool isActive;
     public bool isPickable;
     public float speed;
@@ -66,11 +67,26 @@ public class NoseProjScript : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Wall"))
         {
-            isActive = false;
-            hitbox.offset = new Vector2(0, -0.173f);
-            hitbox.isTrigger = true;
-            parent.Translate((depth * transform.localScale.y) * Vector2.up);
-            isPickable = true;
+            HitWall(false);
+        }
+        if (other.gameObject.CompareTag("GlassWall"))
+        {
+            HitWall(true);
+        }
+    }
+    private void HitWall(bool breakable)
+    {
+        isActive = false;
+        hitbox.offset = new Vector2(0, -0.173f);
+        hitbox.isTrigger = true;
+        parent.Translate((depth * transform.localScale.y) * Vector2.up);
+        isPickable = true;
+        if (breakable)
+        {
+            GameObject Hole = Instantiate(hole, transform.position, transform.rotation);
+            Hole.transform.Translate(0.25f * Vector2.up);
+            hole.transform.parent = null;
+            FindObjectOfType<WaterLevel>().NewHole(Hole.transform);
         }
     }
 }
