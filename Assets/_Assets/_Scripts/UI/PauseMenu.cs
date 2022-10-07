@@ -53,4 +53,9 @@ private void Pause()
     {
         controls.Disable();
     }
+
+    public void ResetTheGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }
