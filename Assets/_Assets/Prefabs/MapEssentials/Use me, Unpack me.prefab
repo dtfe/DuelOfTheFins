@@ -215,6 +215,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Resume
       objectReference: {fileID: 0}
+    - target: {fileID: 6962474080122260292, guid: 60faa3a6f74d5634e954751ff678380b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8473071860206739766}
+    - target: {fileID: 6962474080122260292, guid: 60faa3a6f74d5634e954751ff678380b, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60faa3a6f74d5634e954751ff678380b, type: 3}
 --- !u!1 &2105125794900920151 stripped

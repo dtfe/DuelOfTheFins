@@ -72,6 +72,7 @@ public class RoundManager : MonoBehaviour
             if (p1Score == 5)
             {
                 winnerTxt.text = "Player 1 Wins!";
+                StartCoroutine(NextMap());
             }else if (p2Score == 5)
             {
                 winnerTxt.text = "Player 2 Wins!";
@@ -86,8 +87,6 @@ public class RoundManager : MonoBehaviour
 
     IEnumerator endGame()
     {
-        /*Time.timeScale = 0.5f;
-        Time.fixedDeltaTime = 0.02F * Time.timeScale;*/
         yield return new WaitForSeconds(2);
         hasScored = false;
         Restart();
@@ -112,5 +111,11 @@ public class RoundManager : MonoBehaviour
             Debug.Log("Found WaterLevel");
             FindObjectOfType<WaterLevel>().GetComponent<WaterLevel>().Restart();
         }
+    }
+
+    IEnumerator NextMap()
+    {
+        yield return new WaitForSeconds(5);
+        GetComponentInParent<MapRotator>().NextMap();
     }
 }

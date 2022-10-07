@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
         nose = transform.Find("PHYS_Player_Nose").gameObject; //Sets nose to reference the child named "Nose"
         hasNose = true;
         isDead = false;
+        isDashing = false;
+        isControllable = true;
         startPosition = transform.position;
     }
 
