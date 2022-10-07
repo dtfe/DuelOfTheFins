@@ -95,6 +95,11 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (transform.position.y < -6f || transform.position.x > 9f || transform.position.x < -9f)
+        {
+            Penetrated();
+        }
+
         if (dodgeCooldownCur > 0)
         {
             dodgeCooldownCur -= Time.deltaTime;
