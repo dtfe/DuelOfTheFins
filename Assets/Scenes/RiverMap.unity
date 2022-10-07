@@ -5860,7 +5860,7 @@ PrefabInstance:
       objectReference: {fileID: 1225784680}
     - target: {fileID: 8631072110311354864, guid: 87ee0724797728f4fb76a6335822ff7b, type: 3}
       propertyPath: gravity
-      value: 0
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87ee0724797728f4fb76a6335822ff7b, type: 3}
@@ -5882,6 +5882,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6986575469861445126, guid: 6e0f8dbd04d36d44b8781d1d07e92e8a, type: 3}
+      propertyPath: objectToSpawn.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6986575469861445126, guid: 6e0f8dbd04d36d44b8781d1d07e92e8a, type: 3}
+      propertyPath: objectToSpawn.Array.data[0]
+      value: 
+      objectReference: {fileID: 7538818901694219129, guid: 6cdc1555ddd1bb14d8803c3386e8856a, type: 3}
+    - target: {fileID: 6986575469861445126, guid: 6e0f8dbd04d36d44b8781d1d07e92e8a, type: 3}
+      propertyPath: objectToSpawn.Array.data[1]
+      value: 
+      objectReference: {fileID: 7538818901694219129, guid: ad9261a8e3cfad3418a6f0a268b78a12, type: 3}
+    - target: {fileID: 6986575469861445126, guid: 6e0f8dbd04d36d44b8781d1d07e92e8a, type: 3}
+      propertyPath: objectToSpawn.Array.data[2]
+      value: 
+      objectReference: {fileID: 7538818901694219129, guid: baf2581d8d730a041827bdedb18ce0fc, type: 3}
+    - target: {fileID: 6986575469861445126, guid: 6e0f8dbd04d36d44b8781d1d07e92e8a, type: 3}
+      propertyPath: objectToSpawn.Array.data[3]
+      value: 
+      objectReference: {fileID: 7538818901694219129, guid: 6b23f7c1596f3b940b10478248bd6920, type: 3}
+    - target: {fileID: 6986575469861445126, guid: 6e0f8dbd04d36d44b8781d1d07e92e8a, type: 3}
+      propertyPath: objectToSpawn.Array.data[4]
+      value: 
+      objectReference: {fileID: 7538818901694219129, guid: 6b99310bed97cd84c940b33470866f07, type: 3}
     - target: {fileID: 6986575469861445127, guid: 6e0f8dbd04d36d44b8781d1d07e92e8a, type: 3}
       propertyPath: m_Name
       value: ObjectSpawner
