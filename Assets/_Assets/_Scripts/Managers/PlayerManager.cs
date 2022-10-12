@@ -25,7 +25,10 @@ public class PlayerManager : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.O))
-            GetComponent<PlayerInputManager>().JoinPlayer(2);
+        {
+            GameObject dummyPlayer = Instantiate(GetComponent<PlayerInputManager>().playerPrefab, spawnlocations[1].position, Quaternion.identity);
+            dummyPlayer.GetComponent<PlayerController>().isDummy = true;
+        }
     }
 
     private void OnPlayerJoined(PlayerInput pInput)

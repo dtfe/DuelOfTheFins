@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private bool hasNose;
     public bool regenerateNose;
     private bool isRegeneratingNose;
+    public bool isDummy;
     public bool isControllable = true;
     public bool canDashAndDodge = true;
     public bool isDead;
@@ -36,7 +37,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnMove(InputValue movementValue)
     {
-        if (!isDead) //If the bool, isDead, is false then it gets the movement value from the input system and assigns the x and y values to the two floats
+        if (!isDead &! isDummy) //If the bool, isDead, is false then it gets the movement value from the input system and assigns the x and y values to the two floats
         {
             Vector2 movementVector = movementValue.Get<Vector2>(); //Assigns vector movementVector the values given from the input system.
             movementX = movementVector.x; //Assigns the float movementX the x value of movementVector
@@ -46,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnDodge(InputValue dodgeValue)
     {
-        if (!isDead & !isDashing && dodgeCooldownCur <= 0 && canDashAndDodge)
+        if (!isDead & !isDashing && dodgeCooldownCur <= 0 && canDashAndDodge & !isDummy)
         {
             Vector2 dodgeVector = dodgeValue.Get<Vector2>();
             if (dodgeVector.y > 0.5)
@@ -71,7 +72,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnFire() //Whenever the west most button on the gamepad is pressed, this activates
     {
-        if (hasNose &! isDead &! isDashing) //Checks if the player has a nose, if its not dead and if its not dashing
+        if (hasNose &! isDead &! isDashing & !isDummy) //Checks if the player has a nose, if its not dead and if its not dashing
         {
             GameObject noseProj = Instantiate(noseProjectile, nose.transform.position, transform.rotation); //Creates a projectile assigned the reference noseProj
             Vector3 shootDir = (transform.position - nose.transform.position).normalized; //Creates a vector for the direction the shot will go
@@ -88,7 +89,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnDash() //Whenever the RB button is pressed on the gamepad, this activates
     {
-        if (!isDead && ! isDashing && canDashAndDodge) //Checks if the player is still alive and not dashing already
+        if (!isDead && ! isDashing && canDashAndDodge & !isDummy) //Checks if the player is still alive and not dashing already
         {
             StartCoroutine(Dash()); //Starts coroutine which allows for delays using IENumerator
             isDashing = true; //Sets isDashing to true so player cant spam dash while dashing
@@ -150,7 +151,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 movement = new Vector2(movementX, movementY); //Creates a new vector2 based on the values from the floats MovementX and MovementY
-        if (!isDashing &!isDead && isControllable) //Checks if you are not dashing and are not dead
+        if (!isDashing &!isDead && isControllable & !isDummy) //Checks if you are not dashing and are not dead
         {
             rb2d.AddForce(movement * speed); //Adds vector 2 movement multiplied by your speed as a force on your Rigidbody2D
         }
