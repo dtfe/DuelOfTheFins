@@ -7,6 +7,7 @@ public class RoundManager : MonoBehaviour
 {
     private PlayerController player1, player2;
     private TextMeshProUGUI p1Counter, p2Counter, winnerTxt;
+    public GameObject UI;
     private int p1Score = 0, p2Score = 0;
     private bool roundStarted = false;
     private bool hasScored = false;
@@ -24,8 +25,8 @@ public class RoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject roundCounter = FindObjectOfType<Canvas>().gameObject.transform.Find("RoundCounter").gameObject;
-        winnerTxt = FindObjectOfType<Canvas>().transform.Find("WinnerText").GetComponent<TextMeshProUGUI>();
+        GameObject roundCounter = UI.transform.Find("GameOverlay").transform.Find("RoundCounter").gameObject;
+        winnerTxt = UI.transform.Find("GameOverlay").transform.Find("WinnerText").GetComponent<TextMeshProUGUI>();
         p1Counter = roundCounter.transform.Find("Player1Counter").gameObject.GetComponent<TextMeshProUGUI>();
         p2Counter = roundCounter.transform.Find("Player2Counter").gameObject.GetComponent<TextMeshProUGUI>();
     }

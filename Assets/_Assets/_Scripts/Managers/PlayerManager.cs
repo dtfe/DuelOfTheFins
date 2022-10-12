@@ -24,7 +24,7 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.O))
+        if (Input.GetKeyUp(KeyCode.O) !& FindObjectsOfType<PlayerController>().Length == 1)
         {
             GameObject dummyPlayer = Instantiate(GetComponent<PlayerInputManager>().playerPrefab, spawnlocations[1].position, Quaternion.identity);
             dummyPlayer.GetComponent<PlayerController>().isDummy = true;

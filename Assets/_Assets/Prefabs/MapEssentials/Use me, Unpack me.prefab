@@ -243,6 +243,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6962474078895249733, guid: 60faa3a6f74d5634e954751ff678380b, type: 3}
   m_PrefabInstance: {fileID: 9054844979847622821}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2105125795467979244 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6962474078895249737, guid: 60faa3a6f74d5634e954751ff678380b, type: 3}
+  m_PrefabInstance: {fileID: 9054844979847622821}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &9054844980289613091
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -294,6 +299,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 594229401871125515, guid: 87ee0724797728f4fb76a6335822ff7b, type: 3}
+      propertyPath: UI
+      value: 
+      objectReference: {fileID: 2105125795467979244}
     - target: {fileID: 594229401871125524, guid: 87ee0724797728f4fb76a6335822ff7b, type: 3}
       propertyPath: m_Name
       value: GameManager
