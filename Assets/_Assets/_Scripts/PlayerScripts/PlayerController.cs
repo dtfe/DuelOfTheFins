@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     public bool isDashing;
     public PhysicsMaterial2D PM2D;
     private Vector3 startPosition;
+
+    public float rotation;
     
     void Start()
     {
@@ -140,12 +142,10 @@ public class PlayerController : MonoBehaviour
         {
             if(transform.Find("Sprite"))
                 transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = true;
-            nose.transform.localPosition = new (-0.12f, nose.transform.localPosition.y, nose.transform.localPosition.z);
         } else if (transform.eulerAngles.z < 180)
         {
             if (transform.Find("Sprite"))
                 transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = false;
-            nose.transform.localPosition = new(0, nose.transform.localPosition.y, nose.transform.localPosition.z);
         }
     }
 
@@ -235,6 +235,20 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(5);
         hasNose = true;
         isRegeneratingNose = false;
+    }
+
+    public void RangedHit()
+    {
+        StartCoroutine(LastStand());
+    }
+
+    public IEnumerator LastStand()
+    {
+        yield return new WaitForSeconds(3);
+        if (transform.Find("PHYS_Nose_Projectile(Clone)"))
+        {
+            Penetrated();
+        }
     }
 
     public void ResetCharacter()
