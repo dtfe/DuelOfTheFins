@@ -45,7 +45,7 @@ public class NoseProjScript : MonoBehaviour
             deadPlayerLocalRot = parent.Find("PHYS_Player_Prefab(Clone)").transform.localEulerAngles;
         }
 
-        if (transform.position.y > 6f || transform.position.y < -6f || transform.position.x > 9f || transform.position.x < -9f)
+        if (transform.position.y > 40f || transform.position.y < -6f || transform.position.x > 9f || transform.position.x < -9f)
         {
             if (parent.Find("PHYS_Player_Prefab(Clone)"))
             {
