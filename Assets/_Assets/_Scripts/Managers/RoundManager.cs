@@ -73,11 +73,11 @@ public class RoundManager : MonoBehaviour
             if (p1Score == 5)
             {
                 winnerTxt.text = "Player 1 Wins!";
-                StartCoroutine(NextMap());
             }else if (p2Score == 5)
             {
                 winnerTxt.text = "Player 2 Wins!";
             }
+            StartCoroutine(NextMap());
         }
         if (hasScored && !endGameActive && !gameOver)
         {
@@ -117,6 +117,6 @@ public class RoundManager : MonoBehaviour
     IEnumerator NextMap()
     {
         yield return new WaitForSeconds(5);
-        GetComponentInParent<MapRotator>().NextMap();
+        GetComponent<MapRotator>().NextMap();
     }
 }
