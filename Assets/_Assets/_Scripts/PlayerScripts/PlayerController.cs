@@ -138,11 +138,13 @@ public class PlayerController : MonoBehaviour
         }
         if (transform.eulerAngles.z > 180)
         {
-            transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = true;
+            if(transform.Find("Sprite"))
+                transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = true;
             nose.transform.localPosition = new (-0.12f, nose.transform.localPosition.y, nose.transform.localPosition.z);
         } else if (transform.eulerAngles.z < 180)
         {
-            transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = false;
+            if (transform.Find("Sprite"))
+                transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = false;
             nose.transform.localPosition = new(0, nose.transform.localPosition.y, nose.transform.localPosition.z);
         }
     }
