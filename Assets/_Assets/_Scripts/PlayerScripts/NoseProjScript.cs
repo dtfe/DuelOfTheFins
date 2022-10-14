@@ -47,6 +47,10 @@ public class NoseProjScript : MonoBehaviour
 
         if (transform.position.y > 6f || transform.position.y < -6f || transform.position.x > 9f || transform.position.x < -9f)
         {
+            if (parent.Find("PHYS_Player_Prefab(Clone)"))
+            {
+                parent.Find("PHYS_Player_Prefab(Clone)").transform.parent = null;
+            }
             Destroy(parent.gameObject);
         }
     }
