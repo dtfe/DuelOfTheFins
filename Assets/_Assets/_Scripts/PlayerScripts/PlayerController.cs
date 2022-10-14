@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     public bool isDashing;
     public PhysicsMaterial2D PM2D;
     private Vector3 startPosition;
+
+    public float rotation;
     
     void Start()
     {
