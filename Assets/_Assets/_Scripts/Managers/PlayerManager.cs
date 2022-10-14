@@ -46,11 +46,17 @@ public class PlayerManager : MonoBehaviour
 
         if (curPlayerNumber == 1)
         {
-            pInput.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.magenta;
+            if (pInput.transform.Find("Sprite"))
+            {
+                pInput.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.magenta;
+            }
         }
         else
         {
-            pInput.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.yellow;
+            if (pInput.transform.Find("Sprite"))
+            {
+                pInput.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.yellow;
+            }
         }
 
         if (curPlayerNumber == spawnlocations.Length)
