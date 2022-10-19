@@ -133,30 +133,15 @@ GameObject:
   m_Component:
   - component: {fileID: 24594154}
   - component: {fileID: 24594153}
-  - component: {fileID: 24594152}
+  - component: {fileID: 24594155}
+  - component: {fileID: 24594156}
   m_Layer: 10
-  m_Name: Circle (4)
+  m_Name: WaterBubble4
   m_TagString: PlayArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!58 &24594152
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 24594151}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!212 &24594153
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -198,8 +183,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.37753648, g: 0.7989291, b: 0.990566, a: 0.4392157}
+  m_Sprite: {fileID: 1659099950, guid: 336097e60e8d7704185a3025b5248d55, type: 3}
+  m_Color: {r: 0.7490566, g: 0.9772223, b: 1, a: 0.7529412}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -224,6 +209,38 @@ Transform:
   m_Father: {fileID: 275838972}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &24594155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24594151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92002e835bedc83469632b0437dfab62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstScale: {x: 0, y: 0}
+  secondScale: {x: 0, y: 0}
+  speed: 2
+  duration: 5
+--- !u!70 &24594156
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24594151}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00000023841858, y: 0}
+  m_Size: {x: 1, y: 1}
+  m_Direction: 0
 --- !u!1 &188266856
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,30 +251,15 @@ GameObject:
   m_Component:
   - component: {fileID: 188266859}
   - component: {fileID: 188266858}
-  - component: {fileID: 188266857}
+  - component: {fileID: 188266860}
+  - component: {fileID: 188266861}
   m_Layer: 10
-  m_Name: Circle (6)
+  m_Name: WaterBubble6
   m_TagString: PlayArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!58 &188266857
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 188266856}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!212 &188266858
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -299,8 +301,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.37753648, g: 0.7989291, b: 0.990566, a: 0.4392157}
+  m_Sprite: {fileID: 1659099950, guid: 336097e60e8d7704185a3025b5248d55, type: 3}
+  m_Color: {r: 0.7490566, g: 0.9772223, b: 1, a: 0.7529412}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -325,6 +327,38 @@ Transform:
   m_Father: {fileID: 275838972}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &188266860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188266856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92002e835bedc83469632b0437dfab62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstScale: {x: 0, y: 0}
+  secondScale: {x: 0, y: 0}
+  speed: 2
+  duration: 5
+--- !u!70 &188266861
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 188266856}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00000023841858, y: 0}
+  m_Size: {x: 1, y: 1}
+  m_Direction: 0
 --- !u!1 &275838971
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,30 +406,15 @@ GameObject:
   m_Component:
   - component: {fileID: 351977027}
   - component: {fileID: 351977026}
-  - component: {fileID: 351977025}
+  - component: {fileID: 351977028}
+  - component: {fileID: 351977029}
   m_Layer: 10
-  m_Name: Circle (3)
+  m_Name: WaterBubble3
   m_TagString: PlayArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!58 &351977025
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 351977024}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!212 &351977026
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -437,8 +456,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.37753648, g: 0.7989291, b: 0.990566, a: 0.4392157}
+  m_Sprite: {fileID: 1659099950, guid: 336097e60e8d7704185a3025b5248d55, type: 3}
+  m_Color: {r: 0.7490566, g: 0.9772223, b: 1, a: 0.7529412}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -463,6 +482,38 @@ Transform:
   m_Father: {fileID: 275838972}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &351977028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351977024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92002e835bedc83469632b0437dfab62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstScale: {x: 0, y: 0}
+  secondScale: {x: 0, y: 0}
+  speed: 2
+  duration: 5
+--- !u!70 &351977029
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351977024}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00000023841858, y: 0}
+  m_Size: {x: 1, y: 1}
+  m_Direction: 0
 --- !u!1 &1175342552
 GameObject:
   m_ObjectHideFlags: 0
@@ -5405,30 +5456,15 @@ GameObject:
   m_Component:
   - component: {fileID: 1514645073}
   - component: {fileID: 1514645072}
-  - component: {fileID: 1514645071}
+  - component: {fileID: 1514645074}
+  - component: {fileID: 1514645075}
   m_Layer: 10
-  m_Name: Circle (2)
+  m_Name: WaterBubble2
   m_TagString: PlayArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!58 &1514645071
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1514645070}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!212 &1514645072
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5470,8 +5506,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.37753648, g: 0.7989291, b: 0.990566, a: 0.4392157}
+  m_Sprite: {fileID: 1659099950, guid: 336097e60e8d7704185a3025b5248d55, type: 3}
+  m_Color: {r: 0.7490566, g: 0.9772223, b: 1, a: 0.7529412}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5496,6 +5532,38 @@ Transform:
   m_Father: {fileID: 275838972}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1514645074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514645070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92002e835bedc83469632b0437dfab62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstScale: {x: 0, y: 0}
+  secondScale: {x: 0, y: 0}
+  speed: 2
+  duration: 5
+--- !u!70 &1514645075
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514645070}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00000023841858, y: 0}
+  m_Size: {x: 1, y: 1}
+  m_Direction: 0
 --- !u!1 &2014562027
 GameObject:
   m_ObjectHideFlags: 0
@@ -5590,30 +5658,15 @@ GameObject:
   m_Component:
   - component: {fileID: 2088446452}
   - component: {fileID: 2088446451}
-  - component: {fileID: 2088446450}
+  - component: {fileID: 2088446453}
+  - component: {fileID: 2088446454}
   m_Layer: 10
-  m_Name: Circle (5)
+  m_Name: WaterBubble5
   m_TagString: PlayArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!58 &2088446450
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2088446449}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!212 &2088446451
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5655,8 +5708,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.37753648, g: 0.7989291, b: 0.990566, a: 0.4392157}
+  m_Sprite: {fileID: 1659099950, guid: 336097e60e8d7704185a3025b5248d55, type: 3}
+  m_Color: {r: 0.7490566, g: 0.9772223, b: 1, a: 0.7529412}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5681,6 +5734,38 @@ Transform:
   m_Father: {fileID: 275838972}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2088446453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088446449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92002e835bedc83469632b0437dfab62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstScale: {x: 0, y: 0}
+  secondScale: {x: 0, y: 0}
+  speed: 2
+  duration: 5
+--- !u!70 &2088446454
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2088446449}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00000023841858, y: 0}
+  m_Size: {x: 1, y: 1}
+  m_Direction: 0
 --- !u!1 &2136352854
 GameObject:
   m_ObjectHideFlags: 0
@@ -5691,30 +5776,15 @@ GameObject:
   m_Component:
   - component: {fileID: 2136352857}
   - component: {fileID: 2136352856}
-  - component: {fileID: 2136352855}
+  - component: {fileID: 2136352858}
+  - component: {fileID: 2136352859}
   m_Layer: 10
-  m_Name: Circle (1)
+  m_Name: WaterBubble1
   m_TagString: PlayArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!58 &2136352855
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2136352854}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!212 &2136352856
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5756,8 +5826,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.37753648, g: 0.7989291, b: 0.990566, a: 0.4392157}
+  m_Sprite: {fileID: 1659099950, guid: 336097e60e8d7704185a3025b5248d55, type: 3}
+  m_Color: {r: 0.7490566, g: 0.9772223, b: 1, a: 0.7529412}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5782,6 +5852,38 @@ Transform:
   m_Father: {fileID: 275838972}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2136352858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136352854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92002e835bedc83469632b0437dfab62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstScale: {x: 0, y: 0}
+  secondScale: {x: 0, y: 0}
+  speed: 2
+  duration: 5
+--- !u!70 &2136352859
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136352854}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00000023841858, y: 0}
+  m_Size: {x: 1, y: 1}
+  m_Direction: 0
 --- !u!1001 &9054844979262187315
 PrefabInstance:
   m_ObjectHideFlags: 0
