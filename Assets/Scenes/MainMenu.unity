@@ -350,7 +350,7 @@ RectTransform:
   m_GameObject: {fileID: 1357950261}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.5624, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1428846127}
@@ -414,7 +414,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Ocean
+          m_StringArgument: AquariumTemplate
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1357950264
@@ -437,7 +437,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c9af050d080f6dc48b08cc4afd357343, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0fcd4056892acc64c9db0639ed919fae, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
