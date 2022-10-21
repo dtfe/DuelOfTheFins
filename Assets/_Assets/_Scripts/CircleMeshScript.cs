@@ -7,7 +7,19 @@ public class CircleMeshScript : MonoBehaviour
     public PolygonCollider2D polyCollider;
     public Material material;
     private Vector3[] vertices;
-    private bool hasLoaded;
+    private Vector3[] verticesPositions;
+    public bool enableVectorLines = false;
+    private Mesh mesh;
+
+    //Spring Physics
+    public float springconstant = 0.02f;
+    public float dampening = 0.04f;
+    public float spread = 0.05f;
+    public float z = -1f;
+
+    private Vector3[] velocities;
+    private float[] accelerations;
+    private float mass = 1;
 
     void Start()
     {
@@ -16,15 +28,12 @@ public class CircleMeshScript : MonoBehaviour
 
     private void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.H))
-        {
-            PolyMesh(3, 20);
-        }*/
-        if (hasLoaded)
+        if (enableVectorLines)
         {
             for (int i = 0; i < vertices.Length; i++)
             {
-                Debug.DrawLine(vertices[i], -vertices[i], Color.red);
+                //Debug.DrawLine(vertices[i], vertices[0], Color.red);
+                Debug.DrawLine(verticesPositions[i], verticesPositions[0], Color.cyan);
             }
         }
     }
@@ -32,24 +41,28 @@ public class CircleMeshScript : MonoBehaviour
     public void PolyMesh(float radius, int n)
     {
         MeshFilter mf = GetComponent<MeshFilter>();
-        Mesh mesh = new Mesh();
+        mesh = new Mesh();
         mf.mesh = mesh;
 
         //verticies
         List<Vector3> verticiesList = new List<Vector3> { };
-        float x;
-        float y;
-        for (int i = 0; i < n; i++)
+        float x = transform.localPosition.x;
+        float y = transform.localPosition.y;
+
+        verticiesList.Add(new Vector3(x, y, 0f));
+
+        for (int i = 0; i < n+1; i++)
         {
             x = radius * Mathf.Sin((2 * Mathf.PI * i) / n);
             y = radius * Mathf.Cos((2 * Mathf.PI * i) / n);
             verticiesList.Add(new Vector3(x, y, 0f));
         }
+        verticesPositions = verticiesList.ToArray();
         vertices = verticiesList.ToArray();
 
         //triangles
         List<int> trianglesList = new List<int> { };
-        for (int i = 0; i < (n - 2); i++)
+        for (int i = 0; i < n; i++)
         {
             trianglesList.Add(0);
             trianglesList.Add(i + 1);
@@ -74,7 +87,7 @@ public class CircleMeshScript : MonoBehaviour
         polyCollider.pathCount = 1;
 
         List<Vector2> pathList = new List<Vector2> { };
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < n+1; i++)
         {
             pathList.Add(new Vector2(vertices[i].x, vertices[i].y));
         }
@@ -85,7 +98,66 @@ public class CircleMeshScript : MonoBehaviour
         gameObject.GetComponent<MeshRenderer>().material = material;
 
         Debug.Log("There's " + mesh.triangles.Length + " triangles");
-        hasLoaded = true;
+        velocities = new Vector3[vertices.Length];
+        accelerations = new float[vertices.Length];
+    }
+    private void FixedUpdate()
+    {
+        for (int i = 0; i < vertices.Length; i++)
+        {
+            if (i == 0)
+            {
+                continue;
+            }
+            //Euler's Method combined with Hooke's Law
+            Vector3 force = springconstant * (vertices[i] - verticesPositions[i]) + velocities[i] * dampening;
+            accelerations[i] = -force.magnitude / mass;
+            vertices[i] += velocities[i];
+            velocities[i] += vertices[i].normalized * accelerations[i];
+        }
+        /*
+        Vector3[] leftDeltas = new Vector3[vertices.Length];
+        Vector3[] rightDeltas = new Vector3[vertices.Length];
+
+
+        for (int j = 0; j < 8; j++)
+        {
+            for (int i = 0; i < vertices.Length; i++)
+            {
+                if (i == 0)
+                {
+                    continue;
+                }
+                if (i > 0)
+                {
+                    leftDeltas[i] = spread * (vertices[i] - vertices[i - 1]);
+                    velocities[i - 1] += leftDeltas[i];
+                }
+                if (i < vertices.Length - 1)
+                {
+                    rightDeltas[i] = spread * (vertices[i] - vertices[i + 1]);
+                    velocities[i + 1] += rightDeltas[i];
+                }
+            }
+
+            for (int i = 0; i < vertices.Length; i++)
+            {
+                if (i == 0)
+                {
+                    continue;
+                }
+                if (i > 1)
+                {
+                    vertices[i - 1] += leftDeltas[i];
+                }
+                if (i < vertices.Length - 1)
+                {
+                    vertices[i + 1] += rightDeltas[i];
+                }
+            }
+        }*/
+
+        UpdateMesh();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -96,16 +168,14 @@ public class CircleMeshScript : MonoBehaviour
             int vertNumber = 0;
             for (int i = 0; i < vertices.Length; i++)
             {
-                if (Vector3.Distance(vertices[i], collision.transform.position) > Vector3.Distance(closestVert, collision.transform.position))
+                if (Vector3.Distance(vertices[i], collision.transform.position) < Vector3.Distance(closestVert, collision.transform.position))
                 {
                     closestVert = vertices[i];
                     vertNumber = i;
                 }
             }
             Vector3 velocity = collision.attachedRigidbody.velocity;
-            Transform vertPos = transform;
-            vertPos.position = vertices[vertNumber];
-            StartCoroutine(waveHere(vertNumber, velocity, vertPos));
+            velocities[vertNumber] = velocity / 20;
         }
     }
 
@@ -114,18 +184,31 @@ public class CircleMeshScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.layer == 7)
         {
             Vector3 closestVert = new Vector3(0, 0, 0);
+            int vertNumber = 0;
             for (int i = 0; i < vertices.Length; i++)
             {
-                if (Vector3.Distance(vertices[i], collision.transform.position) > Vector3.Distance(closestVert, collision.transform.position))
+                if (Vector3.Distance(vertices[i], collision.transform.position) < Vector3.Distance(closestVert, collision.transform.position))
                 {
                     closestVert = vertices[i];
+                    vertNumber = i;
                 }
             }
+            Vector3 velocity = collision.attachedRigidbody.velocity;
+            velocities[vertNumber] = velocity / 20;
         }
     }
 
-    IEnumerator waveHere(int vertNumber, Vector3 velocity, Transform vertPos)
+    private void UpdateMesh()
     {
-        yield return null;
+        mesh.vertices = vertices;
+
+        /*List<Vector2> pathList = new List<Vector2> { };
+        for (int i = 0; i < vertices.Length; i++)
+        {
+            pathList.Add(new Vector2(vertices[i].x, vertices[i].y));
+        }
+        Vector2[] path = pathList.ToArray();
+
+        polyCollider.SetPath(0, path);*/
     }
-}
+} 
