@@ -73,7 +73,8 @@ public class RoundManager : MonoBehaviour
             if (p1Score == 5)
             {
                 winnerTxt.text = "Player 1 Wins!";
-            }else if (p2Score == 5)
+            }
+            else if (p2Score == 5)
             {
                 winnerTxt.text = "Player 2 Wins!";
             }

@@ -26,6 +26,7 @@ public class NoseScript : MonoBehaviour
                 Destroy(hitPlayer.GetComponent<Rigidbody2D>());
                 hitPlayer.GetComponent<CapsuleCollider2D>().enabled = false;
             }
+            /*
             if (collision.gameObject.CompareTag("GlassWall") && FindObjectOfType<ModifierManager>().WaterLevel)
             {
                 GameObject Hole = Instantiate(hole, transform.position, transform.rotation);
@@ -34,7 +35,7 @@ public class NoseScript : MonoBehaviour
                 FindObjectOfType<WaterLevel>().NewHole(Hole.transform);
                 parent.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
                 GetComponent<BoxCollider2D>().enabled = false;
-            }
+            }*/
         }
     }
 

@@ -8,19 +8,28 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb2d;
     private GameObject nose;
     public GameObject noseProjectile;
+
+    //Movement variables
     private float movementX, movementY;
     public Vector2 playerMovement;
     public float speed = 1;
+
+    //Timer for dodge cooldown
     private float dodgeCooldownCur;
     private float dodgeCooldownStatic = 2;
+
+    //Nose Bools
     private bool hasNose;
     public bool regenerateNose;
     private bool isRegeneratingNose;
+
+    //Control bools
     public bool isDummy;
     public bool isControllable = true;
     public bool canDashAndDodge = true;
     public bool isDead;
     public bool isDashing;
+
     public PhysicsMaterial2D PM2D;
     private Vector3 startPosition;
     
@@ -47,7 +56,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnDodge(InputValue dodgeValue)
     {
-        if (!isDead & !isDashing && dodgeCooldownCur <= 0 && canDashAndDodge & !isDummy)
+        if (!isDead && !isDashing && dodgeCooldownCur <= 0 && canDashAndDodge & !isDummy)
         {
             Vector2 dodgeVector = dodgeValue.Get<Vector2>();
             if (dodgeVector.y > 0.5)
@@ -72,7 +81,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnFire() //Whenever the west most button on the gamepad is pressed, this activates
     {
-        if (hasNose &! isDead &! isDashing & !isDummy) //Checks if the player has a nose, if its not dead and if its not dashing
+        if (hasNose && !isDead && !isDashing && !isDummy) //Checks if the player has a nose, if its not dead and if its not dashing
         {
             GameObject noseProj = Instantiate(noseProjectile, nose.transform.position, transform.rotation); //Creates a projectile assigned the reference noseProj
             Vector3 shootDir = (transform.position - nose.transform.position).normalized; //Creates a vector for the direction the shot will go
@@ -89,7 +98,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnDash() //Whenever the RB button is pressed on the gamepad, this activates
     {
-        if (!isDead && ! isDashing && canDashAndDodge & !isDummy) //Checks if the player is still alive and not dashing already
+        if (!isDead && !isDashing && canDashAndDodge && !isDummy) //Checks if the player is still alive and not dashing already
         {
             StartCoroutine(Dash()); //Starts coroutine which allows for delays using IENumerator
             isDashing = true; //Sets isDashing to true so player cant spam dash while dashing
@@ -151,7 +160,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 movement = new Vector2(movementX, movementY); //Creates a new vector2 based on the values from the floats MovementX and MovementY
-        if (!isDashing &!isDead && isControllable & !isDummy) //Checks if you are not dashing and are not dead
+        if (!isDashing && !isDead && isControllable && !isDummy) //Checks if you are not dashing and are not dead
         {
             rb2d.AddForce(movement * speed); //Adds vector 2 movement multiplied by your speed as a force on your Rigidbody2D
         }
@@ -168,7 +177,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "PHYS_Nose_Projectile" & ! hasNose && collision.gameObject.GetComponent<NoseProjScript>().isPickable) //Checks if you entered the trigger of a nose projectile and if you don't have a nose
+        if (collision.gameObject.name == "PHYS_Nose_Projectile" && !hasNose && collision.gameObject.GetComponent<NoseProjScript>().isPickable) //Checks if you entered the trigger of a nose projectile and if you don't have a nose
         {
             if (collision.GetComponent<NoseProjScript>().parent.Find("PHYS_Player_Prefab(Clone)"))
             {
@@ -176,7 +185,6 @@ public class PlayerController : MonoBehaviour
                 deadPlayer.transform.SetParent(nose.transform, true);
                 deadPlayer.transform.localPosition = collision.GetComponent<NoseProjScript>().deadPlayerLocalPos;
                 deadPlayer.transform.localEulerAngles = collision.GetComponent<NoseProjScript>().deadPlayerLocalRot;
-                //deadPlayer.transform.Translate(0.3f * playerMovement);
             }
             Destroy(collision.gameObject.GetComponent<NoseProjScript>().parent.gameObject); //Destroys the nose projectile that you pick up
             hasNose = true; //Gives you your nose back

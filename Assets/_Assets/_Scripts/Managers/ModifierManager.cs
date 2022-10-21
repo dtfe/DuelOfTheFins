@@ -35,7 +35,7 @@ public class ModifierManager : MonoBehaviour
 
     private void gravityModifier()
     {
-        for (int i = 0; i < 2;)
+        for (int i = 0; i < player.Length;)
         {
             player[i].GetComponent<Rigidbody2D>().gravityScale = gravity;
             i++;
