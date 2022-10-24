@@ -492,9 +492,9 @@ GameObject:
   m_Component:
   - component: {fileID: 126135460}
   - component: {fileID: 126135459}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Sand
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -734,7 +734,7 @@ GameObject:
   m_Component:
   - component: {fileID: 261513747}
   - component: {fileID: 261513748}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GameObject (1)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -1288,7 +1288,7 @@ GameObject:
   m_Component:
   - component: {fileID: 792394928}
   - component: {fileID: 792394929}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GameObject (2)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -2130,7 +2130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1414870258}
   - component: {fileID: 1414870259}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GameObject (3)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -2532,7 +2532,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1566440407}
   - component: {fileID: 1566440408}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GameObject
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -2610,7 +2610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pufferfish: {fileID: 5881408625376744803, guid: 1a06a49fc1c3e5540b8e9f0c4ed61422, type: 3}
-  spawnTimeStatic: 8
+  spawnTimeStatic: 4
 --- !u!4 &1665464129
 Transform:
   m_ObjectHideFlags: 0

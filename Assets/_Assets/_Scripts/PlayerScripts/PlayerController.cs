@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEditor;
 
 public class PlayerController : MonoBehaviour
 {
@@ -42,6 +43,8 @@ public class PlayerController : MonoBehaviour
         isDashing = false;
         isControllable = true;
         startPosition = transform.position;
+        var skin = Resources.Load<GameObject>("PlayerSkins/selectedSkin" + GetComponent<PlayerInput>().playerIndex);
+        transform.Find("Sprite").GetComponent<SpriteRenderer>().sprite = skin.GetComponent<SpriteRenderer>().sprite;
     }
 
     private void OnMove(InputValue movementValue)
@@ -239,7 +242,10 @@ public class PlayerController : MonoBehaviour
     IEnumerator RegenerateSword()
     {
         yield return new WaitForSeconds(5);
-        hasNose = true;
+        if (!hasNose)
+        {
+            hasNose = true;
+        }
         isRegeneratingNose = false;
     }
 
