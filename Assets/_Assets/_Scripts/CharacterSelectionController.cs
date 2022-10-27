@@ -30,7 +30,7 @@ public class CharacterSelectionController : MonoBehaviour
         selectedSkin--;
         if (selectedSkin < 0)
         {
-            selectedSkin = skins.Count;
+            selectedSkin = skins.Count-1;
         }
         sr.sprite = skins[selectedSkin];
         characterImage.texture = skins[selectedSkin].texture;
