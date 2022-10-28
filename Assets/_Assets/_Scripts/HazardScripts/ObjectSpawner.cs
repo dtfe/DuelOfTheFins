@@ -30,10 +30,10 @@ public class ObjectSpawner : MonoBehaviour
     {
         Vector3 randomPos = new Vector3(Random.Range(-8, 9), 5.5f, 0);
         Quaternion randomRot = new Quaternion(0, 0, Random.rotation.z, Quaternion.identity.w);
-        StartCoroutine(DeleteTrash(randomPos, randomRot));
+        StartCoroutine(SpawnTrash(randomPos, randomRot));
     }
 
-    IEnumerator DeleteTrash(Vector3 ranPos, Quaternion ranRot)
+    IEnumerator SpawnTrash(Vector3 ranPos, Quaternion ranRot)
     {
         GameObject spawnedWarning = Instantiate(warning, new Vector3(ranPos.x, 4, 0), Quaternion.identity);
         yield return new WaitForSeconds(1);

@@ -5,19 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class MapRotator : MonoBehaviour
 {
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void NextMap()
     {
         if (SceneManager.GetActiveScene().buildIndex + 1 > SceneManager.sceneCountInBuildSettings - 1 )

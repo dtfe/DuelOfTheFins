@@ -186,10 +186,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   polyCollider: {fileID: 0}
-  material: {fileID: 2100000, guid: bf40bc66694cfac489565a26c7f71564, type: 2}
+  material: {fileID: 2100000, guid: 44bf17de611f95d4dac397090e6ba08d, type: 2}
   enableVectorLines: 0
   springconstant: 0.02
-  dampening: 0
+  dampening: 0.04
   spread: 0.05
   z: -1
 --- !u!4 &161162979

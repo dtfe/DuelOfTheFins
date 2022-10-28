@@ -48,7 +48,7 @@ public class PlayerManager : MonoBehaviour
         {
             if (pInput.transform.Find("Sprite"))
             {
-                pInput.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.magenta;
+                pInput.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.magenta; //Just to spite TO
             }
         }
         else

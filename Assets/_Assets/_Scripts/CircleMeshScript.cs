@@ -19,7 +19,7 @@ public class CircleMeshScript : MonoBehaviour
 
     private Vector3[] velocities;
     private float[] accelerations;
-    private float mass = 1;
+    public float mass = 1;
 
     void Start()
     {
@@ -68,6 +68,9 @@ public class CircleMeshScript : MonoBehaviour
             trianglesList.Add(i + 1);
             trianglesList.Add(i + 2);
         }
+        trianglesList.Add(0);
+        trianglesList.Add(vertices.Length - 1);
+        trianglesList.Add(1);
         int[] triangles = trianglesList.ToArray();
 
         //normals
@@ -87,7 +90,7 @@ public class CircleMeshScript : MonoBehaviour
         polyCollider.pathCount = 1;
 
         List<Vector2> pathList = new List<Vector2> { };
-        for (int i = 0; i < n+1; i++)
+        for (int i = 0; i < n+2; i++)
         {
             pathList.Add(new Vector2(vertices[i].x, vertices[i].y));
         }
@@ -110,12 +113,18 @@ public class CircleMeshScript : MonoBehaviour
                 continue;
             }
             //Euler's Method combined with Hooke's Law
+
+            Vector3 wantsToGo = verticesPositions[i] - vertices[i];
+            velocities[i] *= (1-dampening*mass);
+            vertices[i] += (wantsToGo + velocities[i]) * Time.deltaTime;
+            
+            /*
             Vector3 force = springconstant * (vertices[i] - verticesPositions[i]) + velocities[i] * dampening;
             accelerations[i] = -force.magnitude / mass;
             vertices[i] += velocities[i];
-            velocities[i] += vertices[i].normalized * accelerations[i];
+            velocities[i] += vertices[i].normalized * accelerations[i];*/
         }
-        /*
+        
         Vector3[] leftDeltas = new Vector3[vertices.Length];
         Vector3[] rightDeltas = new Vector3[vertices.Length];
 
@@ -155,14 +164,13 @@ public class CircleMeshScript : MonoBehaviour
                     vertices[i + 1] += rightDeltas[i];
                 }
             }
-        }*/
-
+        }
         UpdateMesh();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.layer == 7)
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Deleteable"))
         {
             Vector3 closestVert = new Vector3(0, 0, 0);
             int vertNumber = 0;
@@ -175,13 +183,25 @@ public class CircleMeshScript : MonoBehaviour
                 }
             }
             Vector3 velocity = collision.attachedRigidbody.velocity;
-            velocities[vertNumber] = velocity / 20;
+            Vector3 wantsToGo = vertices[0] - verticesPositions[vertNumber];
+            if (velocity.magnitude > -0.5f && velocity.magnitude < 0.5f)
+            {
+                Debug.Log("Velocity = zero");
+                float howMuch2 = 9.7f;
+                velocities[vertNumber] += wantsToGo.normalized * howMuch2;
+                return;
+            }
+            float howMuch = Vector3.Dot(wantsToGo, velocity);
+            velocities[vertNumber] += wantsToGo.normalized * howMuch;
+            
+            /*float velocityMagnitude = velocity.magnitude;
+            velocities[vertNumber] = velocity / 20;*/
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.layer == 7)
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Deleteable"))
         {
             Vector3 closestVert = new Vector3(0, 0, 0);
             int vertNumber = 0;
@@ -194,7 +214,12 @@ public class CircleMeshScript : MonoBehaviour
                 }
             }
             Vector3 velocity = collision.attachedRigidbody.velocity;
-            velocities[vertNumber] = velocity / 20;
+            Vector3 wantsToGo = vertices[0] - verticesPositions[vertNumber];
+            float howMuch = Vector3.Dot(wantsToGo, velocity);
+            velocities[vertNumber] += wantsToGo.normalized * howMuch;
+
+            /*Vector3 velocity = collision.attachedRigidbody.velocity;
+            velocities[vertNumber] = velocity / 20;*/
         }
     }
 
