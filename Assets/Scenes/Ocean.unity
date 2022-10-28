@@ -138,7 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 46536064}
   - component: {fileID: 46536065}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (10)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -186,7 +186,7 @@ GameObject:
   m_Component:
   - component: {fileID: 48189260}
   - component: {fileID: 48189261}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (17)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -244,7 +244,7 @@ GameObject:
   m_Component:
   - component: {fileID: 72424971}
   - component: {fileID: 72424972}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (12)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   m_Component:
   - component: {fileID: 84286136}
   - component: {fileID: 84286137}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (18)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -444,7 +444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 104870872}
   - component: {fileID: 104870873}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (21)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -580,7 +580,7 @@ GameObject:
   m_Component:
   - component: {fileID: 150018010}
   - component: {fileID: 150018011}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (7)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -628,7 +628,7 @@ GameObject:
   m_Component:
   - component: {fileID: 177793705}
   - component: {fileID: 177793706}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (20)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -676,7 +676,7 @@ GameObject:
   m_Component:
   - component: {fileID: 214047019}
   - component: {fileID: 214047020}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (2)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -859,7 +859,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 326440656}
   m_LocalRotation: {x: -0, y: -0, z: 0.08811197, w: 0.99611056}
-  m_LocalPosition: {x: 6.94, y: 1.26, z: -0.03}
+  m_LocalPosition: {x: 6.94, y: 1.26, z: 0}
   m_LocalScale: {x: 0.19, y: 0.28243244, z: 0.19}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -876,7 +876,7 @@ GameObject:
   m_Component:
   - component: {fileID: 350373296}
   - component: {fileID: 350373297}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (3)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -934,7 +934,7 @@ GameObject:
   m_Component:
   - component: {fileID: 402059102}
   - component: {fileID: 402059103}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (2)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -1066,7 +1066,7 @@ GameObject:
   m_Component:
   - component: {fileID: 550678065}
   - component: {fileID: 550678066}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (8)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -1124,7 +1124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 676311900}
   - component: {fileID: 676311901}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (1)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -1413,7 +1413,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 833672520}
   m_LocalRotation: {x: -0, y: -0, z: -0.016628379, w: 0.99986184}
-  m_LocalPosition: {x: 7.41, y: 1.6, z: -0.03}
+  m_LocalPosition: {x: 7.41, y: 1.6, z: 0}
   m_LocalScale: {x: 0.37, y: 0.55, z: 0.37}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1430,7 +1430,7 @@ GameObject:
   m_Component:
   - component: {fileID: 848316293}
   - component: {fileID: 848316294}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (19)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -1478,7 +1478,7 @@ GameObject:
   m_Component:
   - component: {fileID: 855130112}
   - component: {fileID: 855130113}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (13)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -1610,7 +1610,7 @@ GameObject:
   m_Component:
   - component: {fileID: 984516182}
   - component: {fileID: 984516183}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (6)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -1750,7 +1750,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1051800076}
   - component: {fileID: 1051800077}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (22)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -1882,7 +1882,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1252365560}
   - component: {fileID: 1252365561}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (14)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -2024,7 +2024,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1340024851}
   - component: {fileID: 1340024852}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (16)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -2082,7 +2082,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1406150952}
   - component: {fileID: 1406150953}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (1)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -2188,7 +2188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1451121388}
   - component: {fileID: 1451121389}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (5)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -2246,7 +2246,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1484120322}
   - component: {fileID: 1484120323}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (7)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -2388,7 +2388,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1503942163}
   - component: {fileID: 1503942164}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (3)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -2436,7 +2436,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1508625706}
   - component: {fileID: 1508625707}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (4)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -2484,7 +2484,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1565730355}
   - component: {fileID: 1565730356}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (5)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -2636,7 +2636,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1676201275}
   - component: {fileID: 1676201276}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (4)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -2694,7 +2694,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1679959841}
   - component: {fileID: 1679959842}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (11)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -2742,7 +2742,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1691324144}
   - component: {fileID: 1691324145}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (6)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -2951,7 +2951,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1726526381}
   m_LocalRotation: {x: -0, y: -0, z: 0.048195075, w: 0.99883795}
-  m_LocalPosition: {x: 0.81, y: -3.02, z: -0.03}
+  m_LocalPosition: {x: 0.81, y: -3.02, z: 0}
   m_LocalScale: {x: 0.37, y: 0.55, z: 0.37}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3052,7 +3052,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1899156768}
   - component: {fileID: 1899156769}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (9)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -3184,7 +3184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2099192958}
   - component: {fileID: 2099192959}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (8)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -3232,7 +3232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2135161355}
   - component: {fileID: 2135161356}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Collider (15)
   m_TagString: Wall
   m_Icon: {fileID: 0}
