@@ -232,6 +232,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""031d0052-adc7-4d58-8322-4c4e9cc90a31"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""894454ae-6ffc-485f-b4ce-ca911e55ecf3"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",

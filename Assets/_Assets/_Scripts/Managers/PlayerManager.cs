@@ -9,7 +9,8 @@ public class PlayerManager : MonoBehaviour
     private RoundManager roundManager;
     private ModifierManager modifierManager;
     private int curPlayerNumber = 0;
-    private List<GameObject> players;
+    public List<GameObject> players;
+    public bool hasSpawned;
 
     private void Awake()
     {
@@ -33,11 +34,6 @@ public class PlayerManager : MonoBehaviour
 
     private void OnPlayerJoined(PlayerInput pInput)
     {
-        if(curPlayerNumber == spawnlocations.Length)
-        {
-            return;
-        }
-
         Debug.Log("PlayerInput ID: " + curPlayerNumber);
         pInput.transform.position = spawnlocations[curPlayerNumber].position;
         var playerController = pInput.gameObject;
