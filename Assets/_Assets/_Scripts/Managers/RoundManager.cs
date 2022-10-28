@@ -8,6 +8,7 @@ public class RoundManager : MonoBehaviour
     private PlayerController player1, player2;
     private TextMeshProUGUI p1Counter, p2Counter, winnerTxt;
     public GameObject UI;
+    public int pointsToWin;
     private int p1Score = 0, p2Score = 0;
     private bool roundStarted = false;
     private bool hasScored = false;
@@ -35,8 +36,8 @@ public class RoundManager : MonoBehaviour
     {
         player1 = players[0].GetComponent<PlayerController>();
         player2 = players[1].GetComponent<PlayerController>();
-        roundStarted = true;
         Time.timeScale = 1;
+        roundStarted = true;
     }
 
     // Update is called once per frame
@@ -66,15 +67,15 @@ public class RoundManager : MonoBehaviour
             p1Counter.color = Color.cyan;
             p2Counter.color = Color.cyan;
         }
-        if (p1Score == 5 || p2Score == 5)
+        if (p1Score == pointsToWin || p2Score == pointsToWin)
         {
             gameOver = true;
             winnerTxt.gameObject.SetActive(true);
-            if (p1Score == 5)
+            if (p1Score == pointsToWin)
             {
                 winnerTxt.text = "Player 1 Wins!";
             }
-            else if (p2Score == 5)
+            else if (p2Score == pointsToWin)
             {
                 winnerTxt.text = "Player 2 Wins!";
             }

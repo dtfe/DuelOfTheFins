@@ -42,7 +42,6 @@ public class PlayerController : MonoBehaviour
         isDead = false;
         isDashing = false;
         isControllable = true;
-        startPosition = transform.position;
         var skin = Resources.Load<GameObject>("PlayerSkins/selectedSkin" + GetComponent<PlayerInput>().playerIndex);
         transform.Find("Sprite").GetComponent<SpriteRenderer>().sprite = skin.GetComponent<SpriteRenderer>().sprite;
     }
@@ -270,11 +269,11 @@ public class PlayerController : MonoBehaviour
         {
             gameObject.AddComponent<Rigidbody2D>();
             rb2d = GetComponent<Rigidbody2D>();
-            rb2d.gravityScale = 0;
-            rb2d.drag = 2;
             rb2d.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
             rb2d.sharedMaterial = PM2D;
         }
+        rb2d.gravityScale = 0;
+        rb2d.drag = 2;
         hasNose = true;
         isDashing = false;
         isControllable = true;
@@ -283,6 +282,7 @@ public class PlayerController : MonoBehaviour
         rb2d.angularVelocity = 0;
         movementX = 0;
         movementY = 0;
+        startPosition = FindObjectOfType<PlayerManager>().transform.Find("Spawn" + GetComponent<PlayerInput>().playerIndex).transform.position;
         transform.position = startPosition;
     }
 }
