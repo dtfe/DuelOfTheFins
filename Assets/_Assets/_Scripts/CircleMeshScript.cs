@@ -120,19 +120,10 @@ public class CircleMeshScript : MonoBehaviour
             {
                 continue;
             }
-            //Euler's Method combined with Hooke's Law
             Vector3 wantsToGo = verticesPositions[i]*SizeAdjustment - vertices[i];
             Debug.DrawRay(wantsToGo, wantsToGo);
-            //accelerations[i] = (-springconstant * (vertices[i] - verticesPositions[i]).magnitude / mass);
             velocities[i] *= (1-dampening*mass) + accelerations[i];
             vertices[i] += (wantsToGo + velocities[i]) * Time.deltaTime;
-
-            
-            /*
-            Vector3 force = springconstant * (vertices[i] - verticesPositions[i]) + velocities[i] * dampening;
-            accelerations[i] = -force.magnitude / mass;
-            vertices[i] += velocities[i];
-            velocities[i] += vertices[i].normalized * accelerations[i];*/
         }
         
         Vector3[] leftDeltas = new Vector3[vertices.Length];
@@ -200,11 +191,11 @@ public class CircleMeshScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Deleteable"))
         {
-            Vector3 closestVert = new Vector3(0, 0, 0);
+            Vector3 closestVert = new Vector3(99, 99, 99);
             int vertNumber = 0;
             for (int i = 0; i < vertices.Length; i++)
             {
-                if (Vector3.Distance(vertices[i]+transform.position, collision.transform.position) < Vector3.Distance(closestVert, collision.transform.position))
+                if (Vector3.Distance(vertices[i] + transform.position, collision.transform.position) < Vector3.Distance(closestVert, collision.transform.position))
                 {
                     closestVert = vertices[i] + transform.position;
                     vertNumber = i;
@@ -221,9 +212,6 @@ public class CircleMeshScript : MonoBehaviour
             }
             float howMuch = Vector3.Dot(wantsToGo, velocity);
             velocities[vertNumber] += wantsToGo.normalized * howMuch * 2;
-            
-            /*float velocityMagnitude = velocity.magnitude;
-            velocities[vertNumber] = velocity / 20;*/
         }
     }
 
@@ -231,7 +219,7 @@ public class CircleMeshScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Deleteable"))
         {
-            Vector3 closestVert = new Vector3(0, 0, 0);
+            Vector3 closestVert = new Vector3(99, 99, 99);
             int vertNumber = 0;
             for (int i = 0; i < vertices.Length; i++)
             {
@@ -243,25 +231,20 @@ public class CircleMeshScript : MonoBehaviour
             }
             Vector3 velocity = collision.attachedRigidbody.velocity;
             Vector3 wantsToGo = vertices[0] - verticesPositions[vertNumber];
+            if (velocity.magnitude > -0.5f && velocity.magnitude < 0.5f)
+            {
+                Debug.Log("Velocity = zero");
+                float howMuch2 = 9.7f;
+                velocities[vertNumber] += wantsToGo.normalized * howMuch2 * 2;
+                return;
+            }
             float howMuch = Vector3.Dot(wantsToGo, velocity);
             velocities[vertNumber] += wantsToGo.normalized * howMuch * 2;
-
-            /*Vector3 velocity = collision.attachedRigidbody.velocity;
-            velocities[vertNumber] = velocity / 20;*/
         }
     }
 
     private void UpdateMesh()
     {
         mesh.vertices = vertices;
-
-        /*List<Vector2> pathList = new List<Vector2> { };
-        for (int i = 0; i < vertices.Length; i++)
-        {
-            pathList.Add(new Vector2(vertices[i].x, vertices[i].y));
-        }
-        Vector2[] path = pathList.ToArray();
-
-        polyCollider.SetPath(0, path);*/
     }
 } 
