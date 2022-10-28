@@ -10,6 +10,8 @@ public class CircleMeshScript : MonoBehaviour
     private Vector3[] verticesPositions;
     public bool enableVectorLines = false;
     private Mesh mesh;
+    public float radius;
+    public int resolution;
 
     //Spring Physics
     public float springconstant = 0.02f;
@@ -17,13 +19,17 @@ public class CircleMeshScript : MonoBehaviour
     public float spread = 0.05f;
     public float z = -1f;
 
-    private Vector3[] velocities;
-    private float[] accelerations;
+    public Vector3[] velocities;
+    public float[] accelerations;
     public float mass = 1;
+    public float SizeAdjustment;
+    public float test;
 
     void Start()
     {
         polyCollider = GetComponent<PolygonCollider2D>();
+        PolyMesh(radius, resolution);
+        //SizeAdjustment = radius / 2 + 5*spread;
     }
 
     private void Update()
@@ -32,10 +38,14 @@ public class CircleMeshScript : MonoBehaviour
         {
             for (int i = 0; i < vertices.Length; i++)
             {
-                //Debug.DrawLine(vertices[i], vertices[0], Color.red);
-                Debug.DrawLine(verticesPositions[i], verticesPositions[0], Color.cyan);
+                Debug.DrawLine(vertices[i], vertices[0], Color.red);
             }
         }
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            PolyMesh(radius, resolution);
+        }
+        SizeAdjustment = radius / (test/2) + test * spread;
     }
 
     public void PolyMesh(float radius, int n)
@@ -46,8 +56,8 @@ public class CircleMeshScript : MonoBehaviour
 
         //verticies
         List<Vector3> verticiesList = new List<Vector3> { };
-        float x = transform.localPosition.x;
-        float y = transform.localPosition.y;
+        float x = 0;
+        float y = 0;
 
         verticiesList.Add(new Vector3(x, y, 0f));
 
@@ -99,8 +109,6 @@ public class CircleMeshScript : MonoBehaviour
         polyCollider.SetPath(0, path);
 
         gameObject.GetComponent<MeshRenderer>().material = material;
-
-        Debug.Log("There's " + mesh.triangles.Length + " triangles");
         velocities = new Vector3[vertices.Length];
         accelerations = new float[vertices.Length];
     }
@@ -113,10 +121,12 @@ public class CircleMeshScript : MonoBehaviour
                 continue;
             }
             //Euler's Method combined with Hooke's Law
-
-            Vector3 wantsToGo = verticesPositions[i] - vertices[i];
-            velocities[i] *= (1-dampening*mass);
+            Vector3 wantsToGo = verticesPositions[i]*SizeAdjustment - vertices[i];
+            Debug.DrawRay(wantsToGo, wantsToGo);
+            //accelerations[i] = (-springconstant * (vertices[i] - verticesPositions[i]).magnitude / mass);
+            velocities[i] *= (1-dampening*mass) + accelerations[i];
             vertices[i] += (wantsToGo + velocities[i]) * Time.deltaTime;
+
             
             /*
             Vector3 force = springconstant * (vertices[i] - verticesPositions[i]) + velocities[i] * dampening;
@@ -137,7 +147,12 @@ public class CircleMeshScript : MonoBehaviour
                 {
                     continue;
                 }
-                if (i > 0)
+                if (i == 1)
+                {
+                    leftDeltas[i] = spread * (vertices[i] - vertices[vertices.Length-1]);
+                    velocities[vertices.Length-1] += leftDeltas[i];
+                }
+                if (i > 1)
                 {
                     leftDeltas[i] = spread * (vertices[i] - vertices[i - 1]);
                     velocities[i - 1] += leftDeltas[i];
@@ -147,6 +162,11 @@ public class CircleMeshScript : MonoBehaviour
                     rightDeltas[i] = spread * (vertices[i] - vertices[i + 1]);
                     velocities[i + 1] += rightDeltas[i];
                 }
+                if (i == vertices.Length-1)
+                {
+                    rightDeltas[i] = spread * (vertices[i] - vertices[1]);
+                    velocities[1] += rightDeltas[i];
+                }
             }
 
             for (int i = 0; i < vertices.Length; i++)
@@ -155,6 +175,10 @@ public class CircleMeshScript : MonoBehaviour
                 {
                     continue;
                 }
+                if (i == 1)
+                {
+                    vertices[vertices.Length-1] += leftDeltas[i];
+                }
                 if (i > 1)
                 {
                     vertices[i - 1] += leftDeltas[i];
@@ -162,6 +186,10 @@ public class CircleMeshScript : MonoBehaviour
                 if (i < vertices.Length - 1)
                 {
                     vertices[i + 1] += rightDeltas[i];
+                }
+                if (i == vertices.Length-1)
+                {
+                    vertices[1] += rightDeltas[i];
                 }
             }
         }
@@ -176,9 +204,9 @@ public class CircleMeshScript : MonoBehaviour
             int vertNumber = 0;
             for (int i = 0; i < vertices.Length; i++)
             {
-                if (Vector3.Distance(vertices[i], collision.transform.position) < Vector3.Distance(closestVert, collision.transform.position))
+                if (Vector3.Distance(vertices[i]+transform.position, collision.transform.position) < Vector3.Distance(closestVert, collision.transform.position))
                 {
-                    closestVert = vertices[i];
+                    closestVert = vertices[i] + transform.position;
                     vertNumber = i;
                 }
             }
@@ -188,11 +216,11 @@ public class CircleMeshScript : MonoBehaviour
             {
                 Debug.Log("Velocity = zero");
                 float howMuch2 = 9.7f;
-                velocities[vertNumber] += wantsToGo.normalized * howMuch2;
+                velocities[vertNumber] += wantsToGo.normalized * howMuch2 * 2;
                 return;
             }
             float howMuch = Vector3.Dot(wantsToGo, velocity);
-            velocities[vertNumber] += wantsToGo.normalized * howMuch;
+            velocities[vertNumber] += wantsToGo.normalized * howMuch * 2;
             
             /*float velocityMagnitude = velocity.magnitude;
             velocities[vertNumber] = velocity / 20;*/
@@ -207,16 +235,16 @@ public class CircleMeshScript : MonoBehaviour
             int vertNumber = 0;
             for (int i = 0; i < vertices.Length; i++)
             {
-                if (Vector3.Distance(vertices[i], collision.transform.position) < Vector3.Distance(closestVert, collision.transform.position))
+                if (Vector3.Distance(vertices[i] + transform.position, collision.transform.position) < Vector3.Distance(closestVert, collision.transform.position))
                 {
-                    closestVert = vertices[i];
+                    closestVert = vertices[i] + transform.position;
                     vertNumber = i;
                 }
             }
             Vector3 velocity = collision.attachedRigidbody.velocity;
             Vector3 wantsToGo = vertices[0] - verticesPositions[vertNumber];
             float howMuch = Vector3.Dot(wantsToGo, velocity);
-            velocities[vertNumber] += wantsToGo.normalized * howMuch;
+            velocities[vertNumber] += wantsToGo.normalized * howMuch * 2;
 
             /*Vector3 velocity = collision.attachedRigidbody.velocity;
             velocities[vertNumber] = velocity / 20;*/
