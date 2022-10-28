@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI: {fileID: 0}
+  pointsToWin: 3
 --- !u!114 &8631072110311354864
 MonoBehaviour:
   m_ObjectHideFlags: 0
