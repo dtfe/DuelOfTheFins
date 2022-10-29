@@ -11,6 +11,7 @@ public class MapSelector : MonoBehaviour
     public TMP_Text mapNameText;
     public Texture2D[] previewImages;
     public RawImage previewObject;
+    public AudioSource buttonSound;
 
     public void Previous()
     {
@@ -32,9 +33,20 @@ public class MapSelector : MonoBehaviour
 
     public void ConfirmSelection()
     {
+        buttonSound.Play();
+        StartCoroutine(DeferLoadingScreen(0.5f));
+        //SceneManager.LoadScene(curMapIndex);
+    }
+    IEnumerator DeferLoadingScreen(float duration)
+    {
+        float time = 0;
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            yield return null;
+        }
         SceneManager.LoadScene(curMapIndex);
     }
-
     private void Update()
     {
         switch (curMapIndex)

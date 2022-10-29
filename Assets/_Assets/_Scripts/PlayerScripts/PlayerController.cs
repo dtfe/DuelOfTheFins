@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
     public PhysicsMaterial2D PM2D;
     private Vector3 startPosition;
+    public AudioSource dashSound;
     
     void Start()
     {
@@ -102,6 +103,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!isDead && !isDashing && canDashAndDodge && !isDummy) //Checks if the player is still alive and not dashing already
         {
+            
+            dashSound.Play();
             StartCoroutine(Dash()); //Starts coroutine which allows for delays using IENumerator
             isDashing = true; //Sets isDashing to true so player cant spam dash while dashing
             nose.GetComponent<BoxCollider2D>().enabled = true; //Makes the collider which can kill the opponent active
