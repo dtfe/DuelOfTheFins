@@ -16,6 +16,7 @@ public class NoseScript : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Player"))
             {
+                SoundManager.PlaySound("Bleeding");
                 hitPlayer = collision.gameObject;
                 Debug.Log("Collided with Player");
                 GetComponent<BoxCollider2D>().enabled = false;
