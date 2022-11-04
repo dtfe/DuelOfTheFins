@@ -604,7 +604,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f37ef797207d1e4cb8df028425bd631, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasGroup: {fileID: 1548349549}
   buttonSound: {fileID: 1548349548}
 --- !u!82 &1548349548
 AudioSource:
@@ -616,7 +615,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 72ab633ab5718c746bee416eb3f9a6f8, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0f0de531d211ad346baae6df80d20155, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

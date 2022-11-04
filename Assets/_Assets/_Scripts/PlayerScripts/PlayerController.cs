@@ -86,12 +86,16 @@ public class PlayerController : MonoBehaviour
     {
         if (hasNose && !isDead && !isDashing && !isDummy) //Checks if the player has a nose, if its not dead and if its not dashing
         {
+            AudioSource audioSrc2 = GetComponent<AudioSource>();
+            audioSrc2.PlayOneShot(Resources.Load<AudioClip>("Audio/Shoot sword"));
+
             GameObject noseProj = Instantiate(noseProjectile, nose.transform.position, transform.rotation); //Creates a projectile assigned the reference noseProj
             Vector3 shootDir = (transform.position - nose.transform.position).normalized; //Creates a vector for the direction the shot will go
             noseProj.GetComponentInChildren<NoseProjScript>().Setup(shootDir); //Calls on the method Setup with the vector 3 as a value to that method
             Debug.Log("nose has been shot");
             if (nose.transform.Find("PHYS_Player_Prefab(Clone)"))
             {
+                Debug.Log("player killed");
                 GameObject deadPlayer = nose.transform.Find("PHYS_Player_Prefab(Clone)").gameObject;
                 deadPlayer.transform.parent = noseProj.transform;
             }

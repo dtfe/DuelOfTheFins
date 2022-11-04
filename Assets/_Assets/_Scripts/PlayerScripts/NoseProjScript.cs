@@ -60,6 +60,7 @@ public class NoseProjScript : MonoBehaviour
         
         if (other.gameObject.CompareTag("Player") && isActive &! isPickable)
         {
+            SoundManager.PlaySound("Bleeding");
             other.gameObject.GetComponent<PlayerController>().Penetrated();
             GetComponent<BoxCollider2D>().enabled = false;
             parent.Translate((depth * transform.localScale.y) * Vector2.up);

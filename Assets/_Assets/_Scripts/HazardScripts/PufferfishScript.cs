@@ -44,6 +44,7 @@ public class PufferfishScript : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Player"))
         {
+            SoundManager.PlaySound("Explosion");
             Destroy(gameObject);
             collision.gameObject.GetComponent<PlayerController>().Penetrated();
             Vector2 explosionDir = new Vector2(collision.transform.position.x - transform.position.x, collision.transform.position.y - transform.position.y);
