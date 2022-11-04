@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
+    [SerializeField]
+    AudioSource audioSource;
+
+    [SerializeField]
+    AudioSource candySpark;
+
+
     private static MusicManager _instance;
 
     public static MusicManager instance
@@ -29,6 +36,7 @@ public class MusicManager : MonoBehaviour
             //If I am the first instance, make me the Singleton
             _instance = this;
             DontDestroyOnLoad(this);
+            //PlayMusic();
         }
         else
         {
@@ -39,8 +47,39 @@ public class MusicManager : MonoBehaviour
         }
     }
 
-    public void Play()
+    public void PlayMusic()
     {
-        
+        if (audioSource.isPlaying) return;
+        audioSource.Play();
     }
+
+    public void StopMusic()
+    { 
+        audioSource.Stop();
+    }
+
+    public void PlayMusicByName(string name)
+    {
+        switch (name)
+        {
+            case "candy_spark":
+                candySpark.Play();
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void StopMusicByName(string name)
+    {
+        switch (name)
+        {
+            case "candy_spark":
+                candySpark.Stop();
+                break;
+            default:
+                break;
+        }
+    }
+
 }
