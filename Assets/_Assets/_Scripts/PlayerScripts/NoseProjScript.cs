@@ -53,16 +53,19 @@ public class NoseProjScript : MonoBehaviour
             }
             Destroy(parent.gameObject);
         }
+        Debug.DrawLine(transform.position, parent.position + shootDir/2, Color.red);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
-        if (other.gameObject.CompareTag("Player") && isActive &! isPickable)
+
+        if (other.gameObject.CompareTag("Player") && isActive & !isPickable)
         {
+            SoundManager.PlaySound("Bleeding");
             other.gameObject.GetComponent<PlayerController>().Penetrated();
             GetComponent<BoxCollider2D>().enabled = false;
             parent.Translate((depth * transform.localScale.y) * Vector2.up);
+            parent.transform.position = GetPointOfContact();
             parent.parent = other.transform;
             GameObject bloodyHit = Instantiate(blood, transform.position, transform.rotation);
             bloodyHit.transform.Translate(((depth * transform.localScale.y) * Vector2.up) * 2.5f);
@@ -83,7 +86,7 @@ public class NoseProjScript : MonoBehaviour
         isActive = false;
         hitbox.offset = new Vector2(0, -0.173f);
         hitbox.isTrigger = true;
-        parent.Translate((depth * transform.localScale.y) * Vector2.up);
+        parent.transform.position = GetPointOfContact();
         isPickable = true;
         if (breakable)
         {
@@ -92,5 +95,20 @@ public class NoseProjScript : MonoBehaviour
             hole.transform.parent = null;
             FindObjectOfType<WaterLevel>().NewHole(Hole.transform);
         }
+        while (Physics2D.CircleCast(transform.position, 0.1f, shootDir, 0.5f, LayerMask.GetMask("Wall")))
+        {
+            parent.position += shootDir / 20;
+        }
+    }
+
+    private Vector3 GetPointOfContact()
+    {
+        RaycastHit2D hit;
+        if (hit = Physics2D.Raycast(transform.position, parent.position - shootDir, 0.1f))
+        {
+            Debug.DrawLine(transform.position, Vector3.up, Color.red);
+            return hit.point;
+        }
+        return new Vector3(0, 0, 0);
     }
 }

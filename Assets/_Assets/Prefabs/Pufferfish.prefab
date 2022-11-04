@@ -100,9 +100,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cdbf40bc52f07d41b29a7d0251ede4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  acceleration: 1
   accelerationTime: 2
   maxSpeed: 5
   blood1: {fileID: 5249044970036148135, guid: 34c2a1d775f2e2343bb4c50e6ca45306, type: 3}
+  rotateOverTime: 1
+  anims: 0
 --- !u!50 &5881408625376744813
 Rigidbody2D:
   serializedVersion: 4

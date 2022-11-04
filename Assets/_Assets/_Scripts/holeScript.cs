@@ -9,6 +9,9 @@ public class holeScript : MonoBehaviour
     void Start()
     {
         waterLevel = FindObjectOfType<ModifierManager>().WaterLevel;
+        SoundManager.PlaySound("Glass_break");
+
+        Debug.Log("crush");
     }
 
     // Update is called once per frame
@@ -16,6 +19,7 @@ public class holeScript : MonoBehaviour
     {
         if (transform.position.y > waterLevel.position.y)
         {
+            
             var psEmission = GetComponent<ParticleSystem>().emission;
             psEmission.rateOverTime = (waterLevel.position.y - transform.position.y) * 10;
         }

@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
     public PhysicsMaterial2D PM2D;
     private Vector3 startPosition;
+  
     
     void Start()
     {
@@ -85,12 +86,16 @@ public class PlayerController : MonoBehaviour
     {
         if (hasNose && !isDead && !isDashing && !isDummy) //Checks if the player has a nose, if its not dead and if its not dashing
         {
+            AudioSource audioSrc2 = GetComponent<AudioSource>();
+            //audioSrc2.PlayOneShot(Resources.Load<AudioClip>("Audio/Shoot sword"));
+
             GameObject noseProj = Instantiate(noseProjectile, nose.transform.position, transform.rotation); //Creates a projectile assigned the reference noseProj
             Vector3 shootDir = (transform.position - nose.transform.position).normalized; //Creates a vector for the direction the shot will go
             noseProj.GetComponentInChildren<NoseProjScript>().Setup(shootDir); //Calls on the method Setup with the vector 3 as a value to that method
             Debug.Log("nose has been shot");
             if (nose.transform.Find("PHYS_Player_Prefab(Clone)"))
             {
+                Debug.Log("player killed");
                 GameObject deadPlayer = nose.transform.Find("PHYS_Player_Prefab(Clone)").gameObject;
                 deadPlayer.transform.parent = noseProj.transform;
             }
@@ -102,6 +107,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!isDead && !isDashing && canDashAndDodge && !isDummy) //Checks if the player is still alive and not dashing already
         {
+
+            SoundManager.PlaySound("Dashing");
             StartCoroutine(Dash()); //Starts coroutine which allows for delays using IENumerator
             isDashing = true; //Sets isDashing to true so player cant spam dash while dashing
             nose.GetComponent<BoxCollider2D>().enabled = true; //Makes the collider which can kill the opponent active
@@ -181,6 +188,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.name == "PHYS_Nose_Projectile" && !hasNose && collision.gameObject.GetComponent<NoseProjScript>().isPickable) //Checks if you entered the trigger of a nose projectile and if you don't have a nose
         {
+            SoundManager.PlaySound("Dash");
             if (collision.GetComponent<NoseProjScript>().parent.Find("PHYS_Player_Prefab(Clone)"))
             {
                 GameObject deadPlayer = collision.GetComponent<NoseProjScript>().parent.Find("PHYS_Player_Prefab(Clone)").gameObject;
