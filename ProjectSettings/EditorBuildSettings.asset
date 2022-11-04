@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/River.unity
     guid: 081354c80eed38a4eb8364ed5040f0a4
   - enabled: 1
+    path: Assets/Scenes/RiverRema666.unity
+    guid: ff8522ed48cf88d4582951cb4078e741
+  - enabled: 1
     path: Assets/Scenes/SpaceTest.unity
     guid: 6ba7df86a88a36f43a6fd30b11ecae30
   m_configObjects:
