@@ -20,11 +20,16 @@ public class PufferfishScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spawntime <= 0)
+        if (spawntime > 0)
         {
             int LayerDefault = LayerMask.NameToLayer("Default");
             gameObject.layer = LayerDefault;
             GetComponent<SpriteRenderer>().color = new Color(0.83f, 0.8f, 0.43f, 1);
+        }else
+        {
+            int LayerDefault = LayerMask.NameToLayer("Default");
+            gameObject.layer = LayerDefault;
+            GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1);
         }
         spawntime -= Time.deltaTime;
         timeLeft -= Time.deltaTime;
