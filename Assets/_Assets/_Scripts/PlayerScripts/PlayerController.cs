@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
 
     public PhysicsMaterial2D PM2D;
     private Vector3 startPosition;
-    public AudioSource dashSound;
+  
     
     void Start()
     {
@@ -107,8 +107,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!isDead && !isDashing && canDashAndDodge && !isDummy) //Checks if the player is still alive and not dashing already
         {
-            
-            dashSound.Play();
+
+            SoundManager.PlaySound("Dashing");
             StartCoroutine(Dash()); //Starts coroutine which allows for delays using IENumerator
             isDashing = true; //Sets isDashing to true so player cant spam dash while dashing
             nose.GetComponent<BoxCollider2D>().enabled = true; //Makes the collider which can kill the opponent active
@@ -188,6 +188,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.name == "PHYS_Nose_Projectile" && !hasNose && collision.gameObject.GetComponent<NoseProjScript>().isPickable) //Checks if you entered the trigger of a nose projectile and if you don't have a nose
         {
+            SoundManager.PlaySound("Dash");
             if (collision.GetComponent<NoseProjScript>().parent.Find("PHYS_Player_Prefab(Clone)"))
             {
                 GameObject deadPlayer = collision.GetComponent<NoseProjScript>().parent.Find("PHYS_Player_Prefab(Clone)").gameObject;
