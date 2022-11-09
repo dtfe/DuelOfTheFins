@@ -27,7 +27,10 @@ EditorBuildSettings:
     path: Assets/Scenes/RiverRema666.unity
     guid: ff8522ed48cf88d4582951cb4078e741
   - enabled: 1
-    path: Assets/Scenes/Space.unity
+    path: Assets/Scenes/RiverToxic.unity
+    guid: fd0fd9827c12ec84a9df68f7d50da141
+  - enabled: 1
+    path: Assets/Scenes/SpaceTest.unity
     guid: 6ba7df86a88a36f43a6fd30b11ecae30
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 8f28b9cc950e14844b5a8c688ea5ed74, type: 2}
