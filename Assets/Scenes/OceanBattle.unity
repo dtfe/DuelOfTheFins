@@ -1961,9 +1961,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e5a853b24f60eb43a64dc6d4c8faf42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hazardGO: {fileID: 0}
+  hazardGO: {fileID: 5881408625376744803, guid: 1a06a49fc1c3e5540b8e9f0c4ed61422, type: 3}
   spawnTimeStatic: 4
-  enableRotationOverTime: 0
+  enableRotationOverTime: 1
   isHoming: 0
   hazardAcceleration: 1
   hazardMaxSpeed: 5
