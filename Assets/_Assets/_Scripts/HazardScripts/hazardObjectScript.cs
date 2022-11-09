@@ -39,7 +39,7 @@ public class hazardObjectScript : MonoBehaviour
     {
         if (spawntime > 0)
         {
-            int LayerDefault = LayerMask.NameToLayer("Default");
+            int LayerDefault = LayerMask.NameToLayer("noPlayerCollision");
             gameObject.layer = LayerDefault;
         }else
         {
