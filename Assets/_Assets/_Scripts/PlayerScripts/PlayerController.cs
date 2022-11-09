@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
         if (hasNose && !isDead && !isDashing && !isDummy) //Checks if the player has a nose, if its not dead and if its not dashing
         {
             AudioSource audioSrc2 = GetComponent<AudioSource>();
-            audioSrc2.PlayOneShot(Resources.Load<AudioClip>("Audio/Shoot sword"));
+            //audioSrc2.PlayOneShot(Resources.Load<AudioClip>("Audio/Shoot sword"));
 
             GameObject noseProj = Instantiate(noseProjectile, nose.transform.position, transform.rotation); //Creates a projectile assigned the reference noseProj
             Vector3 shootDir = (transform.position - nose.transform.position).normalized; //Creates a vector for the direction the shot will go
@@ -153,15 +153,17 @@ public class PlayerController : MonoBehaviour
             {
                 transform.up = rb2d.velocity.normalized; // Keeps the player looking towards the direction they are moving
             }
-        }
-        if (transform.eulerAngles.z > 180)
-        {
-            if(transform.Find("Sprite"))
-                transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = true;
-        } else if (transform.eulerAngles.z < 180)
-        {
-            if (transform.Find("Sprite"))
-                transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = false;
+
+            if (transform.eulerAngles.z > 180)
+            {
+                if (transform.Find("Sprite"))
+                    transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else if (transform.eulerAngles.z < 180)
+            {
+                if (transform.Find("Sprite"))
+                    transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = false;
+            }
         }
     }
 

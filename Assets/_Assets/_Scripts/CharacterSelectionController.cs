@@ -43,7 +43,7 @@ public class CharacterSelectionController : MonoBehaviour
         {
             buttons[i].interactable = false;
         }
-        PrefabUtility.SaveAsPrefabAsset(playerSkin, "Assets/Resources/PlayerSkins/selectedSkin" + playerNumber + ".prefab");
+        //PrefabUtility.SaveAsPrefabAsset(playerSkin, "Assets/Resources/PlayerSkins/selectedSkin" + playerNumber + ".prefab");
         //SceneManager.LoadScene("AquariumTemplate");
     }
 }
