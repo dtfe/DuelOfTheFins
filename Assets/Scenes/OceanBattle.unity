@@ -1961,8 +1961,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e5a853b24f60eb43a64dc6d4c8faf42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pufferfish: {fileID: 5881408625376744803, guid: 1a06a49fc1c3e5540b8e9f0c4ed61422, type: 3}
+  hazardGO: {fileID: 0}
   spawnTimeStatic: 4
+  enableRotationOverTime: 0
+  isHoming: 0
+  hazardAcceleration: 1
+  hazardMaxSpeed: 5
 --- !u!4 &1665464129
 Transform:
   m_ObjectHideFlags: 0
@@ -2569,6 +2573,10 @@ PrefabInstance:
     - target: {fileID: 6962474078895249737, guid: 60faa3a6f74d5634e954751ff678380b, type: 3}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962474078895249737, guid: 60faa3a6f74d5634e954751ff678380b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6962474079097398356, guid: 60faa3a6f74d5634e954751ff678380b, type: 3}
       propertyPath: m_LocalPosition.z
