@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public static AudioClip glassBreak, bloodkill, poop, dash, pickSword, uiSelection;
+    public static AudioClip glassBreak, bloodkill, poop, dash, pickSword;
     static AudioSource audioSrc;
     // Start is called before the first frame update
     void Start()
@@ -13,14 +13,13 @@ public class SoundManager : MonoBehaviour
         glassBreak = Resources.Load<AudioClip>("Audio/GlassCrash1");
         audioSrc = GetComponent<AudioSource>();
 
-        bloodkill = Resources.Load<AudioClip>("Audio/ao");
+        bloodkill = Resources.Load<AudioClip>("Audio/stabbedPlayer");
         
         poop = Resources.Load<AudioClip>("Audio/Explosion2 try");        
 
         dash = Resources.Load<AudioClip>("Audio/Dash2");
 
         pickSword = Resources.Load<AudioClip>("Audio/Dash");
-        uiSelection = Resources.Load<AudioClip>("Audio/SwordplayUI SELECTION");
         
 
     }
@@ -50,10 +49,6 @@ public class SoundManager : MonoBehaviour
             case "GetSword":
                 audioSrc.PlayOneShot(pickSword);
                 break;
-            case "ui_selection":
-                audioSrc.PlayOneShot(uiSelection);
-                break;
-
         }
     }
 
