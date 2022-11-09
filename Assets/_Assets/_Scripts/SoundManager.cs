@@ -13,7 +13,7 @@ public class SoundManager : MonoBehaviour
         glassBreak = Resources.Load<AudioClip>("Audio/GlassCrash1");
         audioSrc = GetComponent<AudioSource>();
 
-        bloodkill = Resources.Load<AudioClip>("Audio/stabbedPlayer");
+        bloodkill = Resources.Load<AudioClip>("Audio/ao");
         
         poop = Resources.Load<AudioClip>("Audio/Explosion2 try");        
 

@@ -6,9 +6,19 @@ public class MusicManager : MonoBehaviour
 {
     [SerializeField]
     AudioSource audioSource;
+    public AudioClip mainMenuMusic;
 
     [SerializeField]
-    AudioSource candySpark;
+    AudioClip aquariumMusic;
+
+    [SerializeField]
+    AudioClip oceanMusic;
+
+    [SerializeField]
+    AudioClip waterfallMusic;
+
+    [SerializeField]
+    AudioClip spaceMusic;
 
 
     private static MusicManager _instance;
@@ -41,15 +51,20 @@ public class MusicManager : MonoBehaviour
         else
         {
             //If a Singleton already exists and you find
-            //another reference in scene, destroy it!
+            //another reference in scene, destroy me!
             if (this != _instance)
                 Destroy(this.gameObject);
         }
     }
 
+    private void Start()
+    {
+        audioSource.clip = mainMenuMusic;
+        PlayMusic();
+    }
+
     public void PlayMusic()
     {
-        if (audioSource.isPlaying) return;
         audioSource.Play();
     }
 
@@ -62,24 +77,24 @@ public class MusicManager : MonoBehaviour
     {
         switch (name)
         {
-            case "candy_spark":
-                candySpark.Play();
+            case "aquarium":
+                audioSource.clip = aquariumMusic;
                 break;
+            case "ocean":
+                audioSource.clip = oceanMusic;
+                break;
+            case "waterfall":
+                audioSource.clip = waterfallMusic;
+                break;
+            case "space":
+                audioSource.clip = spaceMusic;
+                break;
+
+
             default:
+                audioSource.clip = mainMenuMusic;
                 break;
+
         }
     }
-
-    public void StopMusicByName(string name)
-    {
-        switch (name)
-        {
-            case "candy_spark":
-                candySpark.Stop();
-                break;
-            default:
-                break;
-        }
-    }
-
 }
