@@ -33,8 +33,7 @@ public class MapSelector : MonoBehaviour
 
     public void ConfirmSelection()
     {
-        MusicManager.instance.StopMusic();
-        SoundManager.PlaySound("ui_selection");
+        buttonSound.Play();
         StartCoroutine(DeferLoadingScreen(0.5f));
         //SceneManager.LoadScene(curMapIndex);
     }

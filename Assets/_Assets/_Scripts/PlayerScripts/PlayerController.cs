@@ -190,7 +190,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.name == "PHYS_Nose_Projectile" && !hasNose && collision.gameObject.GetComponent<NoseProjScript>().isPickable) //Checks if you entered the trigger of a nose projectile and if you don't have a nose
         {
-            SoundManager.PlaySound("GetSword");
+            SoundManager.PlaySound("Dash");
             if (collision.GetComponent<NoseProjScript>().parent.Find("PHYS_Player_Prefab(Clone)"))
             {
                 GameObject deadPlayer = collision.GetComponent<NoseProjScript>().parent.Find("PHYS_Player_Prefab(Clone)").gameObject;
