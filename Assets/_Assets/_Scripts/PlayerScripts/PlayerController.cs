@@ -153,15 +153,17 @@ public class PlayerController : MonoBehaviour
             {
                 transform.up = rb2d.velocity.normalized; // Keeps the player looking towards the direction they are moving
             }
-        }
-        if (transform.eulerAngles.z > 180)
-        {
-            if(transform.Find("Sprite"))
-                transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = true;
-        } else if (transform.eulerAngles.z < 180)
-        {
-            if (transform.Find("Sprite"))
-                transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = false;
+
+            if (transform.eulerAngles.z > 180)
+            {
+                if (transform.Find("Sprite"))
+                    transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else if (transform.eulerAngles.z < 180)
+            {
+                if (transform.Find("Sprite"))
+                    transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = false;
+            }
         }
     }
 
