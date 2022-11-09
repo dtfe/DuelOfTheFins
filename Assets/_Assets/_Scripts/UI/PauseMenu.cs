@@ -37,6 +37,7 @@ private void Pause()
     public void LoadScene(string MainMenu)
     {
         SceneManager.LoadScene(MainMenu);
+        Time.timeScale = 1f;
     }
     public void Resume()
     {
