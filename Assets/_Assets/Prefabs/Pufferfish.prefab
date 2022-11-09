@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5881408625376744803}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2470088, y: 0.6228142, z: 0}
+  m_LocalPosition: {x: 1.2470088, y: 0.6228142, z: -0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -105,7 +105,8 @@ MonoBehaviour:
   maxSpeed: 5
   blood1: {fileID: 5249044970036148135, guid: 34c2a1d775f2e2343bb4c50e6ca45306, type: 3}
   rotateOverTime: 1
-  anims: 0
+  isHoming: 0
+  enablePuffUpAnim: 1
 --- !u!50 &5881408625376744813
 Rigidbody2D:
   serializedVersion: 4
