@@ -87,9 +87,7 @@ public class PlayerController : MonoBehaviour
     {
         if (hasNose && !isDead && !isDashing && !isDummy) //Checks if the player has a nose, if its not dead and if its not dashing
         {
-            AudioSource audioSrc2 = GetComponent<AudioSource>();
-            //audioSrc2.PlayOneShot(Resources.Load<AudioClip>("Audio/Shoot sword"));
-
+            SoundManager.PlaySound("ThrowSw");
             GameObject noseProj = Instantiate(noseProjectile, nose.transform.position, transform.rotation); //Creates a projectile assigned the reference noseProj
             Vector3 shootDir = (transform.position - nose.transform.position).normalized; //Creates a vector for the direction the shot will go
             noseProj.GetComponentInChildren<NoseProjScript>().Setup(shootDir); //Calls on the method Setup with the vector 3 as a value to that method
@@ -108,7 +106,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!isDead && !isDashing && canDashAndDodge && !isDummy) //Checks if the player is still alive and not dashing already
         {
-
+            SoundManager.ChangeVolume(1.0f);
             SoundManager.PlaySound("Dashing");
             StartCoroutine(Dash()); //Starts coroutine which allows for delays using IENumerator
             isDashing = true; //Sets isDashing to true so player cant spam dash while dashing
@@ -197,7 +195,7 @@ public class PlayerController : MonoBehaviour
             rb2d.velocity = Vector3.zero;
         }
     }
-
+    //to do check colisions
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "PHYS_Nose_Projectile" && !hasNose && collision.gameObject.GetComponent<NoseProjScript>().isPickable) //Checks if you entered the trigger of a nose projectile and if you don't have a nose
@@ -213,6 +211,7 @@ public class PlayerController : MonoBehaviour
             Destroy(collision.gameObject.GetComponent<NoseProjScript>().parent.gameObject); //Destroys the nose projectile that you pick up
             hasNose = true; //Gives you your nose back
         }
+     //To do if (collision.gameObject.CompareTag("items")) deleteable. trash hit sounds
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -227,8 +226,8 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
-    private void OnTriggerExit2D(Collider2D collision)
+    // TODO check for water level here to add splash sound
+    private void OnTriggerExit2D(Collider2D collision) 
     {
         if (collision.gameObject.CompareTag("PlayArea"))
         {

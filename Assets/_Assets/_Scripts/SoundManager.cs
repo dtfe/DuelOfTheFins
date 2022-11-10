@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public static AudioClip glassBreak, bloodkill, pop, dash, pickSword, uiSelection, wahwaterfall, wahspace;
+    public static AudioClip glassBreak, bloodkill, pop, dash, pickSword, uiSelection, wahwaterfall, wahspace, shootSw;
     static AudioSource audioSrc;
 
     //public static bool isPlaying = false;
@@ -21,6 +21,7 @@ public class SoundManager : MonoBehaviour
         uiSelection = Resources.Load<AudioClip>("Audio/SwordplayUI SELECTION");
         wahwaterfall = Resources.Load<AudioClip>("Audio/waaaaahriver");
         wahspace = Resources.Load<AudioClip>("Audio/aaaaahspace");
+        shootSw = Resources.Load<AudioClip>("Audio/Shoot sword");
 
     }
 
@@ -56,6 +57,9 @@ public class SoundManager : MonoBehaviour
                 break;
             case "GetSword":
                 audioSrc.PlayOneShot(pickSword);
+                break;
+            case "ThrowSw":
+                audioSrc.PlayOneShot(shootSw);
                 break;
             case "ui_selection":
                 audioSrc.PlayOneShot(uiSelection);
