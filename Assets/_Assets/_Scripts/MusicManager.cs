@@ -6,7 +6,9 @@ public class MusicManager : MonoBehaviour
 {
     [SerializeField]
     AudioSource audioSource;
-    public AudioClip mainMenuMusic;
+
+    [SerializeField]
+    AudioClip mainMenuMusic;
 
     [SerializeField]
     AudioClip aquariumMusic;
@@ -20,8 +22,9 @@ public class MusicManager : MonoBehaviour
     [SerializeField]
     AudioClip spaceMusic;
 
-
-    private static MusicManager _instance;
+    //make the instance private so it can't be modified in other scripts
+    private static MusicManager _instance; 
+    //make the music manager available as read only on the other scripts  
 
     public static MusicManager instance
     {
@@ -38,7 +41,7 @@ public class MusicManager : MonoBehaviour
             return _instance;
         }
     }
-
+    //loading the music manager as a singleton
     void Awake()
     {
         if (_instance == null)
@@ -46,7 +49,7 @@ public class MusicManager : MonoBehaviour
             //If I am the first instance, make me the Singleton
             _instance = this;
             DontDestroyOnLoad(this);
-            //PlayMusic();
+          
         }
         else
         {
@@ -57,13 +60,7 @@ public class MusicManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        audioSource.clip = mainMenuMusic;
-        PlayMusic();
-    }
-
-    public void PlayMusic()
+      public void PlayMusic()
     {
         audioSource.Play();
     }
@@ -79,20 +76,26 @@ public class MusicManager : MonoBehaviour
         {
             case "aquarium":
                 audioSource.clip = aquariumMusic;
+                PlayMusic();
                 break;
             case "ocean":
                 audioSource.clip = oceanMusic;
+                PlayMusic();
                 break;
             case "waterfall":
                 audioSource.clip = waterfallMusic;
+                PlayMusic();
                 break;
             case "space":
                 audioSource.clip = spaceMusic;
+                PlayMusic();
+                break;
+            case "main_Menu":
+                audioSource.clip = mainMenuMusic;
+                PlayMusic();
                 break;
 
-
             default:
-                audioSource.clip = mainMenuMusic;
                 break;
 
         }

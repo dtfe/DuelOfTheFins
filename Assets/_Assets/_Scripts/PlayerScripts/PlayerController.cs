@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
 
     public PhysicsMaterial2D PM2D;
     private Vector3 startPosition;
+    public string deathSound;
   
     
     void Start()
@@ -117,8 +118,15 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        // Debug.Log(transform.position);
         if (transform.position.y < -6f || transform.position.x > 9f || transform.position.x < -9f)
         {
+            
+            if (deathSound != null && !SoundManager.IsPlaying() && !isDead)
+            {
+                SoundManager.PlaySound(deathSound);
+            }
+            
             Penetrated();
         }
 
@@ -179,6 +187,10 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("deathWall"))
         {
+            if (deathSound != null && !SoundManager.IsPlaying() && !isDead)
+            {
+                SoundManager.PlaySound(deathSound);
+            }
             Penetrated();
             rb2d.velocity = Vector3.zero;
         }
