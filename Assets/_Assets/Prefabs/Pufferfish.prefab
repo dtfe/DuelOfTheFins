@@ -106,7 +106,7 @@ MonoBehaviour:
   blood1: {fileID: 5249044970036148135, guid: 34c2a1d775f2e2343bb4c50e6ca45306, type: 3}
   rotateOverTime: 1
   isHoming: 0
-  enablePuffUpAnim: 1
+  looksInMoveDir: 0
 --- !u!50 &5881408625376744813
 Rigidbody2D:
   serializedVersion: 4
