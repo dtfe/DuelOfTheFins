@@ -1257,9 +1257,9 @@ GameObject:
   m_Component:
   - component: {fileID: 732042243}
   - component: {fileID: 732042242}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cave_ocean
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1733,9 +1733,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1010676305}
   - component: {fileID: 1010676304}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ship
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1873,9 +1873,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1214451269}
   - component: {fileID: 1214451268}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SailPostInteractable
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

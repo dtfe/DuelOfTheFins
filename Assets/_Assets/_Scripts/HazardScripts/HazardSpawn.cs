@@ -6,13 +6,14 @@ public class HazardSpawn : MonoBehaviour
 {
     public GameObject hazardGO;
     private hazardObjectScript spawnedHazard;
-    public float spawnTimeStatic = 8;
+    public float spawnTimeStatic;
     public bool enableRotationOverTime;
     public bool isHoming = false;
 
     public float hazardAcceleration = 1;
     public float hazardMaxSpeed = 5;
     private float spawnTimeCurrent;
+    public float spawnTimeMultiplier = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,8 +41,9 @@ public class HazardSpawn : MonoBehaviour
             spawnedHazard.rotateOverTime = enableRotationOverTime;
             spawnedHazard.isHoming = isHoming;
             spawnedHazard.SetAccelerationAndMaxSpeed(hazardAcceleration, hazardMaxSpeed);
-            spawnTimeCurrent = spawnTimeStatic * 2;
+            spawnTimeCurrent = spawnTimeStatic * spawnTimeMultiplier;
         }
+        spawnTimeMultiplier -= Time.deltaTime / 100;
 
     }
 }

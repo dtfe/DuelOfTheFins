@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 21
   m_Sprite: {fileID: 21300000, guid: bc00fbda266dcf042a964f25e40e8593, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -105,7 +105,8 @@ MonoBehaviour:
   maxSpeed: 5
   blood1: {fileID: 5249044970036148135, guid: 34c2a1d775f2e2343bb4c50e6ca45306, type: 3}
   rotateOverTime: 1
-  anims: 0
+  isHoming: 0
+  enablePuffUpAnim: 1
 --- !u!50 &5881408625376744813
 Rigidbody2D:
   serializedVersion: 4
