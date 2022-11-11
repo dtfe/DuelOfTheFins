@@ -24,13 +24,16 @@ EditorBuildSettings:
     path: Assets/Scenes/OceanBattle.unity
     guid: 604a8a4bdcb379a448fa891ce993bf64
   - enabled: 1
-    path: Assets/Scenes/River.unity
+    path: Assets/Scenes/Ocean Special.unity
+    guid: b4a5838764511274fa8585b8baa1b37d
+  - enabled: 1
+    path: Assets/Scenes/Waterfall.unity
     guid: 081354c80eed38a4eb8364ed5040f0a4
   - enabled: 1
-    path: Assets/Scenes/RiverRema666.unity
+    path: Assets/Scenes/Waterfall666.unity
     guid: ff8522ed48cf88d4582951cb4078e741
   - enabled: 1
-    path: Assets/Scenes/RiverToxic.unity
+    path: Assets/Scenes/WaterfallToxic.unity
     guid: fd0fd9827c12ec84a9df68f7d50da141
   - enabled: 1
     path: Assets/Scenes/SpaceTest.unity

@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private bool hasNose;
     public bool regenerateNose;
     private bool isRegeneratingNose;
+    public bool canAttack;
 
     //Control bools
     public bool isDummy;
@@ -84,7 +85,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnFire() //Whenever the west most button on the gamepad is pressed, this activates
     {
-        if (hasNose && !isDead && !isDashing && !isDummy) //Checks if the player has a nose, if its not dead and if its not dashing
+        if (hasNose && !isDead && !isDashing && !isDummy && canAttack) //Checks if the player has a nose, if its not dead and if its not dashing
         {
             AudioSource audioSrc2 = GetComponent<AudioSource>();
             //audioSrc2.PlayOneShot(Resources.Load<AudioClip>("Audio/Shoot sword"));
@@ -111,6 +112,10 @@ public class PlayerController : MonoBehaviour
             SoundManager.PlaySound("Dashing");
             StartCoroutine(Dash()); //Starts coroutine which allows for delays using IENumerator
             isDashing = true; //Sets isDashing to true so player cant spam dash while dashing
+            if (!canAttack)
+            {
+                return;
+            }
             nose.GetComponent<BoxCollider2D>().enabled = true; //Makes the collider which can kill the opponent active
         }
     }
@@ -135,7 +140,7 @@ public class PlayerController : MonoBehaviour
 
         Vector2 lookDir = (nose.transform.position - transform.position).normalized; //Vector which is in the direction of where your character is looking
         playerMovement = lookDir; //Sets Vector2 playerMovement to be equal to vector2 lookDir
-        if (hasNose) //Activates and deactivates the nose of the player
+        if (hasNose && canAttack) //Activates and deactivates the nose of the player
         {
             nose.SetActive(true);
         }
@@ -274,6 +279,7 @@ public class PlayerController : MonoBehaviour
 
     public void ResetCharacter()
     {
+        transform.parent = null;
         isDead = false;
         if (!rb2d)
         {
@@ -282,12 +288,18 @@ public class PlayerController : MonoBehaviour
             rb2d.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
             rb2d.sharedMaterial = PM2D;
         }
+        foreach(Transform tr in transform)
+        {
+            if(tr.tag == "Deleteable")
+            {
+                Destroy(tr.gameObject);
+            }
+        }
         rb2d.gravityScale = 0;
         rb2d.drag = 2;
         hasNose = true;
         isDashing = false;
         isControllable = true;
-        transform.parent = null;
         rb2d.velocity = Vector2.zero;
         rb2d.angularVelocity = 0;
         movementX = 0;

@@ -35,7 +35,9 @@ public class RoundManager : MonoBehaviour
     public void StartRound(List<GameObject> players)
     {
         player1 = players[0].GetComponent<PlayerController>();
+        player1.ResetCharacter();
         player2 = players[1].GetComponent<PlayerController>();
+        player2.ResetCharacter();
         Time.timeScale = 1;
         roundStarted = true;
     }
@@ -98,6 +100,8 @@ public class RoundManager : MonoBehaviour
     }
     private void Restart()
     {
+        player1.transform.parent = null;
+        player2.transform.parent = null;
         player1.ResetCharacter();
         player2.ResetCharacter();
         cleanUp = GameObject.FindGameObjectsWithTag("Deleteable");
@@ -119,6 +123,7 @@ public class RoundManager : MonoBehaviour
     IEnumerator NextMap()
     {
         yield return new WaitForSeconds(5);
+        //FindObjectOfType<PlayerManager>().newMap();
         GetComponent<MapRotator>().NextMap();
     }
 }
