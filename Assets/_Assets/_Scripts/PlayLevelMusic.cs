@@ -10,8 +10,11 @@ public class PlayLevelMusic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MusicManager.instance.StopMusic();
-        MusicManager.instance.PlayMusicByName(musicName);
+        if (FindObjectOfType<MusicManager>())
+        {
+            MusicManager.instance.StopMusic();
+            MusicManager.instance.PlayMusicByName(musicName);
+        }
     }
 
 }

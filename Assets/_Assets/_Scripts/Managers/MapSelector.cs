@@ -69,18 +69,22 @@ public class MapSelector : MonoBehaviour
                 previewObject.texture = previewImages[3];
                 break;
             case 5:
-                mapNameText.text = "River 1";
-                previewObject.texture = previewImages[4];
+                mapNameText.text = "Ocean Special";
+                previewObject.texture = previewImages[3];
                 break;
             case 6:
-                mapNameText.text = "River 2";
-                previewObject.texture = previewImages[5];
+                mapNameText.text = "Waterfall 1";
+                previewObject.texture = previewImages[4];
                 break;
             case 7:
-                mapNameText.text = "River 3";
-                previewObject.texture = previewImages[6];
+                mapNameText.text = "Waterfall 2";
+                previewObject.texture = previewImages[5];
                 break;
             case 8:
+                mapNameText.text = "Waterfall 3";
+                previewObject.texture = previewImages[6];
+                break;
+            case 9:
                 mapNameText.text = "Space 1";
                 previewObject.texture = previewImages[7];
                 break;

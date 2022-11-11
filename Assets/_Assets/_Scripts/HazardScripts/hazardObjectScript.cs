@@ -10,7 +10,6 @@ public class hazardObjectScript : MonoBehaviour
     public GameObject blood1;
     public bool rotateOverTime = true;
     public bool isHoming = false;
-    public bool enablePuffUpAnim = true;
     private Rigidbody2D rb2d;
     private Vector2 movement;
     private float timeLeft;
