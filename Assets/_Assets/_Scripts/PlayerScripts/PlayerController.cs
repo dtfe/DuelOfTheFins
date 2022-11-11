@@ -119,8 +119,7 @@ public class PlayerController : MonoBehaviour
         // Debug.Log(transform.position);
         if (transform.position.y < -6f || transform.position.x > 9f || transform.position.x < -9f)
         {
-            
-            if (deathSound != null && !SoundManager.IsPlaying() && !isDead)
+            if (deathSound != null && !isDead)
             {
                 SoundManager.PlaySound(deathSound);
             }
@@ -187,15 +186,20 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("deathWall"))
         {
-            if (deathSound != null && !SoundManager.IsPlaying() && !isDead)
+            // if (deathSound != null && !SoundManager.IsPlaying() && !isDead)
+            if (deathSound != null && !isDead)
             {
                 SoundManager.PlaySound(deathSound);
             }
             Penetrated();
             rb2d.velocity = Vector3.zero;
         }
+
+        if (collision.gameObject.CompareTag("Deleteable")) {
+            SoundManager.PlaySound("trashhitplayer");
+        } 
     }
-    //to do check collisions
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "PHYS_Nose_Projectile" && !hasNose && collision.gameObject.GetComponent<NoseProjScript>().isPickable) //Checks if you entered the trigger of a nose projectile and if you don't have a nose
@@ -211,7 +215,7 @@ public class PlayerController : MonoBehaviour
             Destroy(collision.gameObject.GetComponent<NoseProjScript>().parent.gameObject); //Destroys the nose projectile that you pick up
             hasNose = true; //Gives you your nose back
         }
-     //To do if (collision.gameObject.CompareTag("items")) deleteable. trash hit sounds
+       
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -234,13 +238,13 @@ public class PlayerController : MonoBehaviour
             isControllable = false;
             if (!FindObjectOfType<WaterLevel>())
             {
-                
                 rb2d.gravityScale = 0f;
                 rb2d.drag = 0f;
                 canDashAndDodge = false;
             }
             else
             {
+                SoundManager.PlaySound("splashingwtr");
                 rb2d.gravityScale = 1f;
                 rb2d.drag = 1f;
             }

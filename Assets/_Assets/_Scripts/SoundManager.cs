@@ -58,6 +58,7 @@ public class SoundManager : MonoBehaviour
                 audioSrc.PlayOneShot(pop);
                 break;
             case "Dashing":
+                ChangeVolume(0.6f);
                 audioSrc.PlayOneShot(dash);
                 break;
             case "GetSword":
@@ -79,11 +80,12 @@ public class SoundManager : MonoBehaviour
             case "trashFall ":
                 audioSrc.PlayOneShot(trashAlert);
                 break;
-            case "trashhitplayer ":
+            case "trashhitplayer":
                 audioSrc.PlayOneShot(trashHit);
                 break;
-            case "splashingwtr ":
+            case "splashingwtr":
                 audioSrc.PlayOneShot(splashwtr);
+                ChangeVolume(1.0f);
                 break;
             case "touchrock_met":
                 audioSrc.PlayOneShot(touchHardObject);
