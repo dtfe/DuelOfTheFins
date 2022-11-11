@@ -27,6 +27,15 @@ public class ModifierManager : MonoBehaviour
             gravityModifier();
         }
         CanAttackModifier(playersHostile);
+
+        if (FindObjectOfType<ObjectSpawner>())
+        {
+            FindObjectOfType<ObjectSpawner>().timerModifier = 1;
+        }
+        if (FindObjectOfType<HazardSpawn>())
+        {
+            FindObjectOfType<HazardSpawn>().spawnTimeMultiplier = 1;
+        }
     }
 
     // Update is called once per frame

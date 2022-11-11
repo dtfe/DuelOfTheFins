@@ -9,6 +9,7 @@ public class ObjectSpawner : MonoBehaviour
     private float curTimer;
     public float timeToDisappear;
     public float staticTimer = 3;
+    public float timerModifier = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +22,31 @@ public class ObjectSpawner : MonoBehaviour
         curTimer -= Time.deltaTime;
         if (curTimer <= 0)
         {
-            curTimer = staticTimer;
+            curTimer = staticTimer * timerModifier;
             SpawnObject();
+            if (timerModifier < 1)
+            {
+                SpawnObject();
+                SpawnObject();
+                SpawnObject();
+                SpawnObject();
+            }
+            if (timerModifier < 0.8)
+            {
+                SpawnObject();
+            }
+            if (timerModifier < 0.5)
+            {
+                SpawnObject();
+            }
+            if (timerModifier < 0.3)
+            {
+                SpawnObject();
+            }
+        }
+        if (timerModifier > 0.3)
+        {
+            timerModifier -= Time.deltaTime / 100;
         }
     }
 
@@ -36,10 +60,16 @@ public class ObjectSpawner : MonoBehaviour
     IEnumerator SpawnTrash(Vector3 ranPos, Quaternion ranRot)
     {
         GameObject spawnedWarning = Instantiate(warning, new Vector3(ranPos.x, 4, 0), Quaternion.identity);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(Random.Range(0.5f,2));
         Destroy(spawnedWarning);
         GameObject spawnedObject = Instantiate(objectToSpawn[Random.Range(0, objectToSpawn.Length)], ranPos, ranRot);
-        yield return new WaitForSeconds(timeToDisappear);
-        Destroy(spawnedObject);
+        while (spawnedObject.transform.position.y > -6)
+        {
+            yield return new WaitForSeconds(2);
+        }
+        if(spawnedObject.transform.position.y <= -6)
+        {
+            Destroy(spawnedObject);
+        }
     }
 }
