@@ -9,6 +9,7 @@ public class ObjectSpawner : MonoBehaviour
     private float curTimer;
     public float timeToDisappear;
     public float staticTimer = 3;
+    public float timerModifier = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +22,31 @@ public class ObjectSpawner : MonoBehaviour
         curTimer -= Time.deltaTime;
         if (curTimer <= 0)
         {
-            curTimer = staticTimer;
+            curTimer = staticTimer * timerModifier;
             SpawnObject();
+            if (timerModifier < 1)
+            {
+                SpawnObject();
+                SpawnObject();
+                SpawnObject();
+                SpawnObject();
+            }
+            if (timerModifier < 0.8)
+            {
+                SpawnObject();
+            }
+            if (timerModifier < 0.5)
+            {
+                SpawnObject();
+            }
+            if (timerModifier < 0.3)
+            {
+                SpawnObject();
+            }
+        }
+        if (timerModifier > 0.3)
+        {
+            timerModifier -= Time.deltaTime / 100;
         }
     }
 

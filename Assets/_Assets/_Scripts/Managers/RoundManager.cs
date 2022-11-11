@@ -7,7 +7,7 @@ public class RoundManager : MonoBehaviour
 {
     private PlayerController player1, player2;
     private TextMeshProUGUI p1Counter, p2Counter, winnerTxt;
-    public GameObject UI;
+    public GameObject UI, explanationScreen;
     public int pointsToWin;
     private int p1Score = 0, p2Score = 0;
     private bool roundStarted = false;
@@ -30,6 +30,8 @@ public class RoundManager : MonoBehaviour
         winnerTxt = UI.transform.Find("GameOverlay").transform.Find("WinnerText").GetComponent<TextMeshProUGUI>();
         p1Counter = roundCounter.transform.Find("Player1Counter").gameObject.GetComponent<TextMeshProUGUI>();
         p2Counter = roundCounter.transform.Find("Player2Counter").gameObject.GetComponent<TextMeshProUGUI>();
+        explanationScreen = UI.transform.Find("GameOverlay").transform.Find("RoundExplanation").gameObject;
+        StartCoroutine(firstStartUp());
     }
 
     public void StartRound(List<GameObject> players)
@@ -38,7 +40,10 @@ public class RoundManager : MonoBehaviour
         player1.ResetCharacter();
         player2 = players[1].GetComponent<PlayerController>();
         player2.ResetCharacter();
-        Time.timeScale = 1;
+        if (!explanationScreen.activeInHierarchy)
+        {
+            Time.timeScale = 1;
+        }
         roundStarted = true;
     }
 
@@ -90,6 +95,17 @@ public class RoundManager : MonoBehaviour
         }
     }
 
+    IEnumerator firstStartUp()
+    {
+        explanationScreen.SetActive(true);
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(3);
+        if (player1 && player2)
+        {
+            Time.timeScale = 1;
+        }
+        explanationScreen.SetActive(false);
+    }
     IEnumerator endGame()
     {
         yield return new WaitForSeconds(2);

@@ -1338,6 +1338,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1048371657487738544, guid: 60faa3a6f74d5634e954751ff678380b, type: 3}
+      propertyPath: m_text
+      value: 'The glass is fragile
+
+
+        kill your opponent'
+      objectReference: {fileID: 0}
     - target: {fileID: 1350797489221716605, guid: 60faa3a6f74d5634e954751ff678380b, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

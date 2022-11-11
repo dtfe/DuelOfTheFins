@@ -22,7 +22,7 @@ public class hazardObjectScript : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
 
-        if (!rotateOverTime)
+        if (rotateOverTime && !looksInMoveDir)
         {
             rb2d.angularVelocity = Random.Range(-60, 61);
         }
