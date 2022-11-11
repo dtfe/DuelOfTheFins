@@ -11612,12 +11612,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6986575469861445126, guid: 6e0f8dbd04d36d44b8781d1d07e92e8a, type: 3}
       propertyPath: objectToSpawn.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6986575469861445126, guid: 6e0f8dbd04d36d44b8781d1d07e92e8a, type: 3}
       propertyPath: objectToSpawn.Array.data[0]
       value: 
-      objectReference: {fileID: 7538818901694219129, guid: 6cdc1555ddd1bb14d8803c3386e8856a, type: 3}
+      objectReference: {fileID: 7538818901694219129, guid: 6b99310bed97cd84c940b33470866f07, type: 3}
     - target: {fileID: 6986575469861445126, guid: 6e0f8dbd04d36d44b8781d1d07e92e8a, type: 3}
       propertyPath: objectToSpawn.Array.data[1]
       value: 
