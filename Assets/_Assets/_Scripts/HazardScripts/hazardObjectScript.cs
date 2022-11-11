@@ -10,6 +10,7 @@ public class hazardObjectScript : MonoBehaviour
     public GameObject blood1;
     public bool rotateOverTime = true;
     public bool isHoming = false;
+    public bool looksInMoveDir = false;
     private Rigidbody2D rb2d;
     private Vector2 movement;
     private float timeLeft;
@@ -22,7 +23,7 @@ public class hazardObjectScript : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
 
-        if (!rotateOverTime)
+        if (!rotateOverTime && !looksInMoveDir)
         {
             rb2d.angularVelocity = Random.Range(-60, 61);
         }
@@ -51,6 +52,11 @@ public class hazardObjectScript : MonoBehaviour
         {
             movement = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
             timeLeft = accelerationTime;
+        }
+
+        if (looksInMoveDir)
+        {
+            transform.right = -rb2d.velocity.normalized;
         }
 
         if (isHoming)
