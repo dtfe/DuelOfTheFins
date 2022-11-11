@@ -11415,6 +11415,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1543228271280662995, guid: fec5f04a51815d140991e5f2dfe3454c, type: 3}
+      propertyPath: Priority
+      value: 134
+      objectReference: {fileID: 0}
+    - target: {fileID: 1543228271280662995, guid: fec5f04a51815d140991e5f2dfe3454c, type: 3}
+      propertyPath: m_Volume
+      value: 0.536
+      objectReference: {fileID: 0}
+    - target: {fileID: 1543228271280662995, guid: fec5f04a51815d140991e5f2dfe3454c, type: 3}
+      propertyPath: DopplerLevel
+      value: 2.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 1543228271280662995, guid: fec5f04a51815d140991e5f2dfe3454c, type: 3}
+      propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
+      value: 0.5222222
+      objectReference: {fileID: 0}
+    - target: {fileID: 1543228271280662995, guid: fec5f04a51815d140991e5f2dfe3454c, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0.496
+      objectReference: {fileID: 0}
     - target: {fileID: 1543228271280662996, guid: fec5f04a51815d140991e5f2dfe3454c, type: 3}
       propertyPath: m_RootOrder
       value: 11

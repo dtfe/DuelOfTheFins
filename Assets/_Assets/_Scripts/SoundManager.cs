@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public static AudioClip glassBreak, bloodkill, pop, dash, pickSword, uiSelection, wahwaterfall, wahspace, shootSw;
+    public static AudioClip glassBreak, bloodkill, pop, dash, pickSword, uiSelection, wahwaterfall, wahspace, shootSw, trashAlert, trashHit, splashwtr, touchHardObject, touchCristal, sandTouch;
     static AudioSource audioSrc;
 
     //public static bool isPlaying = false;
@@ -22,7 +22,12 @@ public class SoundManager : MonoBehaviour
         wahwaterfall = Resources.Load<AudioClip>("Audio/waaaaahriver");
         wahspace = Resources.Load<AudioClip>("Audio/aaaaahspace");
         shootSw = Resources.Load<AudioClip>("Audio/Shoot sword");
-
+        trashAlert = Resources.Load<AudioClip>("Audio/warning sound trash");
+        trashHit = Resources.Load<AudioClip>("Audio/Player hit by an object");
+        splashwtr = Resources.Load<AudioClip>("Audio/Splash");
+        touchHardObject = Resources.Load<AudioClip>("Audio/Sword environment");
+        touchCristal = Resources.Load<AudioClip>("Audio/hit cristal");
+        sandTouch = Resources.Load<AudioClip>("Audio/SandScratch");
     }
 
     public static void ChangeVolume(float soundLevel)
@@ -71,6 +76,25 @@ public class SoundManager : MonoBehaviour
                 ChangeVolume(0.3f);
                 audioSrc.PlayOneShot(wahspace);
                 break;
+            case "trashFall ":
+                audioSrc.PlayOneShot(trashAlert);
+                break;
+            case "trashhitplayer ":
+                audioSrc.PlayOneShot(trashHit);
+                break;
+            case "splashingwtr ":
+                audioSrc.PlayOneShot(splashwtr);
+                break;
+            case "touchrock_met":
+                audioSrc.PlayOneShot(touchHardObject);
+                break;
+            case "touchglass":
+                audioSrc.PlayOneShot(touchCristal);
+                break;
+            case "touchSand":
+                audioSrc.PlayOneShot(sandTouch);
+                break;
+
         }
     }
 

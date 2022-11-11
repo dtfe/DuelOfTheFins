@@ -195,7 +195,7 @@ public class PlayerController : MonoBehaviour
             rb2d.velocity = Vector3.zero;
         }
     }
-    //to do check colisions
+    //to do check collisions
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "PHYS_Nose_Projectile" && !hasNose && collision.gameObject.GetComponent<NoseProjScript>().isPickable) //Checks if you entered the trigger of a nose projectile and if you don't have a nose
@@ -234,6 +234,7 @@ public class PlayerController : MonoBehaviour
             isControllable = false;
             if (!FindObjectOfType<WaterLevel>())
             {
+                
                 rb2d.gravityScale = 0f;
                 rb2d.drag = 0f;
                 canDashAndDodge = false;
