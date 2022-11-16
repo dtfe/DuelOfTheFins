@@ -698,9 +698,12 @@ MonoBehaviour:
   - {fileID: 2800000, guid: dda9711ec505aea47aedffc3edd30033, type: 3}
   - {fileID: 2800000, guid: 11360704f382d314fb60c53b6273d9d6, type: 3}
   - {fileID: 2800000, guid: 49daa79d51e561240a48439453252510, type: 3}
+  - {fileID: 2800000, guid: 4e959a79a4725b44d8aae5e11cce0216, type: 3}
+  - {fileID: 2800000, guid: 65c1cf44127a70d438b6b99522220485, type: 3}
   - {fileID: 2800000, guid: b1716dc2d5c879c479e55ba8784a6175, type: 3}
   - {fileID: 2800000, guid: 7e8cc9b9b84af4c42828d78d989d7586, type: 3}
   - {fileID: 2800000, guid: 4d9c22843264d9f4bae6f692035a94af, type: 3}
+  - {fileID: 2800000, guid: 0f2897904c563a741a92ddbc14af4631, type: 3}
   - {fileID: 2800000, guid: 87ee06d030156b742a1e123b733439d6, type: 3}
   previewObject: {fileID: 1904625091}
   buttonSound: {fileID: 654346246}

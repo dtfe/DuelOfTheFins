@@ -18,14 +18,14 @@ public class MapSelector : MonoBehaviour
         curMapIndex--;
         if (curMapIndex < 2)
         {
-            curMapIndex = SceneManager.sceneCountInBuildSettings;
+            curMapIndex = SceneManager.sceneCountInBuildSettings-1;
         }
     }
 
     public void Next()
     {
         curMapIndex++;
-        if(curMapIndex > SceneManager.sceneCountInBuildSettings)
+        if(curMapIndex > SceneManager.sceneCountInBuildSettings-1)
         {
             curMapIndex = 2;
         }
@@ -69,24 +69,32 @@ public class MapSelector : MonoBehaviour
                 previewObject.texture = previewImages[3];
                 break;
             case 5:
-                mapNameText.text = "Ocean Special";
-                previewObject.texture = previewImages[3];
-                break;
-            case 6:
-                mapNameText.text = "Waterfall 1";
+                mapNameText.text = "Ocean 3";
                 previewObject.texture = previewImages[4];
                 break;
-            case 7:
-                mapNameText.text = "Waterfall 2";
+            case 6:
+                mapNameText.text = "Ocean Special";
                 previewObject.texture = previewImages[5];
                 break;
-            case 8:
-                mapNameText.text = "Waterfall 3";
+            case 7:
+                mapNameText.text = "Waterfall 1";
                 previewObject.texture = previewImages[6];
                 break;
-            case 9:
-                mapNameText.text = "Space 1";
+            case 8:
+                mapNameText.text = "Waterfall 2";
                 previewObject.texture = previewImages[7];
+                break;
+            case 9:
+                mapNameText.text = "Waterfall 3";
+                previewObject.texture = previewImages[8];
+                break;
+            case 10:
+                mapNameText.text = "Waterfall Special";
+                previewObject.texture = previewImages[9];
+                break;
+            case 11:
+                mapNameText.text = "Space 1";
+                previewObject.texture = previewImages[10];
                 break;
         }
     }
