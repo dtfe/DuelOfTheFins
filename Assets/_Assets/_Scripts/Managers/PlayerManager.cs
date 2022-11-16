@@ -13,7 +13,6 @@ public class PlayerManager : MonoBehaviour
     private int curPlayerNumber = 0;
     public List<GameObject> players;
     private List<PlayerManager> PMs;
-    private int pmID;
     public bool hasSpawned;
 
     private void Awake()
@@ -83,11 +82,6 @@ public class PlayerManager : MonoBehaviour
 
     public void startMap()
     {
-        StartCoroutine(newMap());
-    }
-
-    public IEnumerator newMap()
-    {
         Debug.Log("NewMap activated");
         players[0].GetComponent<PlayerController>().ResetCharacter();
         players[1].GetComponent<PlayerController>().ResetCharacter();
@@ -95,6 +89,5 @@ public class PlayerManager : MonoBehaviour
         modifierManager = FindObjectOfType<ModifierManager>();
         roundManager.StartRound(players);
         modifierManager.ApplyPlayerObjects(players);
-        yield return new WaitForSeconds(0);
     }
 }
