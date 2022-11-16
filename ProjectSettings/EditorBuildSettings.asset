@@ -39,6 +39,9 @@ EditorBuildSettings:
     path: Assets/Scenes/WaterfallToxic.unity
     guid: fd0fd9827c12ec84a9df68f7d50da141
   - enabled: 1
+    path: Assets/Scenes/Waterfall Special.unity
+    guid: 43d649419758dec44a2989bc70e24d4f
+  - enabled: 1
     path: Assets/Scenes/SpaceTest.unity
     guid: 6ba7df86a88a36f43a6fd30b11ecae30
   m_configObjects:
