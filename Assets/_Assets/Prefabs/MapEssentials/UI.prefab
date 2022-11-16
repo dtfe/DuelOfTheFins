@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 2132514447355327179}
   - component: {fileID: 5446157372825741155}
   m_Layer: 5
-  m_Name: ScorePoint
+  m_Name: rightPoint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1515,7 +1515,7 @@ GameObject:
   - component: {fileID: 8330441449887021056}
   - component: {fileID: 680846079584383881}
   m_Layer: 5
-  m_Name: ScorePoint (1)
+  m_Name: leftPoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1588,7 +1588,7 @@ GameObject:
   - component: {fileID: 4138926157779905129}
   - component: {fileID: 4006300748718045040}
   m_Layer: 5
-  m_Name: ScorePoint (2)
+  m_Name: rightPoint1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2008,7 +2008,7 @@ GameObject:
   - component: {fileID: 4388718551823106240}
   - component: {fileID: 6225412393292458710}
   m_Layer: 5
-  m_Name: ScorePoint
+  m_Name: leftPoint2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

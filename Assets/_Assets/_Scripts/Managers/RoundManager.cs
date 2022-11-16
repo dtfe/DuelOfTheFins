@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class RoundManager : MonoBehaviour
 {
     private PlayerController player1, player2;
     private TextMeshProUGUI p1Counter, p2Counter, winnerTxt;
-    public GameObject UI, explanationScreen;
+    public Texture2D purpleScore, yellowScore, emptyScore;
+    public GameObject UI, explanationScreen, scorePoints;
     public int pointsToWin;
     private int p1Score = 0, p2Score = 0;
     private bool roundStarted = false;
@@ -31,6 +33,7 @@ public class RoundManager : MonoBehaviour
         p1Counter = roundCounter.transform.Find("Player1Counter").gameObject.GetComponent<TextMeshProUGUI>();
         p2Counter = roundCounter.transform.Find("Player2Counter").gameObject.GetComponent<TextMeshProUGUI>();
         explanationScreen = UI.transform.Find("GameOverlay").transform.Find("RoundExplanation").gameObject;
+        scorePoints = roundCounter.transform.Find("ScorePoints").gameObject;
         StartCoroutine(firstStartUp());
     }
 
@@ -59,20 +62,31 @@ public class RoundManager : MonoBehaviour
         {
             hasScored = true;
             p2Score++;
-            p2Counter.text = p2Score.ToString();
-            p2Counter.color = Color.cyan;
+
+            if (p2Score == pointsToWin)
+            {
+                scorePoints.transform.Find("VictoryPoint").GetComponent<RawImage>().texture = yellowScore;
+            }
+            else
+            {
+                scorePoints.transform.Find("rightPoint" + p2Score.ToString()).GetComponent<RawImage>().texture = yellowScore;
+            }
         }
         else if (!player1.isDead && player2.isDead && !hasScored && !endGameActive)
         {
             hasScored = true;
             p1Score++;
-            p1Counter.text = p1Score.ToString();
-            p1Counter.color = Color.cyan;
+            if (p1Score == pointsToWin)
+            {
+                scorePoints.transform.Find("VictoryPoint").GetComponent<RawImage>().texture = purpleScore;
+            }
+            else
+            {
+                scorePoints.transform.Find("leftPoint" + p1Score.ToString()).GetComponent<RawImage>().texture = purpleScore;
+            }
         } else if (player1.isDead && player2.isDead && !hasScored && !endGameActive)
         {
             hasScored = true;
-            p1Counter.color = Color.cyan;
-            p2Counter.color = Color.cyan;
         }
         if (p1Score == pointsToWin || p2Score == pointsToWin)
         {

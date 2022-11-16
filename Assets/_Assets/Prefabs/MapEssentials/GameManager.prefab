@@ -60,7 +60,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fe2e17d68ea2954aa38dd6deb9226ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleScore: {fileID: 2800000, guid: 98bbffdef25d8e4459fac6f1c0ceb66e, type: 3}
+  yellowScore: {fileID: 2800000, guid: 4c3f59e64a9ef8142a5fc52debbbd547, type: 3}
+  emptyScore: {fileID: 2800000, guid: e4f19e1a3d4adba4f87026b0d405c0b4, type: 3}
   UI: {fileID: 0}
+  explanationScreen: {fileID: 0}
+  scorePoints: {fileID: 0}
   pointsToWin: 3
 --- !u!114 &8631072110311354864
 MonoBehaviour:
@@ -79,6 +84,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   WaterLevel: {fileID: 0}
+  playersHostile: 1
 --- !u!114 &4881628407892475518
 MonoBehaviour:
   m_ObjectHideFlags: 0
