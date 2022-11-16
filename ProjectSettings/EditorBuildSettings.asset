@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/OceanBattle.unity
     guid: 604a8a4bdcb379a448fa891ce993bf64
   - enabled: 1
+    path: Assets/Scenes/OceanLava.unity
+    guid: 906f605c82fce9a4dbf6aa2835c45570
+  - enabled: 1
     path: Assets/Scenes/Ocean Special.unity
     guid: b4a5838764511274fa8585b8baa1b37d
   - enabled: 1
