@@ -66,9 +66,10 @@ public class NoseProjScript : MonoBehaviour
             GetComponent<BoxCollider2D>().enabled = false;
             parent.Translate((depth * transform.localScale.y) * Vector2.up);
             parent.transform.position = GetPointOfContact();
+            parent.transform.Translate(-0.2f * Vector2.up);
             parent.parent = other.transform;
             GameObject bloodyHit = Instantiate(blood, transform.position, transform.rotation);
-            bloodyHit.transform.Translate(((depth * transform.localScale.y) * Vector2.up) * 2.5f);
+            bloodyHit.transform.Translate(((depth * transform.localScale.y) * Vector2.up) * 3f);
             bloodyHit.transform.parent = other.transform;
             isActive = false;
         }
@@ -104,11 +105,11 @@ public class NoseProjScript : MonoBehaviour
     private Vector3 GetPointOfContact()
     {
         RaycastHit2D hit;
-        if (hit = Physics2D.Raycast(transform.position, parent.position - shootDir, 0.1f))
+        if (hit = Physics2D.Raycast(transform.position, parent.position - shootDir, 1f))
         {
             Debug.DrawLine(transform.position, Vector3.up, Color.red);
             return hit.point;
         }
-        return new Vector3(0, 0, 0);
+        return transform.position;
     }
 }

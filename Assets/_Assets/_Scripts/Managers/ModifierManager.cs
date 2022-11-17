@@ -7,6 +7,7 @@ public class ModifierManager : MonoBehaviour
     public float gravity;
     public GameObject[] player;
     public Transform WaterLevel;
+    public bool playersHostile = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,12 +26,30 @@ public class ModifierManager : MonoBehaviour
         {
             gravityModifier();
         }
+        CanAttackModifier(playersHostile);
+
+        if (FindObjectOfType<ObjectSpawner>())
+        {
+            FindObjectOfType<ObjectSpawner>().timerModifier = 1;
+        }
+        if (FindObjectOfType<HazardSpawn>())
+        {
+            FindObjectOfType<HazardSpawn>().spawnTimeMultiplier = 1;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+
+    private void CanAttackModifier(bool canAttack)
+    {
+        for (int i = 0; i < player.Length; i++)
+        {
+            player[i].GetComponent<PlayerController>().canAttack = canAttack;
+        }
     }
 
     private void gravityModifier()

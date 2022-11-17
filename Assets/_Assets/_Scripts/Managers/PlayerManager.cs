@@ -6,14 +6,32 @@ using UnityEngine.InputSystem;
 public class PlayerManager : MonoBehaviour
 {
     public Transform[] spawnlocations;
+    [SerializeField]
     private RoundManager roundManager;
+    [SerializeField]
     private ModifierManager modifierManager;
     private int curPlayerNumber = 0;
     public List<GameObject> players;
+    private List<PlayerManager> PMs;
     public bool hasSpawned;
     public string deathSound;
     private void Awake()
     {
+        PMs = new List<PlayerManager>();
+        PMs.AddRange(FindObjectsOfType<PlayerManager>());
+        if (PMs.Count == 2)
+        {
+            for (int i = 0; i < PMs.Count; i++)
+            {
+                if (PMs[i] != this)
+                {
+                    PMs[i].transform.Find("Spawn0").transform.position = transform.Find("Spawn0").transform.position;
+                    PMs[i].transform.Find("Spawn1").transform.position = transform.Find("Spawn1").transform.position;
+                    PMs[i].startMap();
+                }
+            }
+            Destroy(gameObject);
+        }
         players = new List<GameObject>();
     }
 
@@ -65,5 +83,16 @@ public class PlayerManager : MonoBehaviour
             roundManager.StartRound(players);
             modifierManager.ApplyPlayerObjects(players);
         }
+    }
+
+    public void startMap()
+    {
+        Debug.Log("NewMap activated");
+        players[0].GetComponent<PlayerController>().ResetCharacter();
+        players[1].GetComponent<PlayerController>().ResetCharacter();
+        roundManager = FindObjectOfType<RoundManager>();
+        modifierManager = FindObjectOfType<ModifierManager>();
+        roundManager.StartRound(players);
+        modifierManager.ApplyPlayerObjects(players);
     }
 }

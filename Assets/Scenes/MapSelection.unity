@@ -752,9 +752,15 @@ MonoBehaviour:
   mapNameText: {fileID: 153234737}
   previewImages:
   - {fileID: 2800000, guid: 3b1748d1138374c4f83f39f673e543f4, type: 3}
+  - {fileID: 2800000, guid: dda9711ec505aea47aedffc3edd30033, type: 3}
   - {fileID: 2800000, guid: 11360704f382d314fb60c53b6273d9d6, type: 3}
+  - {fileID: 2800000, guid: 49daa79d51e561240a48439453252510, type: 3}
+  - {fileID: 2800000, guid: 4e959a79a4725b44d8aae5e11cce0216, type: 3}
+  - {fileID: 2800000, guid: 65c1cf44127a70d438b6b99522220485, type: 3}
   - {fileID: 2800000, guid: b1716dc2d5c879c479e55ba8784a6175, type: 3}
   - {fileID: 2800000, guid: 7e8cc9b9b84af4c42828d78d989d7586, type: 3}
+  - {fileID: 2800000, guid: 4d9c22843264d9f4bae6f692035a94af, type: 3}
+  - {fileID: 2800000, guid: 0f2897904c563a741a92ddbc14af4631, type: 3}
   - {fileID: 2800000, guid: 87ee06d030156b742a1e123b733439d6, type: 3}
   previewObject: {fileID: 1904625091}
   buttonSound: {fileID: 654346246}
@@ -995,7 +1001,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Pevious
+  m_text: Previous
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

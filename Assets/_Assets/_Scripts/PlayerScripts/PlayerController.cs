@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private bool hasNose;
     public bool regenerateNose;
     private bool isRegeneratingNose;
+    public bool canAttack;
 
     //Control bools
     public bool isDummy;
@@ -85,7 +86,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnFire() //Whenever the west most button on the gamepad is pressed, this activates
     {
-        if (hasNose && !isDead && !isDashing && !isDummy) //Checks if the player has a nose, if its not dead and if its not dashing
+        if (hasNose && !isDead && !isDashing && !isDummy && canAttack) //Checks if the player has a nose, if its not dead and if its not dashing
         {
             SoundManager.PlaySound("ThrowSw");
             GameObject noseProj = Instantiate(noseProjectile, nose.transform.position, transform.rotation); //Creates a projectile assigned the reference noseProj
@@ -110,6 +111,10 @@ public class PlayerController : MonoBehaviour
             SoundManager.PlaySound("Dashing");
             StartCoroutine(Dash()); //Starts coroutine which allows for delays using IENumerator
             isDashing = true; //Sets isDashing to true so player cant spam dash while dashing
+            if (!canAttack)
+            {
+                return;
+            }
             nose.GetComponent<BoxCollider2D>().enabled = true; //Makes the collider which can kill the opponent active
         }
     }
@@ -140,7 +145,7 @@ public class PlayerController : MonoBehaviour
 
         Vector2 lookDir = (nose.transform.position - transform.position).normalized; //Vector which is in the direction of where your character is looking
         playerMovement = lookDir; //Sets Vector2 playerMovement to be equal to vector2 lookDir
-        if (hasNose) //Activates and deactivates the nose of the player
+        if (hasNose && canAttack) //Activates and deactivates the nose of the player
         {
             nose.SetActive(true);
         }
@@ -158,16 +163,18 @@ public class PlayerController : MonoBehaviour
             {
                 transform.up = rb2d.velocity.normalized; // Keeps the player looking towards the direction they are moving
             }
-
+            Transform spriteTr = transform.Find("Sprite");
             if (transform.eulerAngles.z > 180)
             {
-                if (transform.Find("Sprite"))
-                    transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = true;
+                if (spriteTr && spriteTr.localScale.x > 0)
+                    spriteTr.localScale = new Vector3(-spriteTr.localScale.x, spriteTr.localScale.y, spriteTr.localScale.z);
+                    //transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = true;
             }
             else if (transform.eulerAngles.z < 180)
             {
-                if (transform.Find("Sprite"))
-                    transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = false;
+                if (spriteTr && spriteTr.localScale.x < 0)
+                    spriteTr.localScale = new Vector3(-spriteTr.localScale.x, spriteTr.localScale.y, spriteTr.localScale.z);
+                    //transform.Find("Sprite").GetComponent<SpriteRenderer>().flipX = false;
             }
         }
     }
@@ -290,6 +297,7 @@ public class PlayerController : MonoBehaviour
 
     public void ResetCharacter()
     {
+        transform.parent = null;
         isDead = false;
         if (!rb2d)
         {
@@ -298,12 +306,18 @@ public class PlayerController : MonoBehaviour
             rb2d.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
             rb2d.sharedMaterial = PM2D;
         }
+        foreach(Transform tr in transform)
+        {
+            if(tr.tag == "Deleteable")
+            {
+                Destroy(tr.gameObject);
+            }
+        }
         rb2d.gravityScale = 0;
         rb2d.drag = 2;
         hasNose = true;
         isDashing = false;
         isControllable = true;
-        transform.parent = null;
         rb2d.velocity = Vector2.zero;
         rb2d.angularVelocity = 0;
         movementX = 0;
