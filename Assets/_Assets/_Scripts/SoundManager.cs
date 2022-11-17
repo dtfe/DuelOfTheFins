@@ -77,7 +77,7 @@ public class SoundManager : MonoBehaviour
                 ChangeVolume(0.3f);
                 audioSrc.PlayOneShot(wahspace);
                 break;
-            case "trashFall ":
+            case "trashFall":
                 audioSrc.PlayOneShot(trashAlert);
                 break;
             case "trashhitplayer":

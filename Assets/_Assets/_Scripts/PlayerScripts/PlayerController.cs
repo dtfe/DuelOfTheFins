@@ -205,6 +205,18 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Deleteable")) {
             SoundManager.PlaySound("trashhitplayer");
         } 
+        if (collision.gameObject.CompareTag("GlassWall")) {
+            SoundManager.PlaySound("touchglass");
+        }
+        
+        if (collision.gameObject.CompareTag("Sand"))
+        {
+            SoundManager.PlaySound("touchSand");
+        }
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            SoundManager.PlaySound("touchrock_met");
+        }
     }
     
     private void OnTriggerEnter2D(Collider2D collision)

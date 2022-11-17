@@ -52,6 +52,7 @@ public class ObjectSpawner : MonoBehaviour
 
     public void SpawnObject()
     {
+        SoundManager.PlaySound("trashFall");
         Vector3 randomPos = new Vector3(Random.Range(-8, 9), 5.5f, 0);
         Quaternion randomRot = new Quaternion(0, 0, Random.rotation.z, Quaternion.identity.w);
         StartCoroutine(SpawnTrash(randomPos, randomRot));
