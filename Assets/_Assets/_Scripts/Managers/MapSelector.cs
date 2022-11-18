@@ -96,6 +96,18 @@ public class MapSelector : MonoBehaviour
                 mapNameText.text = "Space 1";
                 previewObject.texture = previewImages[10];
                 break;
+            case 12:
+                mapNameText.text = "Space 2";
+                previewObject.texture = previewImages[11];
+                break;
+            case 13:
+                mapNameText.text = "Space 3";
+                previewObject.texture = previewImages[12];
+                break;
+            case 14:
+                mapNameText.text = "Space 4";
+                previewObject.texture = previewImages[13];
+                break;
         }
     }
 }

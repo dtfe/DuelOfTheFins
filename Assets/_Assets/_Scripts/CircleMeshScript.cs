@@ -45,7 +45,7 @@ public class CircleMeshScript : MonoBehaviour
         {
             PolyMesh(radius, resolution);
         }
-        SizeAdjustment = radius / (test/2) + test * spread;
+        SizeAdjustment = radius / (radius/2) + radius * spread;
     }
 
     public void PolyMesh(float radius, int n)
