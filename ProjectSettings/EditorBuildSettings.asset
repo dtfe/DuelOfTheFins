@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 5727c5474125e40459a2af8a59473313
   - enabled: 1
+    path: Assets/Scenes/HelpScreen.unity
+    guid: 0613fa3f5e36a3a4a88e682947979a5b
+  - enabled: 1
     path: Assets/Scenes/MapSelection.unity
     guid: d2cb5491065a8f141934e2f3feb1e4cd
   - enabled: 1
