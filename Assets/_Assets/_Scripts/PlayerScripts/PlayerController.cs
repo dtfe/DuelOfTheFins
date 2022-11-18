@@ -208,6 +208,11 @@ public class PlayerController : MonoBehaviour
             Destroy(collision.gameObject.GetComponent<NoseProjScript>().parent.gameObject); //Destroys the nose projectile that you pick up
             hasNose = true; //Gives you your nose back
         }
+
+        if (collision.gameObject.CompareTag("PlayArea") && !canDashAndDodge && isDashing)
+        {
+            rb2d.velocity = rb2d.velocity / 2;
+        }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
