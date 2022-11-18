@@ -8,19 +8,46 @@ public class MusicManager : MonoBehaviour
     AudioSource audioSource;
 
     [SerializeField]
+    AudioSource effectAudioSource;
+
+    [SerializeField]
     AudioClip mainMenuMusic;
 
     [SerializeField]
     AudioClip aquariumMusic;
+    
+    [SerializeField]
+    AudioClip aquariumBubbles;
 
     [SerializeField]
     AudioClip oceanMusic;
+    
+    [SerializeField]
+    AudioClip whaleSing;
+
+    [SerializeField]
+    AudioClip caveEnv;
 
     [SerializeField]
     AudioClip waterfallMusic;
+    
+    [SerializeField]
+    AudioClip birdSing;
 
     [SerializeField]
     AudioClip spaceMusic;
+
+    [SerializeField]
+    AudioClip spaceShip;
+    
+    [SerializeField]
+    AudioClip spaceBubbles;
+
+    private float playEverySeconds = 7;
+    private float timePassed = 0;
+    private string[] randomEffects;
+
+    
 
     //make the instance private so it can't be modified in other scripts
     private static MusicManager _instance; 
@@ -69,10 +96,12 @@ public class MusicManager : MonoBehaviour
         audioSource.Play();
     }
 
+
     public void StopMusic()
     { 
         audioSource.Stop();
     }
+
 
     public void PlayMusicByName(string name)
     {
@@ -84,7 +113,7 @@ public class MusicManager : MonoBehaviour
                 PlayMusic();
                 break;
             case "ocean":
-                ChangeVolume(0.3f);
+                ChangeVolume(0.2f);
                 audioSource.clip = oceanMusic;
                 PlayMusic();
                 break;
@@ -105,5 +134,58 @@ public class MusicManager : MonoBehaviour
                 break;
 
         }
+    }
+    public void PlayEffectsRandomly(string[] names)
+    {
+        this.StartCoroutine(RandomEffectGenerator(names));
+    }
+
+    private IEnumerator RandomEffectGenerator(string[] names)
+    {
+        while (true)
+        {
+            PlayEffectRandomly(names);
+            yield return new WaitForSeconds(3 + 7 * Random.Range(0f, 1f));
+        }
+    }
+
+    private void PlayEffectRandomly(string[] names)
+    {
+        var effect = names[Random.Range(0, names.Length - 1)];
+     
+        
+        switch (effect)
+        {
+            case "aquariumBubbls":
+                effectAudioSource.clip = aquariumBubbles;
+                effectAudioSource.Play();
+                break;
+
+            case "whale":
+                effectAudioSource.clip = whaleSing;
+                effectAudioSource.Play();
+                break;
+            case "caveWater":
+                effectAudioSource.clip = caveEnv;
+                effectAudioSource.Play();
+                break;
+            case "birds":
+                effectAudioSource.clip = birdSing;
+                effectAudioSource.Play();
+                break;
+            case "spacialShip":
+                effectAudioSource.clip = spaceShip;
+                effectAudioSource.Play();
+                break;
+            case "spacialbubbl":
+                effectAudioSource.clip = spaceBubbles;
+                effectAudioSource.Play();
+                break;
+
+            default:
+                break;
+
+        }
+
     }
 }
