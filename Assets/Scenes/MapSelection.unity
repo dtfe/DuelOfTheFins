@@ -705,6 +705,9 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 4d9c22843264d9f4bae6f692035a94af, type: 3}
   - {fileID: 2800000, guid: 0f2897904c563a741a92ddbc14af4631, type: 3}
   - {fileID: 2800000, guid: 87ee06d030156b742a1e123b733439d6, type: 3}
+  - {fileID: 2800000, guid: 58689979f4f47e84bae823a046833a31, type: 3}
+  - {fileID: 2800000, guid: 4679a27a7872ce74e8edf604f9a7284c, type: 3}
+  - {fileID: 2800000, guid: 880099521d83a4e4c9c35df8187c5a57, type: 3}
   previewObject: {fileID: 1904625091}
   buttonSound: {fileID: 654346246}
 --- !u!4 &654346245
