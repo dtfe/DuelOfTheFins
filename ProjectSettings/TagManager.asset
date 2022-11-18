@@ -12,6 +12,7 @@ TagManager:
   - PlayArea
   - GlassWall
   - Sand
+  - Stone
   layers:
   - Default
   - TransparentFX

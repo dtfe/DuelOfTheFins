@@ -59,8 +59,12 @@ public class MusicManager : MonoBehaviour
                 Destroy(this.gameObject);
         }
     }
+    public void ChangeVolume(float soundLevel)
+    {
+        audioSource.volume = soundLevel;
+    }
 
-      public void PlayMusic()
+    public void PlayMusic()
     {
         audioSource.Play();
     }
@@ -72,6 +76,7 @@ public class MusicManager : MonoBehaviour
 
     public void PlayMusicByName(string name)
     {
+        ChangeVolume(0.48f);
         switch (name)
         {
             case "aquarium":
@@ -79,6 +84,7 @@ public class MusicManager : MonoBehaviour
                 PlayMusic();
                 break;
             case "ocean":
+                ChangeVolume(0.3f);
                 audioSource.clip = oceanMusic;
                 PlayMusic();
                 break;

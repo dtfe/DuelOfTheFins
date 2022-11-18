@@ -208,12 +208,12 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("GlassWall")) {
             SoundManager.PlaySound("touchglass");
         }
-        
+        Debug.Log(collision.gameObject.tag);
         if (collision.gameObject.CompareTag("Sand"))
         {
             SoundManager.PlaySound("touchSand");
         }
-        if (collision.gameObject.CompareTag("Wall"))
+        if (collision.gameObject.CompareTag("Stone"))
         {
             SoundManager.PlaySound("touchrock_met");
         }

@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 18884590}
   m_Layer: 3
   m_Name: River_banks
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5201,7 +5201,7 @@ GameObject:
   - component: {fileID: 562654768}
   m_Layer: 3
   m_Name: Collider (3)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5249,7 +5249,7 @@ GameObject:
   - component: {fileID: 580111150}
   m_Layer: 3
   m_Name: Collider (4)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10940,7 +10940,7 @@ GameObject:
   - component: {fileID: 1423684422}
   m_Layer: 3
   m_Name: Collider (2)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10988,7 +10988,7 @@ GameObject:
   - component: {fileID: 1472973984}
   m_Layer: 3
   m_Name: Collider (5)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11094,7 +11094,7 @@ GameObject:
   - component: {fileID: 1568483967}
   m_Layer: 3
   m_Name: Collider (1)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11240,7 +11240,7 @@ GameObject:
   - component: {fileID: 1636515927}
   m_Layer: 3
   m_Name: Collider
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

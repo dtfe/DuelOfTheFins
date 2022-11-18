@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class NoseProjScript : MonoBehaviour
@@ -73,14 +74,19 @@ public class NoseProjScript : MonoBehaviour
             bloodyHit.transform.parent = other.transform;
             isActive = false;
         }
-        if (other.gameObject.CompareTag("Wall"))
+        string[] collidables = { "Wall", "GlassWall", "Sand", "Stone" };
+        if (collidables.Contains(other.gameObject.tag))
         {
             HitWall(false);
         }
-        if (other.gameObject.CompareTag("GlassWall"))
-        {
-            HitWall(true);
-        }
+        //if (other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("Sand")
+        //{
+        //    HitWall(false);
+        //}
+        //if (other.gameObject.CompareTag("GlassWall"))
+        //{
+        //    HitWall(true);
+        //}
     }
     private void HitWall(bool breakable)
     {

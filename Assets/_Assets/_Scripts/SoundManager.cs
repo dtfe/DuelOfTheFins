@@ -94,6 +94,7 @@ public class SoundManager : MonoBehaviour
                 audioSrc.PlayOneShot(touchCristal);
                 break;
             case "touchSand":
+                ChangeVolume(2f);
                 audioSrc.PlayOneShot(sandTouch);
                 break;
 

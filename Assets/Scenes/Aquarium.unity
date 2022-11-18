@@ -382,7 +382,7 @@ GameObject:
   - component: {fileID: 213258359}
   m_Layer: 3
   m_Name: Wall asset1
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -734,7 +734,7 @@ GameObject:
   - component: {fileID: 491748440}
   m_Layer: 3
   m_Name: Collider (1)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1101,7 +1101,7 @@ GameObject:
   - component: {fileID: 1058861069}
   m_Layer: 3
   m_Name: Collider
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2608,7 +2608,7 @@ GameObject:
   - component: {fileID: 1707404101}
   m_Layer: 3
   m_Name: Collider (2)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
