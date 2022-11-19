@@ -11868,6 +11868,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicName: waterfall
+  effectNames:
+  - birds
+  ambientMusicName: waterFall
 --- !u!1 &1590993342
 GameObject:
   m_ObjectHideFlags: 0

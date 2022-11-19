@@ -204,6 +204,14 @@ public class MusicManager : MonoBehaviour
                 natureAudio.clip = natureSounds[2];
                 natureAudio.Play();
                 break;
+            case "volcano":
+                natureAudio.clip = natureSounds[3];
+                natureAudio.Play();
+                break;
+            case "Aquarium":
+                natureAudio.clip = natureSounds[4];
+                natureAudio.Play();
+                break;
         }       
     }
     public void StopAmbientMusic() { natureAudio.Stop(); }  

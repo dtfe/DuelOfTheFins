@@ -627,6 +627,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicName: aquarium
+  effectNames:
+  - aquariumBubbls
+  ambientMusicName: Aquarium
 --- !u!1 &327439812
 GameObject:
   m_ObjectHideFlags: 0

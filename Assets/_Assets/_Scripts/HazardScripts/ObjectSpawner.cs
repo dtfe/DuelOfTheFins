@@ -64,11 +64,15 @@ public class ObjectSpawner : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(0.5f,2));
         Destroy(spawnedWarning);
         GameObject spawnedObject = Instantiate(objectToSpawn[Random.Range(0, objectToSpawn.Length)], ranPos, ranRot);
-        while (spawnedObject.transform.position.y > -6)
-        {
-            yield return new WaitForSeconds(2);
-        }
-        if(spawnedObject.transform.position.y <= -6)
+        //if (spawnedObject != null)
+        //{
+        //    while (spawnedObject.transform.position.y > -6)
+        //    {
+        //        yield return new WaitForSeconds(2);
+        //    }
+        //}
+       
+        if(spawnedObject != null && spawnedObject.transform.position.y <= -6)
         {
             Destroy(spawnedObject);
         }
