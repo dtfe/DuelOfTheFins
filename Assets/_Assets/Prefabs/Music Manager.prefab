@@ -57,12 +57,14 @@ MonoBehaviour:
   whaleSing: {fileID: 8300000, guid: c879e50a62492224e8ca4d97505da8e4, type: 3}
   caveEnv: {fileID: 8300000, guid: 2f8e6a24262d90d40884843fb9d6bb1e, type: 3}
   waterfallMusic: {fileID: 8300000, guid: 90bf6d6d11b769d4d8a1f847066a3008, type: 3}
-  birdSing: {fileID: 8300000, guid: 7a2b2d8472c627849a07499b897a9d44, type: 3}
+  birdSing: {fileID: 8300000, guid: 4d53dae76e1f56040885db5ab34fc424, type: 3}
   spaceMusic: {fileID: 8300000, guid: 412f14ffda4dee847976b898c187742f, type: 3}
   spaceShip: {fileID: 8300000, guid: e2ddf2158f75a194ebf6e7c28c9e621c, type: 3}
   spaceBubbles: {fileID: 8300000, guid: 76a2abb67c0e8c446901c8995e5a8aad, type: 3}
   natureSounds:
   - {fileID: 8300000, guid: 1cefe621610593f4898bb93dc652dd1b, type: 3}
+  - {fileID: 8300000, guid: d69c52820c9216b428343ccdb826c310, type: 3}
+  - {fileID: 8300000, guid: be351d09eaf62784d835616b5e00596a, type: 3}
 --- !u!82 &4687316642413880789
 AudioSource:
   m_ObjectHideFlags: 0
@@ -269,7 +271,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

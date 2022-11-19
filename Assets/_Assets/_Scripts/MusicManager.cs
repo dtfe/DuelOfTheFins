@@ -196,7 +196,16 @@ public class MusicManager : MonoBehaviour
                 natureAudio.clip = natureSounds[0];
                 natureAudio.Play();
                 break;
+            case "spacenoise":
+                natureAudio.clip = natureSounds[1];
+                natureAudio.Play();
+                break;
+            case "waterFall":
+                natureAudio.clip = natureSounds[2];
+                natureAudio.Play();
+                break;
         }       
     }
+    public void StopAmbientMusic() { natureAudio.Stop(); }  
 }
     

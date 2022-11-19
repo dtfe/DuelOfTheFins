@@ -13,6 +13,7 @@ public class PlayLevelMusic : MonoBehaviour
         if (FindObjectOfType<MusicManager>())
         {
             MusicManager.instance.StopMusic();
+            MusicManager.instance.StopAmbientMusic();
             MusicManager.instance.PlayMusicByName(musicName);
             if (effectNames.Length > 0)
             {

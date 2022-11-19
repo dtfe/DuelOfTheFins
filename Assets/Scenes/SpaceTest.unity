@@ -6337,6 +6337,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicName: space
+  effectNames:
+  - spacialShip
+  - spacialbubbl
+  ambientMusicName: spacenoise
 --- !u!1001 &9054844979262187315
 PrefabInstance:
   m_ObjectHideFlags: 0
