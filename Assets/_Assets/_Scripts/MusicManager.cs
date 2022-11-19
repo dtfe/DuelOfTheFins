@@ -1,9 +1,11 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
+    [SerializeField] AudioSource natureAudio;
     [SerializeField]
     AudioSource audioSource;
 
@@ -43,11 +45,8 @@ public class MusicManager : MonoBehaviour
     [SerializeField]
     AudioClip spaceBubbles;
 
-    private float playEverySeconds = 7;
-    private float timePassed = 0;
-    private string[] randomEffects;
-
-    
+    [SerializeField]
+    AudioClip[] natureSounds;
 
     //make the instance private so it can't be modified in other scripts
     private static MusicManager _instance; 
@@ -186,6 +185,18 @@ public class MusicManager : MonoBehaviour
                 break;
 
         }
+       
 
     }
+    public void PlayAmbientMusicByName(string name )
+    {
+        switch (name)
+        {
+            case "waves":
+                natureAudio.clip = natureSounds[0];
+                natureAudio.Play();
+                break;
+        }       
+    }
 }
+    

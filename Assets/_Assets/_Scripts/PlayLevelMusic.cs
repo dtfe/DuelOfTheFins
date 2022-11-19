@@ -6,6 +6,7 @@ public class PlayLevelMusic : MonoBehaviour
 {
     public string musicName;
     public string[] effectNames;
+    public string ambientMusicName;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,10 @@ public class PlayLevelMusic : MonoBehaviour
             {
 
                 MusicManager.instance.PlayEffectsRandomly(effectNames);
+            }
+            if (ambientMusicName != "")
+            {
+                MusicManager.instance.PlayAmbientMusicByName(ambientMusicName);
             }
         }
     }
