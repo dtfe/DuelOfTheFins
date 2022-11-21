@@ -9,7 +9,7 @@ public class RoundManager : MonoBehaviour
     private PlayerController player1, player2;
     private TextMeshProUGUI p1Counter, p2Counter, winnerTxt;
     public Texture2D purpleScore, yellowScore, emptyScore;
-    public GameObject UI, scorePoints;
+    public GameObject UI, scorePoints, taunt;
     public int pointsToWin;
     private int p1Score = 0, p2Score = 0;
     private bool roundStarted = false;
@@ -48,7 +48,8 @@ public class RoundManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!roundStarted || !player1 || !player2)
+
+        if (!roundStarted || !player1 || !player2)
         {
             return;
         }
@@ -148,5 +149,20 @@ public class RoundManager : MonoBehaviour
         yield return new WaitForSeconds(5);
         //FindObjectOfType<PlayerManager>().newMap();
         GetComponent<MapRotator>().NextMap();
+    }
+
+    public void SpawnTaunt(PlayerController sender)
+    {
+        Transform target;
+        if (player1 == sender)
+        {
+            target = player2.transform;
+        }
+        else
+        {
+            target = player1.transform;
+        }
+        GameObject tauntGO = Instantiate(taunt);
+        tauntGO.GetComponent<tauntScript>().setTarget(target);
     }
 }

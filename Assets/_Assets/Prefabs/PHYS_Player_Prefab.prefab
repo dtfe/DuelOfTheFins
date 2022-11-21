@@ -431,6 +431,8 @@ MonoBehaviour:
   noseProjectile: {fileID: 5220877082785094627, guid: 71e20be82cc91ff48bec7164d076f0ce, type: 3}
   playerMovement: {x: 0, y: 0}
   speed: 7.5
+  whenToTaunt: 15
+  taunt: {fileID: 5701137321685752153, guid: 2d06d6af12327aa4aaa5a8e469d48b72, type: 3}
   regenerateNose: 0
   canAttack: 1
   isDummy: 0
