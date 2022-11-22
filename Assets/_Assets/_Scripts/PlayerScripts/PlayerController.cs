@@ -19,6 +19,11 @@ public class PlayerController : MonoBehaviour
     private float dodgeCooldownCur;
     private float dodgeCooldownStatic = 2;
 
+    //Taunt
+    private float curTimeSinceLastAttack;
+    public float whenToTaunt = 5;
+    public GameObject taunt;
+
     //Nose Bools
     private bool hasNose;
     public bool regenerateNose;
@@ -87,6 +92,7 @@ public class PlayerController : MonoBehaviour
     {
         if (hasNose && !isDead && !isDashing && !isDummy && canAttack) //Checks if the player has a nose, if its not dead and if its not dashing
         {
+            curTimeSinceLastAttack = 0;
             AudioSource audioSrc2 = GetComponent<AudioSource>();
             //audioSrc2.PlayOneShot(Resources.Load<AudioClip>("Audio/Shoot sword"));
 
@@ -108,7 +114,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!isDead && !isDashing && canDashAndDodge && !isDummy) //Checks if the player is still alive and not dashing already
         {
-
+            curTimeSinceLastAttack = 0;
             SoundManager.PlaySound("Dashing");
             StartCoroutine(Dash()); //Starts coroutine which allows for delays using IENumerator
             isDashing = true; //Sets isDashing to true so player cant spam dash while dashing
@@ -150,6 +156,12 @@ public class PlayerController : MonoBehaviour
         }
         if (!isDead)
         {
+            curTimeSinceLastAttack += Time.deltaTime;
+            if (curTimeSinceLastAttack >= whenToTaunt)
+            {
+                FindObjectOfType<RoundManager>().SpawnTaunt(this);
+                curTimeSinceLastAttack = 0;
+            }
             GetComponent<CapsuleCollider2D>().enabled = true;
             GetComponent<PlayerInput>().enabled = true;
             GetComponent<PlayerController>().enabled = true;
