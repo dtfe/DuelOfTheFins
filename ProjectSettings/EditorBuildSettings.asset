@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 5727c5474125e40459a2af8a59473313
   - enabled: 1
-    path: Assets/Scenes/HelpScreen.unity
-    guid: 0613fa3f5e36a3a4a88e682947979a5b
-  - enabled: 1
     path: Assets/Scenes/MapSelection.unity
     guid: d2cb5491065a8f141934e2f3feb1e4cd
   - enabled: 1
@@ -56,5 +53,20 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Space 4.unity
     guid: 576cdf06253af534f87fd410144519ac
+  - enabled: 1
+    path: Assets/Scenes/HelpScreen.unity
+    guid: 0613fa3f5e36a3a4a88e682947979a5b
+  - enabled: 1
+    path: Assets/Scenes/HelpScreenA.unity
+    guid: afb288b24ee0d8f468c44aa432c66add
+  - enabled: 1
+    path: Assets/Scenes/HelpScreenO.unity
+    guid: 46857cb5d1cba224bae3883cfdfeb01c
+  - enabled: 1
+    path: Assets/Scenes/HelpScreenW.unity
+    guid: a0aac54ddd295234db75738f5384b6c0
+  - enabled: 1
+    path: Assets/Scenes/HelpScreenS.unity
+    guid: 4573fef1a24bd7b45be98e744eabf6eb
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 8f28b9cc950e14844b5a8c688ea5ed74, type: 2}
