@@ -2823,6 +2823,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: LavaEffectBG
       objectReference: {fileID: 0}
+    - target: {fileID: 2007145768522695593, guid: 7a63334b1ba22a844b4a5d19151e9d29, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2007145769257747509, guid: 7a63334b1ba22a844b4a5d19151e9d29, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2007145769526901843, guid: 7a63334b1ba22a844b4a5d19151e9d29, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a63334b1ba22a844b4a5d19151e9d29, type: 3}
 --- !u!1001 &4430936972006434082

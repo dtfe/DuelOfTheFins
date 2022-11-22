@@ -16,7 +16,7 @@ public class MapSelector : MonoBehaviour
     public void Previous()
     {
         curMapIndex--;
-        if (curMapIndex < 2)
+        if (curMapIndex < 3)
         {
             curMapIndex = SceneManager.sceneCountInBuildSettings-1;
         }
@@ -27,7 +27,7 @@ public class MapSelector : MonoBehaviour
         curMapIndex++;
         if(curMapIndex > SceneManager.sceneCountInBuildSettings-1)
         {
-            curMapIndex = 2;
+            curMapIndex = 3;
         }
     }
 
@@ -50,7 +50,7 @@ public class MapSelector : MonoBehaviour
     }
     private void Update()
     {
-        switch (curMapIndex-1)
+        switch (curMapIndex-2)
         {
             case 1:
                 mapNameText.text = "Aquarium 1";
@@ -69,7 +69,7 @@ public class MapSelector : MonoBehaviour
                 previewObject.texture = previewImages[3];
                 break;
             case 5:
-                mapNameText.text = "Ocean 3";
+                mapNameText.text = "Ocean Volcano";
                 previewObject.texture = previewImages[4];
                 break;
             case 6:
