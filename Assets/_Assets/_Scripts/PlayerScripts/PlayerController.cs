@@ -326,4 +326,10 @@ public class PlayerController : MonoBehaviour
         startPosition = FindObjectOfType<PlayerManager>().transform.Find("Spawn" + GetComponent<PlayerInput>().playerIndex).transform.position;
         transform.position = startPosition;
     }
+
+    public void ddol()
+    {
+        Destroy(gameObject.GetComponent<DontDestroyOnLoad>());
+        gameObject.AddComponent<DontDestroyOnLoad>();
+    }
 }

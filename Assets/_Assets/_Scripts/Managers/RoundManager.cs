@@ -149,6 +149,9 @@ public class RoundManager : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         //FindObjectOfType<PlayerManager>().newMap();
+        Restart();
+        player1.ddol();
+        player2.ddol();
         GetComponent<MapRotator>().NextMap();
     }
 
