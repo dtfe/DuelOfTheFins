@@ -1,14 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class tauntScript : MonoBehaviour
 {
     private Transform target;
+    public TMP_Text insult;
 
     public void setTarget(Transform targetTrans)
     {
         target = targetTrans;
+    }
+
+    public void setInsult(string inputInsult)
+    {
+        insult.text = inputInsult;
     }
 
     // Start is called before the first frame update
