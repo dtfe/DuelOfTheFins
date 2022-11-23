@@ -136,7 +136,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 60
   m_TargetDisplay: 0
 --- !u!114 &5701137321137960855
 MonoBehaviour:
@@ -224,6 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 909c5515fe002fd4f99233c36977655f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  insult: {fileID: 5701137321978041563}
 --- !u!95 &5701137321685752166
 Animator:
   serializedVersion: 4

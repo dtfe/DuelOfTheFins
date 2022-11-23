@@ -10,6 +10,7 @@ public class RoundManager : MonoBehaviour
     private TextMeshProUGUI p1Counter, p2Counter, winnerTxt;
     public Texture2D purpleScore, yellowScore, emptyScore;
     public GameObject UI, scorePoints, taunt;
+    public string[] tauntTexts;
     public int pointsToWin;
     private int p1Score = 0, p2Score = 0;
     private bool roundStarted = false;
@@ -163,6 +164,7 @@ public class RoundManager : MonoBehaviour
             target = player1.transform;
         }
         GameObject tauntGO = Instantiate(taunt);
+        tauntGO.GetComponent<tauntScript>().setInsult(tauntTexts[Random.Range(0, tauntTexts.Length + 1)]);
         tauntGO.GetComponent<tauntScript>().setTarget(target);
     }
 }
