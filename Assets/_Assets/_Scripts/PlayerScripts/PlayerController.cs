@@ -116,6 +116,10 @@ public class PlayerController : MonoBehaviour
         {
             SoundManager.ChangeVolume(1.0f);
             curTimeSinceLastAttack = 0;
+            if (hasNose)
+            {
+                curTimeSinceLastAttack = 0;
+            }
             SoundManager.PlaySound("Dashing");
             StartCoroutine(Dash()); //Starts coroutine which allows for delays using IENumerator
             isDashing = true; //Sets isDashing to true so player cant spam dash while dashing

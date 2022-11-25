@@ -6844,6 +6844,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4258962018109169490, guid: 7e4aa21080ef86748887ddcd99d82c6b, type: 3}
+      propertyPath: hazardGO
+      value: 
+      objectReference: {fileID: 5881408625376744803, guid: 4de6c05a60ff5b74b8f0862a117d09cb, type: 3}
+    - target: {fileID: 4258962018109169490, guid: 7e4aa21080ef86748887ddcd99d82c6b, type: 3}
       propertyPath: isHoming
       value: 1
       objectReference: {fileID: 0}
