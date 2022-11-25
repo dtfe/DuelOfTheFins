@@ -63,8 +63,11 @@ MonoBehaviour:
   purpleScore: {fileID: 2800000, guid: 8cda128bc142f3845bcb3ca1c8a3dd21, type: 3}
   yellowScore: {fileID: 2800000, guid: ec9cfb9f5ff7a394d9abe78214a39f5f, type: 3}
   emptyScore: {fileID: 2800000, guid: 3d62edbe79ef2764d9c8544c6188d335, type: 3}
+  player1Banner: {fileID: 2800000, guid: 69687af5e3fba434ba7b97b588421580, type: 3}
+  player2Banner: {fileID: 2800000, guid: 0bb1f867715f7db47a5db4d997326525, type: 3}
   UI: {fileID: 0}
   scorePoints: {fileID: 0}
+  victoryScreen: {fileID: 4188757912454863753, guid: 654836ca2e70b534baaade40a9e291a1, type: 3}
   taunt: {fileID: 5701137321685752153, guid: 2d06d6af12327aa4aaa5a8e469d48b72, type: 3}
   tauntTexts:
   - You turtle
