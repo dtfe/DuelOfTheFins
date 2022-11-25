@@ -572,8 +572,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 367138733}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.74, y: -2.85, z: -0.1}
-  m_LocalScale: {x: 0.12208212, y: 0.12208212, z: 0.12208212}
+  m_LocalPosition: {x: -7.87, y: -2.85, z: -0.1}
+  m_LocalScale: {x: 1.623279, y: 1.623279, z: 1.623279}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2415,12 +2415,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01b6615beb327b24baf8ec4dfc3ab578, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  natureAudio: {fileID: 0}
   audioSource: {fileID: 1982910149}
+  effectAudioSource: {fileID: 0}
   mainMenuMusic: {fileID: 8300000, guid: a20eccc17c6b6cb45af043bad303acc4, type: 3}
   aquariumMusic: {fileID: 8300000, guid: 06465628d6a58524e9a2f06b4e6f045c, type: 3}
+  aquariumBubbles: {fileID: 0}
   oceanMusic: {fileID: 8300000, guid: 77b4b0a3fe89ec548bf1981088a44673, type: 3}
+  whaleSing: {fileID: 0}
+  caveEnv: {fileID: 0}
   waterfallMusic: {fileID: 8300000, guid: 90bf6d6d11b769d4d8a1f847066a3008, type: 3}
+  waterfallMusicBox: {fileID: 0}
+  birdSing: {fileID: 0}
   spaceMusic: {fileID: 8300000, guid: 412f14ffda4dee847976b898c187742f, type: 3}
+  spaceShip: {fileID: 0}
+  spaceBubbles: {fileID: 0}
+  fire: {fileID: 0}
+  musicBox: {fileID: 0}
+  horror: {fileID: 0}
+  geiger: {fileID: 0}
+  nuclearAlarm: {fileID: 0}
+  ghostSong: {fileID: 0}
+  ghostSound: {fileID: 0}
+  Dolphin: {fileID: 0}
+  Cat: {fileID: 0}
+  doorBell: {fileID: 0}
+  toothBrush: {fileID: 0}
+  walk: {fileID: 0}
+  seal: {fileID: 0}
+  natureSounds: []
 --- !u!4 &1982910151
 Transform:
   m_ObjectHideFlags: 0
