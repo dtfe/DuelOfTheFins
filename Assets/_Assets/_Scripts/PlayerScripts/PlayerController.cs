@@ -50,7 +50,9 @@ public class PlayerController : MonoBehaviour
         isDashing = false;
         isControllable = true;
         var skin = Resources.Load<GameObject>("PlayerSkins/selectedSkin" + GetComponent<PlayerInput>().playerIndex);
+        transform.Find("Sprite").localPosition = skin.transform.position;
         transform.Find("Sprite").GetComponent<SpriteRenderer>().sprite = skin.GetComponent<SpriteRenderer>().sprite;
+        transform.Find("Sprite").Find("Hat").transform.localPosition = skin.transform.Find("Hat").transform.localPosition;
     }
 
     private void OnMove(InputValue movementValue)
