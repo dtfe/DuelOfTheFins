@@ -6,10 +6,10 @@ using TMPro;
 
 public class RoundManager : MonoBehaviour
 {
+    private cameraController2 cam;
     private PlayerController player1, player2;
-    private TextMeshProUGUI p1Counter, p2Counter, winnerTxt;
-    public Texture2D purpleScore, yellowScore, emptyScore;
-    public GameObject UI, scorePoints, taunt;
+    public Texture2D purpleScore, yellowScore, emptyScore, player1Banner, player2Banner;
+    public GameObject UI, scorePoints, victoryScreen, taunt;
     public string[] tauntTexts;
     public int pointsToWin;
     private int p1Score = 0, p2Score = 0;
@@ -29,10 +29,8 @@ public class RoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cam = FindObjectOfType<cameraController2>();
         GameObject roundCounter = UI.transform.Find("GameOverlay").transform.Find("RoundCounter").gameObject;
-        winnerTxt = UI.transform.Find("GameOverlay").transform.Find("WinnerText").GetComponent<TextMeshProUGUI>();
-        p1Counter = roundCounter.transform.Find("Player1Counter").gameObject.GetComponent<TextMeshProUGUI>();
-        p2Counter = roundCounter.transform.Find("Player2Counter").gameObject.GetComponent<TextMeshProUGUI>();
         scorePoints = roundCounter.transform.Find("ScorePoints").gameObject;
         StartCoroutine(firstStartUp());
     }
@@ -85,17 +83,21 @@ public class RoundManager : MonoBehaviour
         {
             hasScored = true;
         }
-        if (p1Score == pointsToWin || p2Score == pointsToWin)
+        if (p1Score == pointsToWin && UI.activeInHierarchy || p2Score == pointsToWin && UI.activeInHierarchy)
         {
             gameOver = true;
-            winnerTxt.gameObject.SetActive(true);
+            GameObject vs = Instantiate(victoryScreen);
+            vs.GetComponent<Canvas>().worldCamera = FindObjectOfType<cameraController2>().GetComponent<Camera>();
+            
             if (p1Score == pointsToWin)
             {
-                winnerTxt.text = "Player 1 Wins!";
+                vs.GetComponentInChildren<RawImage>().texture = player1Banner;
+                cam.SetTarget(player1.transform);
             }
             else if (p2Score == pointsToWin)
             {
-                winnerTxt.text = "Player 2 Wins!";
+                vs.GetComponentInChildren<RawImage>().texture = player2Banner;
+                cam.SetTarget(player2.transform);
             }
             StartCoroutine(NextMap());
         }
@@ -110,18 +112,13 @@ public class RoundManager : MonoBehaviour
     {
         Time.timeScale = 0;
         yield return new WaitForSecondsRealtime(3);
-        if (player1 && player2)
-        {
-            Time.timeScale = 1;
-        }
+
     }
     IEnumerator endGame()
     {
         yield return new WaitForSeconds(2);
         hasScored = false;
         Restart();
-        p1Counter.color = Color.magenta;
-        p2Counter.color = Color.yellow;
     }
     private void Restart()
     {
@@ -147,8 +144,8 @@ public class RoundManager : MonoBehaviour
 
     IEnumerator NextMap()
     {
-        yield return new WaitForSeconds(5);
-        //FindObjectOfType<PlayerManager>().newMap();
+        UI.SetActive(false);
+        yield return new WaitForSeconds(7);
         Restart();
         player1.ddol();
         player2.ddol();

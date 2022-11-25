@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
 
     public PhysicsMaterial2D PM2D;
     private Vector3 startPosition;
+    public string deathSound;
   
     
     void Start()
@@ -50,7 +51,9 @@ public class PlayerController : MonoBehaviour
         isDashing = false;
         isControllable = true;
         var skin = Resources.Load<GameObject>("PlayerSkins/selectedSkin" + GetComponent<PlayerInput>().playerIndex);
+        transform.Find("Sprite").localPosition = skin.transform.position;
         transform.Find("Sprite").GetComponent<SpriteRenderer>().sprite = skin.GetComponent<SpriteRenderer>().sprite;
+        transform.Find("Sprite").Find("Hat").transform.localPosition = skin.transform.Find("Hat").transform.localPosition;
     }
 
     private void OnMove(InputValue movementValue)
@@ -92,17 +95,16 @@ public class PlayerController : MonoBehaviour
     {
         if (hasNose && !isDead && !isDashing && !isDummy && canAttack) //Checks if the player has a nose, if its not dead and if its not dashing
         {
+            SoundManager.PlaySound("ThrowSw");
             curTimeSinceLastAttack = 0;
-            AudioSource audioSrc2 = GetComponent<AudioSource>();
+           // AudioSource audioSrc2 = GetComponent<AudioSource>();
             //audioSrc2.PlayOneShot(Resources.Load<AudioClip>("Audio/Shoot sword"));
 
             GameObject noseProj = Instantiate(noseProjectile, nose.transform.position, transform.rotation); //Creates a projectile assigned the reference noseProj
             Vector3 shootDir = (transform.position - nose.transform.position).normalized; //Creates a vector for the direction the shot will go
             noseProj.GetComponentInChildren<NoseProjScript>().Setup(shootDir); //Calls on the method Setup with the vector 3 as a value to that method
-            Debug.Log("nose has been shot");
             if (nose.transform.Find("PHYS_Player_Prefab(Clone)"))
             {
-                Debug.Log("player killed");
                 GameObject deadPlayer = nose.transform.Find("PHYS_Player_Prefab(Clone)").gameObject;
                 deadPlayer.transform.parent = noseProj.transform;
             }
@@ -114,6 +116,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!isDead && !isDashing && canDashAndDodge && !isDummy) //Checks if the player is still alive and not dashing already
         {
+            SoundManager.ChangeVolume(1.0f);
+            curTimeSinceLastAttack = 0;
             if (hasNose)
             {
                 curTimeSinceLastAttack = 0;
@@ -133,6 +137,11 @@ public class PlayerController : MonoBehaviour
     {
         if (transform.position.y < -6f || transform.position.x > 9f || transform.position.x < -9f)
         {
+            if (deathSound != null && !isDead)
+            {
+                SoundManager.PlaySound(deathSound);
+            }
+            
             Penetrated();
         }
 
@@ -203,11 +212,32 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("deathWall"))
         {
+            // if (deathSound != null && !SoundManager.IsPlaying() && !isDead)
+            if (deathSound != null && !isDead)
+            {
+                SoundManager.PlaySound(deathSound);
+            }
             Penetrated();
             rb2d.velocity = Vector3.zero;
         }
-    }
 
+        if (collision.gameObject.CompareTag("Deleteable")) {
+            SoundManager.PlaySound("trashhitplayer");
+        } 
+        if (collision.gameObject.CompareTag("GlassWall")) {
+            SoundManager.PlaySound("touchglass");
+        }
+        Debug.Log(collision.gameObject.tag);
+        if (collision.gameObject.CompareTag("Sand"))
+        {
+            SoundManager.PlaySound("touchSand");
+        }
+        if (collision.gameObject.CompareTag("Stone"))
+        {
+            SoundManager.PlaySound("touchrock_met");
+        }
+    }
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "PHYS_Nose_Projectile" && !hasNose && collision.gameObject.GetComponent<NoseProjScript>().isPickable) //Checks if you entered the trigger of a nose projectile and if you don't have a nose
@@ -242,8 +272,8 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
-    private void OnTriggerExit2D(Collider2D collision)
+    // TODO check for water level here to add splash sound
+    private void OnTriggerExit2D(Collider2D collision) 
     {
         if (collision.gameObject.CompareTag("PlayArea"))
         {
@@ -256,6 +286,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                SoundManager.PlaySound("splashingwtr");
                 rb2d.gravityScale = 1f;
                 rb2d.drag = 1f;
             }

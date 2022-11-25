@@ -52,6 +52,7 @@ public class ObjectSpawner : MonoBehaviour
 
     public void SpawnObject()
     {
+        SoundManager.PlaySound("trashFall");
         Vector3 randomPos = new Vector3(Random.Range(-8, 9), 5.5f, 0);
         Quaternion randomRot = new Quaternion(0, 0, Random.rotation.z, Quaternion.identity.w);
         StartCoroutine(SpawnTrash(randomPos, randomRot));
@@ -63,11 +64,15 @@ public class ObjectSpawner : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(0.5f,2));
         Destroy(spawnedWarning);
         GameObject spawnedObject = Instantiate(objectToSpawn[Random.Range(0, objectToSpawn.Length)], ranPos, ranRot);
-        while (spawnedObject.transform.position.y > -6)
-        {
-            yield return new WaitForSeconds(2);
-        }
-        if(spawnedObject.transform.position.y <= -6)
+        //if (spawnedObject != null)
+        //{
+        //    while (spawnedObject.transform.position.y > -6)
+        //    {
+        //        yield return new WaitForSeconds(2);
+        //    }
+        //}
+       
+        if(spawnedObject != null && spawnedObject.transform.position.y <= -6)
         {
             Destroy(spawnedObject);
         }
