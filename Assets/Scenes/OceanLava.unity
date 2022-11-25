@@ -246,13 +246,17 @@ PrefabInstance:
       value: Music Manager
       objectReference: {fileID: 0}
     - target: {fileID: 4687316642413880788, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: fire
+      value: 
+      objectReference: {fileID: 8300000, guid: f9fec93860200484084ee7e69f44009d, type: 3}
+    - target: {fileID: 4687316642413880788, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
       propertyPath: natureSounds.Array.size
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4687316642413880788, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
       propertyPath: natureSounds.Array.data[4]
       value: 
-      objectReference: {fileID: 8300000, guid: 45e58a0ef5fec2c4eb6da21df57452ec, type: 3}
+      objectReference: {fileID: 8300000, guid: 78f1b6d0ddd0bd74ea45f124b77adcb7, type: 3}
     - target: {fileID: 4687316642413880791, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
       propertyPath: m_RootOrder
       value: 16

@@ -44,9 +44,27 @@ public class MusicManager : MonoBehaviour
     
     [SerializeField]
     AudioClip spaceBubbles;
+   
+    [SerializeField]
+    AudioClip fire;
+
+    [SerializeField]
+    AudioClip musicBox;
+
+    [SerializeField]
+    AudioClip horror;
+
+    [SerializeField]
+    AudioClip geiger;
+
+    [SerializeField]
+    AudioClip nuclearAlarm;
 
     [SerializeField]
     AudioClip[] natureSounds;
+
+
+
 
     //make the instance private so it can't be modified in other scripts
     private static MusicManager _instance; 
@@ -134,23 +152,24 @@ public class MusicManager : MonoBehaviour
 
         }
     }
-    public void PlayEffectsRandomly(string[] names)
+    public void PlayEffectsRandomly(string[] names, int minWaitSoundEffect = 4, int maxWaitSoundEffect = 6)
     {
         this.StartCoroutine(RandomEffectGenerator(names));
     }
 
-    private IEnumerator RandomEffectGenerator(string[] names)
+    private IEnumerator RandomEffectGenerator(string[] names, int minWaitSoundEffect = 4, int maxWaitSoundEffect = 6)
     {
         while (true)
         {
             PlayEffectRandomly(names);
-            yield return new WaitForSeconds(3 + 7 * Random.Range(0f, 1f));
+            yield return new WaitForSeconds(Random.Range(minWaitSoundEffect, maxWaitSoundEffect));
         }
     }
 
     private void PlayEffectRandomly(string[] names)
     {
-        var effect = names[Random.Range(0, names.Length - 1)];
+        var effect = names[Random.Range(0, names.Length)];
+        Debug.Log(effect);
      
         
         switch (effect)
@@ -178,6 +197,26 @@ public class MusicManager : MonoBehaviour
                 break;
             case "spacialbubbl":
                 effectAudioSource.clip = spaceBubbles;
+                effectAudioSource.Play();
+                break;
+            case "FireSound":
+                effectAudioSource.clip = fire;
+                effectAudioSource.Play();
+                break;
+            case "CreepyMusicBox":
+                effectAudioSource.clip = musicBox;
+                effectAudioSource.Play();
+                break;
+            case "HorrorScream":
+                effectAudioSource.clip = horror;
+                effectAudioSource.Play();
+                break;
+            case "Geigercount":
+                effectAudioSource.clip = geiger;
+                effectAudioSource.Play();
+                break;
+            case "Nuc_Alarm":
+                effectAudioSource.clip = nuclearAlarm;
                 effectAudioSource.Play();
                 break;
 

@@ -67,6 +67,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: be351d09eaf62784d835616b5e00596a, type: 3}
   - {fileID: 8300000, guid: c87b5f6b4f91d424ab3086771829059c, type: 3}
   - {fileID: 8300000, guid: 78f1b6d0ddd0bd74ea45f124b77adcb7, type: 3}
+  fire: {fileID: 8300000, guid: f9fec93860200484084ee7e69f44009d, type: 3}
+  musicBox: {fileID: 8300000, guid: 4890934a3382f75499cf11666edf67aa, type: 3}
+  horror: {fileID: 8300000, guid: 562b031afbbbe084bb10c239e1f3f285, type: 3}
+  geiger: {fileID: 8300000, guid: dbfaf1608d061ad48997370ab2a0af42, type: 3}
+  nuclearAlarm: {fileID: 8300000, guid: f20b99c5ddebeb8489ffc2c90f034da2, type: 3}
 --- !u!82 &4687316642413880789
 AudioSource:
   m_ObjectHideFlags: 0

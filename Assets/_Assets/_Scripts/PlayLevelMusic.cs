@@ -7,6 +7,8 @@ public class PlayLevelMusic : MonoBehaviour
     public string musicName;
     public string[] effectNames;
     public string ambientMusicName;
+    public int minWaitSoundEffect = 4;
+    public int maxWaitSoundEffect = 6;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,10 +17,11 @@ public class PlayLevelMusic : MonoBehaviour
             MusicManager.instance.StopMusic();
             MusicManager.instance.StopAmbientMusic();
             MusicManager.instance.PlayMusicByName(musicName);
+           Debug.Log(effectNames.GetType().Name);
             if (effectNames.Length > 0)
             {
 
-                MusicManager.instance.PlayEffectsRandomly(effectNames);
+                MusicManager.instance.PlayEffectsRandomly(effectNames, minWaitSoundEffect, maxWaitSoundEffect);
             }
             if (ambientMusicName != "")
             {

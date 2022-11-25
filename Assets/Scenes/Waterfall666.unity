@@ -5929,6 +5929,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Music Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 4687316642413880788, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: fire
+      value: 
+      objectReference: {fileID: 8300000, guid: f9fec93860200484084ee7e69f44009d, type: 3}
+    - target: {fileID: 4687316642413880788, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: geiger
+      value: 
+      objectReference: {fileID: 8300000, guid: dbfaf1608d061ad48997370ab2a0af42, type: 3}
+    - target: {fileID: 4687316642413880788, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: horror
+      value: 
+      objectReference: {fileID: 8300000, guid: 562b031afbbbe084bb10c239e1f3f285, type: 3}
+    - target: {fileID: 4687316642413880788, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: musicBox
+      value: 
+      objectReference: {fileID: 8300000, guid: 4890934a3382f75499cf11666edf67aa, type: 3}
+    - target: {fileID: 4687316642413880788, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: nuclearAlarm
+      value: 
+      objectReference: {fileID: 8300000, guid: f20b99c5ddebeb8489ffc2c90f034da2, type: 3}
     - target: {fileID: 4687316642413880791, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -11869,7 +11889,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicName: waterfall
   effectNames:
-  - birds
+  - CreepyMusicBox
+  - HorrorScream
   ambientMusicName: waterFall
 --- !u!1 &1590993342
 GameObject:
