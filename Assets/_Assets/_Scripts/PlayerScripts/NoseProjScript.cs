@@ -77,7 +77,7 @@ public class NoseProjScript : MonoBehaviour
         string[] collidables = { "Wall", "GlassWall", "Sand", "Stone" };
         if (collidables.Contains(other.gameObject.tag))
         {
-            HitWall(false);
+            HitWall(false, other.transform);
         }
         //if (other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("Sand")
         //{
@@ -88,7 +88,7 @@ public class NoseProjScript : MonoBehaviour
         //    HitWall(true);
         //}
     }
-    private void HitWall(bool breakable)
+    private void HitWall(bool breakable, Transform hitPos)
     {
         isActive = false;
         hitbox.offset = new Vector2(0, -0.173f);
@@ -97,8 +97,7 @@ public class NoseProjScript : MonoBehaviour
         isPickable = true;
         if (breakable)
         {
-            GameObject Hole = Instantiate(hole, transform.position, transform.rotation);
-            Hole.transform.Translate(0.25f * Vector2.up);
+            GameObject Hole = Instantiate(hole, new Vector2(hitPos.position.x, transform.position.y), transform.rotation);
             hole.transform.parent = null;
             FindObjectOfType<WaterLevel>().NewHole(Hole.transform);
         }

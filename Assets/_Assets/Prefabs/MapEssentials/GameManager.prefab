@@ -60,12 +60,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fe2e17d68ea2954aa38dd6deb9226ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  purpleScore: {fileID: 2800000, guid: 98bbffdef25d8e4459fac6f1c0ceb66e, type: 3}
-  yellowScore: {fileID: 2800000, guid: 4c3f59e64a9ef8142a5fc52debbbd547, type: 3}
-  emptyScore: {fileID: 2800000, guid: e4f19e1a3d4adba4f87026b0d405c0b4, type: 3}
+  purpleScore: {fileID: 2800000, guid: 8cda128bc142f3845bcb3ca1c8a3dd21, type: 3}
+  yellowScore: {fileID: 2800000, guid: ec9cfb9f5ff7a394d9abe78214a39f5f, type: 3}
+  emptyScore: {fileID: 2800000, guid: 3d62edbe79ef2764d9c8544c6188d335, type: 3}
   UI: {fileID: 0}
-  explanationScreen: {fileID: 0}
   scorePoints: {fileID: 0}
+  taunt: {fileID: 5701137321685752153, guid: 2d06d6af12327aa4aaa5a8e469d48b72, type: 3}
+  tauntTexts:
+  - You turtle
+  - Hiding like a shrimp
+  - git gud, scuba
+  - You're trash
+  - Come at me
+  - Swordfish? You? You're more like a clown fish
+  - You're a coward like Henrik
   pointsToWin: 3
 --- !u!114 &8631072110311354864
 MonoBehaviour:

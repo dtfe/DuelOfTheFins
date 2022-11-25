@@ -18,14 +18,14 @@ public class MapSelector : MonoBehaviour
         curMapIndex--;
         if (curMapIndex < 2)
         {
-            curMapIndex = SceneManager.sceneCountInBuildSettings-1;
+            curMapIndex = SceneManager.sceneCountInBuildSettings-6;
         }
     }
 
     public void Next()
     {
         curMapIndex++;
-        if(curMapIndex > SceneManager.sceneCountInBuildSettings-1)
+        if(curMapIndex > SceneManager.sceneCountInBuildSettings-6)
         {
             curMapIndex = 2;
         }
@@ -69,7 +69,7 @@ public class MapSelector : MonoBehaviour
                 previewObject.texture = previewImages[3];
                 break;
             case 5:
-                mapNameText.text = "Ocean 3";
+                mapNameText.text = "Ocean Volcano";
                 previewObject.texture = previewImages[4];
                 break;
             case 6:
@@ -95,6 +95,18 @@ public class MapSelector : MonoBehaviour
             case 11:
                 mapNameText.text = "Space 1";
                 previewObject.texture = previewImages[10];
+                break;
+            case 12:
+                mapNameText.text = "Space 2";
+                previewObject.texture = previewImages[11];
+                break;
+            case 13:
+                mapNameText.text = "Space 3";
+                previewObject.texture = previewImages[12];
+                break;
+            case 14:
+                mapNameText.text = "Space 4";
+                previewObject.texture = previewImages[13];
                 break;
         }
     }
