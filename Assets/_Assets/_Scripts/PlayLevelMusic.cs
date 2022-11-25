@@ -17,10 +17,9 @@ public class PlayLevelMusic : MonoBehaviour
             MusicManager.instance.StopMusic();
             MusicManager.instance.StopAmbientMusic();
             MusicManager.instance.PlayMusicByName(musicName);
-           Debug.Log(effectNames.GetType().Name);
+            MusicManager.instance.StopEffectRandomly();
             if (effectNames.Length > 0)
             {
-
                 MusicManager.instance.PlayEffectsRandomly(effectNames, minWaitSoundEffect, maxWaitSoundEffect);
             }
             if (ambientMusicName != "")

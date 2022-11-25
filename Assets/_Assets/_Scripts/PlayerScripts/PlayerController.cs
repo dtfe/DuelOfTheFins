@@ -101,10 +101,8 @@ public class PlayerController : MonoBehaviour
             GameObject noseProj = Instantiate(noseProjectile, nose.transform.position, transform.rotation); //Creates a projectile assigned the reference noseProj
             Vector3 shootDir = (transform.position - nose.transform.position).normalized; //Creates a vector for the direction the shot will go
             noseProj.GetComponentInChildren<NoseProjScript>().Setup(shootDir); //Calls on the method Setup with the vector 3 as a value to that method
-            Debug.Log("nose has been shot");
             if (nose.transform.Find("PHYS_Player_Prefab(Clone)"))
             {
-                Debug.Log("player killed");
                 GameObject deadPlayer = nose.transform.Find("PHYS_Player_Prefab(Clone)").gameObject;
                 deadPlayer.transform.parent = noseProj.transform;
             }
@@ -131,7 +129,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        // Debug.Log(transform.position);
         if (transform.position.y < -6f || transform.position.x > 9f || transform.position.x < -9f)
         {
             if (deathSound != null && !isDead)

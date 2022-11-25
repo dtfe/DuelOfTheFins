@@ -64,8 +64,8 @@ public class MusicManager : MonoBehaviour
     AudioClip[] natureSounds;
 
 
-
-
+    // keep a copy of the executing script
+    private IEnumerator coroutine;
     //make the instance private so it can't be modified in other scripts
     private static MusicManager _instance; 
     //make the music manager available as read only on the other scripts  
@@ -154,7 +154,8 @@ public class MusicManager : MonoBehaviour
     }
     public void PlayEffectsRandomly(string[] names, int minWaitSoundEffect = 4, int maxWaitSoundEffect = 6)
     {
-        this.StartCoroutine(RandomEffectGenerator(names));
+        coroutine = RandomEffectGenerator(names);
+        this.StartCoroutine(coroutine);
     }
 
     private IEnumerator RandomEffectGenerator(string[] names, int minWaitSoundEffect = 4, int maxWaitSoundEffect = 6)
@@ -169,8 +170,6 @@ public class MusicManager : MonoBehaviour
     private void PlayEffectRandomly(string[] names)
     {
         var effect = names[Random.Range(0, names.Length)];
-        Debug.Log(effect);
-     
         
         switch (effect)
         {
@@ -254,5 +253,12 @@ public class MusicManager : MonoBehaviour
         }       
     }
     public void StopAmbientMusic() { natureAudio.Stop(); }  
+
+    public void StopEffectRandomly() {
+        if (coroutine != null ) {
+            effectAudioSource.Stop();
+            this.StopCoroutine(coroutine);
+        }
+    }
 }
     
