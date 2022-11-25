@@ -5940,15 +5940,27 @@ PrefabInstance:
     - target: {fileID: 4687316642413880788, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
       propertyPath: horror
       value: 
-      objectReference: {fileID: 8300000, guid: 562b031afbbbe084bb10c239e1f3f285, type: 3}
+      objectReference: {fileID: 8300000, guid: c6dc561749b065f4b877b970ae79ddd5, type: 3}
     - target: {fileID: 4687316642413880788, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
       propertyPath: musicBox
       value: 
       objectReference: {fileID: 8300000, guid: 4890934a3382f75499cf11666edf67aa, type: 3}
     - target: {fileID: 4687316642413880788, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: ghostSong
+      value: 
+      objectReference: {fileID: 8300000, guid: 4999b1c4019e91142b2a6f86210681ec, type: 3}
+    - target: {fileID: 4687316642413880788, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: ghostSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 692b2af629e3a3142a91e0dfd489cf71, type: 3}
+    - target: {fileID: 4687316642413880788, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
       propertyPath: nuclearAlarm
       value: 
       objectReference: {fileID: 8300000, guid: f20b99c5ddebeb8489ffc2c90f034da2, type: 3}
+    - target: {fileID: 4687316642413880788, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: waterfallMusicBox
+      value: 
+      objectReference: {fileID: 8300000, guid: 3820f0f1648b95943b4672a12968ad92, type: 3}
     - target: {fileID: 4687316642413880791, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -11887,11 +11899,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593978418b6c3f445aae0b56ea480b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicName: waterfall
+  musicName: waterfallBox
   effectNames:
-  - CreepyMusicBox
+  - Ghostsinging
   - HorrorScream
+  - Ghost
   ambientMusicName: waterFall
+  minWaitSoundEffect: 4
+  maxWaitSoundEffect: 6
 --- !u!1 &1590993342
 GameObject:
   m_ObjectHideFlags: 0

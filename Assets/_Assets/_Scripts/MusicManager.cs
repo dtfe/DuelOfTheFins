@@ -32,7 +32,10 @@ public class MusicManager : MonoBehaviour
 
     [SerializeField]
     AudioClip waterfallMusic;
-    
+
+    [SerializeField]
+    AudioClip waterfallMusicBox;
+
     [SerializeField]
     AudioClip birdSing;
 
@@ -59,6 +62,30 @@ public class MusicManager : MonoBehaviour
 
     [SerializeField]
     AudioClip nuclearAlarm;
+    
+    [SerializeField]
+    AudioClip ghostSong;
+
+    [SerializeField]
+    AudioClip ghostSound;
+
+    [SerializeField]
+    AudioClip Dolphin;
+
+    [SerializeField]
+    AudioClip Cat;
+
+    [SerializeField]
+    AudioClip doorBell;
+
+    [SerializeField]
+    AudioClip toothBrush;
+
+    [SerializeField]
+    AudioClip walk;
+
+    [SerializeField]
+    AudioClip seal;
 
     [SerializeField]
     AudioClip[] natureSounds;
@@ -130,12 +157,15 @@ public class MusicManager : MonoBehaviour
                 PlayMusic();
                 break;
             case "ocean":
-                ChangeVolume(0.2f);
                 audioSource.clip = oceanMusic;
                 PlayMusic();
                 break;
             case "waterfall":
                 audioSource.clip = waterfallMusic;
+                PlayMusic();
+                break;
+            case "waterfallBox":
+                audioSource.clip = waterfallMusicBox;
                 PlayMusic();
                 break;
             case "space":
@@ -216,6 +246,38 @@ public class MusicManager : MonoBehaviour
                 break;
             case "Nuc_Alarm":
                 effectAudioSource.clip = nuclearAlarm;
+                effectAudioSource.Play();
+                break;
+            case "Ghostsinging":
+                effectAudioSource.clip = ghostSong;
+                effectAudioSource.Play();
+                break;
+            case "Ghost":
+                effectAudioSource.clip = ghostSound;
+                effectAudioSource.Play();
+                break;         
+            case "dolphinsound":
+                effectAudioSource.clip = Dolphin;
+                effectAudioSource.Play();
+                break;
+            case "kitty":
+                effectAudioSource.clip = Cat;
+                effectAudioSource.Play();
+                break;
+            case "door_Bell":
+                effectAudioSource.clip = doorBell;
+                effectAudioSource.Play();
+                break;
+            case "brush":
+                effectAudioSource.clip = toothBrush;
+                effectAudioSource.Play();
+                break;
+            case "house_walk":
+                effectAudioSource.clip = walk;
+                effectAudioSource.Play();
+                break;
+            case "seal_sound":
+                effectAudioSource.clip = seal;
                 effectAudioSource.Play();
                 break;
 

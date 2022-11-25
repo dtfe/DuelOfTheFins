@@ -255,7 +255,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 77b4b0a3fe89ec548bf1981088a44673, type: 3}
     - target: {fileID: 1543228271280662996, guid: fec5f04a51815d140991e5f2dfe3454c, type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 1543228271280662996, guid: fec5f04a51815d140991e5f2dfe3454c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1137,7 +1137,12 @@ MonoBehaviour:
   musicName: ocean
   effectNames:
   - whale
+  - dolphinsound
+  - kitty
+  - seal_sound
   ambientMusicName: waves
+  minWaitSoundEffect: 4
+  maxWaitSoundEffect: 6
 --- !u!1 &550678064
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,13 +1372,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2154385886121035584, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_Volume
+      value: 0.53
+      objectReference: {fileID: 0}
     - target: {fileID: 4687316642413880785, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
       propertyPath: m_Name
       value: Music Manager
       objectReference: {fileID: 0}
     - target: {fileID: 4687316642413880791, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 4687316642413880791, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1414,6 +1423,10 @@ PrefabInstance:
     - target: {fileID: 4687316642413880791, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603987596522796298, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_Volume
+      value: 0.62
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
@@ -3349,7 +3362,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -3.263}
 --- !u!1001 &2059880575
 PrefabInstance:
@@ -3523,7 +3536,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3737196055401453240, guid: ca0854b2c92d8a543ac5037c53fc5215, type: 3}
       propertyPath: m_RootOrder
-      value: 21
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 3737196055401453240, guid: ca0854b2c92d8a543ac5037c53fc5215, type: 3}
       propertyPath: m_LocalPosition.x

@@ -627,8 +627,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicName: aquarium
-  effectNames: []
+  effectNames:
+  - door_Bell
+  - brush
+  - house_walk
   ambientMusicName: Aquarium
+  minWaitSoundEffect: 4
+  maxWaitSoundEffect: 6
 --- !u!1 &327439812
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,7 +880,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1.434}
 --- !u!1 &585989805
 GameObject:

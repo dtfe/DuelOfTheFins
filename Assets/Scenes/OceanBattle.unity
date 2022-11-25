@@ -1023,6 +1023,8 @@ MonoBehaviour:
   musicName: ocean
   effectNames:
   - whale
+  - seal_sound
+  - dolphinsound
   ambientMusicName: waves
   minWaitSoundEffect: 4
   maxWaitSoundEffect: 6
@@ -1110,7 +1112,7 @@ Transform:
   - {fileID: 1824391804}
   - {fileID: 2011022240}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -30.153}
 --- !u!1 &782316768
 GameObject:

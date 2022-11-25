@@ -145,7 +145,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: 77b4b0a3fe89ec548bf1981088a44673, type: 3}
     - target: {fileID: 1543228271280662996, guid: fec5f04a51815d140991e5f2dfe3454c, type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 1543228271280662996, guid: fec5f04a51815d140991e5f2dfe3454c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -519,6 +519,8 @@ MonoBehaviour:
   musicName: ocean
   effectNames:
   - whale
+  - dolphinsound
+  - seal_sound
   ambientMusicName: waves
   minWaitSoundEffect: 4
   maxWaitSoundEffect: 6

@@ -5343,7 +5343,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicName: aquarium
-  effectNames: []
+  effectNames:
+  - house_walk
+  - door_Bell
+  - kitty
+  - brush
   ambientMusicName: Aquarium
   minWaitSoundEffect: 4
   maxWaitSoundEffect: 6
