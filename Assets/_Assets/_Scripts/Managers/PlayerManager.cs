@@ -62,22 +62,6 @@ public class PlayerManager : MonoBehaviour
         }
         players.Add(playerController);
         curPlayerNumber++;
-
-        if (curPlayerNumber == 1)
-        {
-            if (pInput.transform.Find("Sprite"))
-            {
-                pInput.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.magenta; //Just to spite TO
-            }
-        }
-        else
-        {
-            if (pInput.transform.Find("Sprite"))
-            {
-                pInput.transform.Find("Sprite").GetComponent<SpriteRenderer>().color = Color.yellow;
-            }
-        }
-
         if (curPlayerNumber == spawnlocations.Length)
         {
             roundManager.StartRound(players);
