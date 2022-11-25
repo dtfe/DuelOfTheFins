@@ -114,7 +114,10 @@ public class PlayerController : MonoBehaviour
     {
         if (!isDead && !isDashing && canDashAndDodge && !isDummy) //Checks if the player is still alive and not dashing already
         {
-            curTimeSinceLastAttack = 0;
+            if (hasNose)
+            {
+                curTimeSinceLastAttack = 0;
+            }
             SoundManager.PlaySound("Dashing");
             StartCoroutine(Dash()); //Starts coroutine which allows for delays using IENumerator
             isDashing = true; //Sets isDashing to true so player cant spam dash while dashing
