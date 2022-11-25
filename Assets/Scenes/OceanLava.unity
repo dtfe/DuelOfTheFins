@@ -925,8 +925,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicName: ocean
-  effectNames: []
+  effectNames:
+  - FireSound
   ambientMusicName: volcano
+  minWaitSoundEffect: 4
+  maxWaitSoundEffect: 6
 --- !u!1 &523764404
 GameObject:
   m_ObjectHideFlags: 0

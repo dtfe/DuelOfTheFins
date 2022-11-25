@@ -5343,6 +5343,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicName: aquarium
+  effectNames: []
+  ambientMusicName: Aquarium
+  minWaitSoundEffect: 4
+  maxWaitSoundEffect: 6
 --- !u!1 &495100851
 GameObject:
   m_ObjectHideFlags: 0
@@ -6980,7 +6984,7 @@ Transform:
   m_Children:
   - {fileID: 161939965}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1389845840
 GameObject:

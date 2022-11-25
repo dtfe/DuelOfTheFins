@@ -167,7 +167,7 @@ public class RoundManager : MonoBehaviour
             target = player1.transform;
         }
         GameObject tauntGO = Instantiate(taunt);
-        tauntGO.GetComponent<tauntScript>().setInsult(tauntTexts[Random.Range(0, tauntTexts.Length + 1)]);
+        tauntGO.GetComponent<tauntScript>().setInsult(tauntTexts[Random.Range(0, tauntTexts.Length)]);
         tauntGO.GetComponent<tauntScript>().setTarget(target);
     }
 }
