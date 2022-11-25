@@ -927,6 +927,9 @@ MonoBehaviour:
   musicName: ocean
   effectNames:
   - FireSound
+  - whale
+  - seal_sound
+  - dolphinsound
   ambientMusicName: volcano
   minWaitSoundEffect: 4
   maxWaitSoundEffect: 6
