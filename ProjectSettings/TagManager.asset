@@ -11,6 +11,8 @@ TagManager:
   - deathWall
   - PlayArea
   - GlassWall
+  - Sand
+  - Stone
   layers:
   - Default
   - TransparentFX

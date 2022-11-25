@@ -5045,6 +5045,99 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1001 &408743586
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2154385886121035584, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: Priority
+      value: 93
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154385886121035584, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_Volume
+      value: 0.462
+      objectReference: {fileID: 0}
+    - target: {fileID: 2154385886121035584, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 0042538b4296eb84489d2183defb004f, type: 2}
+    - target: {fileID: 4687316642413880785, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_Name
+      value: Music Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687316642413880789, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: Priority
+      value: 111
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687316642413880789, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_Volume
+      value: 0.339
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687316642413880789, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: b369c148be057cc41bfae0b916be24f1, type: 2}
+    - target: {fileID: 4687316642413880791, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687316642413880791, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.5621
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687316642413880791, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.97081727
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687316642413880791, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.016420467
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687316642413880791, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687316642413880791, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687316642413880791, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687316642413880791, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687316642413880791, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687316642413880791, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687316642413880791, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603987596522796298, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: Priority
+      value: 93
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603987596522796298, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_Volume
+      value: 0.481
+      objectReference: {fileID: 0}
+    - target: {fileID: 6603987596522796298, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 0042538b4296eb84489d2183defb004f, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
 --- !u!1 &753848558
 GameObject:
   m_ObjectHideFlags: 0
@@ -10899,6 +10992,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicName: waterfall
+  effectNames:
+  - birds
+  ambientMusicName: waterFall
+  minWaitSoundEffect: 4
+  maxWaitSoundEffect: 6
 --- !u!1 &1678534070
 GameObject:
   m_ObjectHideFlags: 0

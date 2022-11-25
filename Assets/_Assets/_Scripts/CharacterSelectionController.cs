@@ -16,6 +16,7 @@ public class CharacterSelectionController : MonoBehaviour
 
     public void NextOption()
     {
+        SoundManager.PlaySound("ui_selection");
         selectedSkin++;
         if (selectedSkin > skins.Count-1)
         {
@@ -27,6 +28,7 @@ public class CharacterSelectionController : MonoBehaviour
 
     public void BackOption()
     {
+        SoundManager.PlaySound("ui_selection");
         selectedSkin--;
         if (selectedSkin < 0)
         {
@@ -38,6 +40,7 @@ public class CharacterSelectionController : MonoBehaviour
 
     public void ConfirmSelection()
     {
+        SoundManager.PlaySound("ui_selection");
         Button[] buttons = transform.GetComponentsInChildren<Button>();
         for (int i = 0; i < buttons.Length; i++)
         {

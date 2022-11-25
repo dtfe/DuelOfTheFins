@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 12901082}
   m_Layer: 3
   m_Name: Collider (16)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 31053820}
   m_Layer: 3
   m_Name: Collider (5)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -234,6 +234,75 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.91, y: 0.67}
   m_EdgeRadius: 0
+--- !u!1001 &44180213
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4687316642413880785, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_Name
+      value: Music Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687316642413880788, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: fire
+      value: 
+      objectReference: {fileID: 8300000, guid: f9fec93860200484084ee7e69f44009d, type: 3}
+    - target: {fileID: 4687316642413880788, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: natureSounds.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687316642413880788, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: natureSounds.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 78f1b6d0ddd0bd74ea45f124b77adcb7, type: 3}
+    - target: {fileID: 4687316642413880791, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_RootOrder
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687316642413880791, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.5621
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687316642413880791, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.97081727
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687316642413880791, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.016420467
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687316642413880791, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687316642413880791, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687316642413880791, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687316642413880791, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687316642413880791, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687316642413880791, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687316642413880791, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
 --- !u!1 &45572185
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,7 +399,7 @@ GameObject:
   - component: {fileID: 72756019}
   m_Layer: 3
   m_Name: Collider (19)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -378,7 +447,7 @@ GameObject:
   - component: {fileID: 80742475}
   m_Layer: 3
   m_Name: Collider (9)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -426,7 +495,7 @@ GameObject:
   - component: {fileID: 89068892}
   m_Layer: 3
   m_Name: Collider (6)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -568,7 +637,7 @@ GameObject:
   - component: {fileID: 160779988}
   m_Layer: 3
   m_Name: Collider (4)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -616,7 +685,7 @@ GameObject:
   - component: {fileID: 281731317}
   m_Layer: 3
   m_Name: Collider (13)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -674,7 +743,7 @@ GameObject:
   - component: {fileID: 321822077}
   m_Layer: 3
   m_Name: Collider (7)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -722,7 +791,7 @@ GameObject:
   - component: {fileID: 408879888}
   m_Layer: 3
   m_Name: Collider (22)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -769,6 +838,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -842,6 +912,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 593978418b6c3f445aae0b56ea480b11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicName: ocean
+  effectNames:
+  - FireSound
+  ambientMusicName: volcano
+  minWaitSoundEffect: 4
+  maxWaitSoundEffect: 6
 --- !u!1 &523764404
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,7 +1168,7 @@ GameObject:
   - component: {fileID: 756131369}
   m_Layer: 3
   m_Name: Collider (21)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1128,7 +1216,7 @@ GameObject:
   - component: {fileID: 817661575}
   m_Layer: 3
   m_Name: Collider (4)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1186,7 +1274,7 @@ GameObject:
   - component: {fileID: 829650165}
   m_Layer: 3
   m_Name: Collider
-  m_TagString: Wall
+  m_TagString: Sand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1244,7 +1332,7 @@ GameObject:
   - component: {fileID: 877671793}
   m_Layer: 3
   m_Name: Collider (3)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1292,7 +1380,7 @@ GameObject:
   - component: {fileID: 905864788}
   m_Layer: 3
   m_Name: Collider (15)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1340,7 +1428,7 @@ GameObject:
   - component: {fileID: 914287146}
   m_Layer: 3
   m_Name: Collider (12)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1388,7 +1476,7 @@ GameObject:
   - component: {fileID: 947824401}
   m_Layer: 3
   m_Name: Collider
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1436,7 +1524,7 @@ GameObject:
   - component: {fileID: 1000286579}
   m_Layer: 3
   m_Name: Collider (1)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1563,7 +1651,7 @@ GameObject:
   - component: {fileID: 1130014123}
   m_Layer: 3
   m_Name: Collider (10)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1695,7 +1783,7 @@ GameObject:
   - component: {fileID: 1156689395}
   m_Layer: 3
   m_Name: Collider (17)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1743,7 +1831,7 @@ GameObject:
   - component: {fileID: 1170120019}
   m_Layer: 3
   m_Name: Collider (8)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1791,7 +1879,7 @@ GameObject:
   - component: {fileID: 1187006011}
   m_Layer: 3
   m_Name: Collider (20)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1981,7 +2069,7 @@ GameObject:
   - component: {fileID: 1503477782}
   m_Layer: 3
   m_Name: Collider (14)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2248,7 +2336,7 @@ GameObject:
   - component: {fileID: 1685131208}
   m_Layer: 3
   m_Name: Collider (18)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2296,7 +2384,7 @@ GameObject:
   - component: {fileID: 1694615397}
   m_Layer: 3
   m_Name: Collider (2)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2344,7 +2432,7 @@ GameObject:
   - component: {fileID: 1705987695}
   m_Layer: 3
   m_Name: Collider (1)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2486,7 +2574,7 @@ GameObject:
   - component: {fileID: 1895089733}
   m_Layer: 3
   m_Name: Collider (11)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2534,7 +2622,7 @@ GameObject:
   - component: {fileID: 2049993792}
   m_Layer: 0
   m_Name: Volc_obstacles
-  m_TagString: Untagged
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2732,7 +2820,7 @@ GameObject:
   - component: {fileID: 2136224386}
   m_Layer: 3
   m_Name: Collider (5)
-  m_TagString: Wall
+  m_TagString: Stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
