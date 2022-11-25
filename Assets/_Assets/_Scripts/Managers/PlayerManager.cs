@@ -14,7 +14,7 @@ public class PlayerManager : MonoBehaviour
     public List<GameObject> players;
     private List<PlayerManager> PMs;
     public bool hasSpawned;
-
+    public string deathSound;
     private void Awake()
     {
         PMs = new List<PlayerManager>();
@@ -55,6 +55,11 @@ public class PlayerManager : MonoBehaviour
         Debug.Log("PlayerInput ID: " + curPlayerNumber);
         pInput.transform.position = spawnlocations[curPlayerNumber].position;
         var playerController = pInput.gameObject;
+        // adding death sound
+        if (deathSound != null)
+        {
+            playerController.GetComponent<PlayerController>().deathSound = deathSound;
+        }
         players.Add(playerController);
         curPlayerNumber++;
         if (curPlayerNumber == spawnlocations.Length)
