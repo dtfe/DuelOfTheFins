@@ -130,9 +130,15 @@ public class MusicManager : MonoBehaviour
                 Destroy(this.gameObject);
         }
     }
+
     public void ChangeVolume(float soundLevel)
     {
         audioSource.volume = soundLevel;
+    }
+    
+    public void ChangeVolumeForSoundEffect(float soundLevel)
+    {
+        effectAudioSource.volume = soundLevel;
     }
 
     public void PlayMusic()
@@ -153,6 +159,7 @@ public class MusicManager : MonoBehaviour
         switch (name)
         {
             case "aquarium":
+                ChangeVolume(0.25f);
                 audioSource.clip = aquariumMusic;
                 PlayMusic();
                 break;
@@ -200,7 +207,7 @@ public class MusicManager : MonoBehaviour
     private void PlayEffectRandomly(string[] names)
     {
         var effect = names[Random.Range(0, names.Length)];
-        
+        ChangeVolumeForSoundEffect(1.0f);
         switch (effect)
         {
             case "aquariumBubbls":
@@ -265,6 +272,7 @@ public class MusicManager : MonoBehaviour
                 effectAudioSource.Play();
                 break;
             case "door_Bell":
+                ChangeVolumeForSoundEffect(0.5f);
                 effectAudioSource.clip = doorBell;
                 effectAudioSource.Play();
                 break;

@@ -929,7 +929,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 10.11}
 --- !u!1 &350373295
 GameObject:
@@ -989,13 +989,85 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1001 &391039648
+--- !u!1 &402059101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 402059102}
+  - component: {fileID: 402059103}
+  m_Layer: 3
+  m_Name: Collider (2)
+  m_TagString: Stone
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &402059102
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402059101}
+  m_LocalRotation: {x: -0, y: -0, z: 0.39486185, w: 0.9187406}
+  m_LocalPosition: {x: -3.2144897, y: -1.5718613, z: 0}
+  m_LocalScale: {x: 1.0848581, y: 2.004634, z: 0.43614137}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 891974302}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 44.795}
+--- !u!70 &402059103
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 402059101}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 1}
+  m_Direction: 0
+--- !u!1001 &516030115
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4660344613693519146, guid: da559b4a958f98b469cf08f41a6f68e4, type: 3}
+      propertyPath: musicName
+      value: ocean
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660344613693519146, guid: da559b4a958f98b469cf08f41a6f68e4, type: 3}
+      propertyPath: ambientMusicName
+      value: waves
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660344613693519146, guid: da559b4a958f98b469cf08f41a6f68e4, type: 3}
+      propertyPath: effectNames.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660344613693519146, guid: da559b4a958f98b469cf08f41a6f68e4, type: 3}
+      propertyPath: effectNames.Array.data[0]
+      value: whale
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660344613693519146, guid: da559b4a958f98b469cf08f41a6f68e4, type: 3}
+      propertyPath: effectNames.Array.data[1]
+      value: dolphinsound
+      objectReference: {fileID: 0}
+    - target: {fileID: 4660344613693519146, guid: da559b4a958f98b469cf08f41a6f68e4, type: 3}
+      propertyPath: effectNames.Array.data[2]
+      value: seal_sound
+      objectReference: {fileID: 0}
     - target: {fileID: 5126778816711505765, guid: da559b4a958f98b469cf08f41a6f68e4, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -1046,54 +1118,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da559b4a958f98b469cf08f41a6f68e4, type: 3}
---- !u!1 &402059101
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 402059102}
-  - component: {fileID: 402059103}
-  m_Layer: 3
-  m_Name: Collider (2)
-  m_TagString: Stone
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &402059102
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 402059101}
-  m_LocalRotation: {x: -0, y: -0, z: 0.39486185, w: 0.9187406}
-  m_LocalPosition: {x: -3.2144897, y: -1.5718613, z: 0}
-  m_LocalScale: {x: 1.0848581, y: 2.004634, z: 0.43614137}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 891974302}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 44.795}
---- !u!70 &402059103
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 402059101}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
-  m_Direction: 0
 --- !u!1 &550678064
 GameObject:
   m_ObjectHideFlags: 0
@@ -2908,7 +2932,7 @@ Transform:
   - {fileID: 1484120322}
   - {fileID: 550678065}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1676201274
 GameObject:
@@ -3156,7 +3180,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1726526381
 GameObject:
@@ -3540,7 +3564,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -3.263}
 --- !u!1 &2099192957
 GameObject:

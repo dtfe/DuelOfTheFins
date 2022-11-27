@@ -11739,6 +11739,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2154385886121035584, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4687316642413880785, guid: 09ac0f2b24f244842bdf122a235c2729, type: 3}
       propertyPath: m_Name
       value: Music Manager
@@ -12655,7 +12659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 593978418b6c3f445aae0b56ea480b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicName: audioSource
+  musicName: main_Menu
   effectNames: []
   ambientMusicName: 
   minWaitSoundEffect: 4

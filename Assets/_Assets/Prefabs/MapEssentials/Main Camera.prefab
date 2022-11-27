@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5126778816711505787}
   - component: {fileID: 5126778816711505764}
   - component: {fileID: 5126778816711505785}
+  - component: {fileID: 4660344613693519146}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -99,3 +100,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetZoom: 2
   zoomSpeed: 1
+--- !u!114 &4660344613693519146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5126778816711505765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 593978418b6c3f445aae0b56ea480b11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicName: 
+  effectNames: []
+  ambientMusicName: 
+  minWaitSoundEffect: 4
+  maxWaitSoundEffect: 6
