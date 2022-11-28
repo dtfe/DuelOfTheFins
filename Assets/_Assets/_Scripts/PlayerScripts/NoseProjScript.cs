@@ -74,19 +74,12 @@ public class NoseProjScript : MonoBehaviour
             bloodyHit.transform.parent = other.transform;
             isActive = false;
         }
-        string[] collidables = { "Wall", "GlassWall", "Sand", "Stone" };
+        string[] collidables = { "Wall",  "GlassWall", "Sand", "Stone" };
         if (collidables.Contains(other.gameObject.tag))
         {
-            HitWall(false, other.transform);
+            var shouldBreak = other.gameObject.CompareTag("GlassWall"); 
+            HitWall(shouldBreak, other.transform);
         }
-        //if (other.gameObject.CompareTag("Wall") || other.gameObject.CompareTag("Sand")
-        //{
-        //    HitWall(false);
-        //}
-        //if (other.gameObject.CompareTag("GlassWall"))
-        //{
-        //    HitWall(true);
-        //}
     }
     private void HitWall(bool breakable, Transform hitPos)
     {

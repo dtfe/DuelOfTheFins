@@ -42,7 +42,6 @@ public class WaterLevel : MonoBehaviour
 
     public void Restart()
     {
-        Debug.Log("Restarting WaterLevel");
         hole.Clear();
         sinkTo = new Vector3(0, waterLevel, 0);
         transform.position = sinkTo;
