@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+// Manages the round and detects which player dies giving the point to the surviving player as well as manages which player should have a taunt appear. Also controls the countdown timer and victory screen.
 public class RoundManager : MonoBehaviour
 {
     private cameraController2 cam;

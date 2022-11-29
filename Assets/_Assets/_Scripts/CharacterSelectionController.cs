@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Unused script. Used to handle character selection, but when built it does not work as it cannot make a new prefab.
+
 public class CharacterSelectionController : MonoBehaviour
 {
     public SpriteRenderer sr;

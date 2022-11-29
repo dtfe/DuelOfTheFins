@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEditor;
 
+// This is the PlayerController script. It handles the controls for the player. Handles taunt timers, nose status, etc. 
+
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb2d;

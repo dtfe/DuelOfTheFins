@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Script for the hole when it first spawns. Controls the water particles.
+
 public class holeScript : MonoBehaviour
 {
     private Transform waterLevel;

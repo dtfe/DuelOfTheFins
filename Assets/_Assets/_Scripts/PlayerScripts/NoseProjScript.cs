@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+// This script is for the projectile which spawns whenever a player shoots. It also detects if a player is attached to the nose and makes sure they stick to it correctly and also creates holes for the aquarium map
+
 public class NoseProjScript : MonoBehaviour
 {
     private BoxCollider2D hitbox;
