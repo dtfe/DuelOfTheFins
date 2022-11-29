@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// This is the water physics for the space map. It is based off of this tutorial online: https://gamedevelopment.tutsplus.com/tutorials/make-a-splash-with-dynamic-2d-water-effects--gamedev-236 but edited to support vertecies instead of using the y pos, which is easier said than done.
+
 public class CircleMeshScript : MonoBehaviour
 {
     public PolygonCollider2D polyCollider;
@@ -41,13 +43,10 @@ public class CircleMeshScript : MonoBehaviour
                 Debug.DrawLine(vertices[i], vertices[0], Color.red);
             }
         }
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            PolyMesh(radius, resolution);
-        }
         SizeAdjustment = radius / (radius/2) + radius * spread;
     }
 
+    // This creates the circle mesh. I found the solution online here: https://stackoverflow.com/questions/50606756/creating-a-2d-circular-mesh-in-unity, but made adjustments to fit what I needed it to do. The solution in the link had several issues which had to be fixed.
     public void PolyMesh(float radius, int n)
     {
         MeshFilter mf = GetComponent<MeshFilter>();
@@ -114,6 +113,7 @@ public class CircleMeshScript : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        // This bit pulls the vertex back to it's default position
         for (int i = 0; i < vertices.Length; i++)
         {
             if (i == 0)
@@ -126,6 +126,8 @@ public class CircleMeshScript : MonoBehaviour
             vertices[i] += (wantsToGo + velocities[i]) * Time.deltaTime;
         }
         
+        // The Deltas affect the velocities of it's neighbor vertices to create a wave going through the entire shape. Fixed update is used since we do not need incredible accuracy and running these loops as often as update() would be horrible for performance.
+
         Vector3[] leftDeltas = new Vector3[vertices.Length];
         Vector3[] rightDeltas = new Vector3[vertices.Length];
 
@@ -187,6 +189,8 @@ public class CircleMeshScript : MonoBehaviour
         UpdateMesh();
     }
 
+
+    // This bit detects if the player or a pufferfish enters the bubble then applies a force to the closest vertex.
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Deleteable"))
@@ -243,6 +247,7 @@ public class CircleMeshScript : MonoBehaviour
         }
     }
 
+    // This simply updates the mesh of the object
     private void UpdateMesh()
     {
         mesh.vertices = vertices;

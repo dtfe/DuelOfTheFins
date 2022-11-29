@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// Pufferfish script. Controls how it moves, and behaves.
 public class hazardObjectScript : MonoBehaviour
 {
     public float acceleration = 1f;
@@ -9,10 +10,11 @@ public class hazardObjectScript : MonoBehaviour
     public bool rotateOverTime = true;
     public bool isHoming = false;
     public bool looksInMoveDir = false;
+    public bool startDirUp = false;
     private Rigidbody2D rb2d;
     private Vector2 movement;
     private float timeLeft;
-    private float spawntime = 4;
+    public float spawntime = 4;
 
     private PlayerController[] players;
 
@@ -21,9 +23,14 @@ public class hazardObjectScript : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
 
-        if (!rotateOverTime && !looksInMoveDir)
+        if (rotateOverTime && !looksInMoveDir)
         {
             rb2d.angularVelocity = Random.Range(-60, 61);
+        }
+        if (startDirUp)
+        {
+            movement = Vector2.up;
+            timeLeft = accelerationTime;
         }
 
         if (isHoming)
@@ -35,7 +42,7 @@ public class hazardObjectScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spawntime > 0)
+        if (spawntime > 0 && !isHoming)
         {
             int LayerDefault = LayerMask.NameToLayer("noPlayerCollision");
             gameObject.layer = LayerDefault;

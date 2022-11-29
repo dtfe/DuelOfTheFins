@@ -187,13 +187,13 @@ public class MusicManager : MonoBehaviour
 
         }
     }
-    public void PlayEffectsRandomly(string[] names, int minWaitSoundEffect = 4, int maxWaitSoundEffect = 6)
+    public void PlayEffectsRandomly(string[] names, int minWaitSoundEffect = 10, int maxWaitSoundEffect = 16)
     {
         coroutine = RandomEffectGenerator(names);
         this.StartCoroutine(coroutine);
     }
 
-    private IEnumerator RandomEffectGenerator(string[] names, int minWaitSoundEffect = 4, int maxWaitSoundEffect = 6)
+    private IEnumerator RandomEffectGenerator(string[] names, int minWaitSoundEffect = 10, int maxWaitSoundEffect = 16)
     {
         while (true)
         {

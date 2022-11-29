@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Very basic water physics. Unused now.
 public class ZeroGWaterBubble : MonoBehaviour
 {
     private CapsuleCollider2D selfCol;

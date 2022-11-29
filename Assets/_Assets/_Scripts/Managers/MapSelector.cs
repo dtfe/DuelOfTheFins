@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
 
+// Map selection script. It handles the visuals for the map preview and which map you are sent to when you confirm your selection
 public class MapSelector : MonoBehaviour
 {
     public int curMapIndex = 1;
