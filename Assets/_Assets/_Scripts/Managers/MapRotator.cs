@@ -7,7 +7,7 @@ public class MapRotator : MonoBehaviour
 {
     public void NextMap()
     {
-        if (SceneManager.GetActiveScene().buildIndex + 1 > SceneManager.sceneCountInBuildSettings - 1 )
+        if (SceneManager.GetActiveScene().buildIndex + 1 > SceneManager.sceneCountInBuildSettings - 6 )
         {
             SceneManager.LoadScene(2);
         }

@@ -9,7 +9,7 @@ public class RoundManager : MonoBehaviour
     private cameraController2 cam;
     private PlayerController player1, player2;
     public Texture2D purpleScore, yellowScore, emptyScore, player1Banner, player2Banner;
-    public GameObject UI, scorePoints, victoryScreen, taunt;
+    public GameObject UI, scorePoints, victoryScreen, countDownTimer, taunt;
     public string[] tauntTexts;
     public int pointsToWin;
     private int p1Score = 0, p2Score = 0;
@@ -111,9 +111,12 @@ public class RoundManager : MonoBehaviour
     IEnumerator firstStartUp()
     {
         Time.timeScale = 0;
+        GameObject cdTimerGO = Instantiate(countDownTimer);
         yield return new WaitForSecondsRealtime(3);
-
+        Destroy(cdTimerGO);
+        Time.timeScale = 1;
     }
+
     IEnumerator endGame()
     {
         yield return new WaitForSeconds(2);
