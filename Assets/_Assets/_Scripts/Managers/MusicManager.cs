@@ -202,6 +202,96 @@ public class MusicManager : MonoBehaviour
         }
     }
 
+    public void PlayEffectNow(string name)
+    {
+        var effect = name;
+        switch (effect)
+        {
+            case "aquariumBubbls":
+                effectAudioSource.clip = aquariumBubbles;
+                effectAudioSource.Play();
+                break;
+
+            case "whale":
+                effectAudioSource.clip = whaleSing;
+                effectAudioSource.Play();
+                break;
+            case "caveWater":
+                effectAudioSource.clip = caveEnv;
+                effectAudioSource.Play();
+                break;
+            case "birds":
+                effectAudioSource.clip = birdSing;
+                effectAudioSource.Play();
+                break;
+            case "spacialShip":
+                effectAudioSource.clip = spaceShip;
+                effectAudioSource.Play();
+                break;
+            case "spacialbubbl":
+                effectAudioSource.clip = spaceBubbles;
+                effectAudioSource.Play();
+                break;
+            case "FireSound":
+                effectAudioSource.clip = fire;
+                effectAudioSource.Play();
+                break;
+            case "CreepyMusicBox":
+                effectAudioSource.clip = musicBox;
+                effectAudioSource.Play();
+                break;
+            case "HorrorScream":
+                effectAudioSource.clip = horror;
+                effectAudioSource.Play();
+                break;
+            case "Geigercount":
+                effectAudioSource.clip = geiger;
+                effectAudioSource.Play();
+                break;
+            case "Nuc_Alarm":
+                effectAudioSource.clip = nuclearAlarm;
+                effectAudioSource.Play();
+                break;
+            case "Ghostsinging":
+                effectAudioSource.clip = ghostSong;
+                effectAudioSource.Play();
+                break;
+            case "Ghost":
+                effectAudioSource.clip = ghostSound;
+                effectAudioSource.Play();
+                break;
+            case "dolphinsound":
+                effectAudioSource.clip = Dolphin;
+                effectAudioSource.Play();
+                break;
+            case "kitty":
+                effectAudioSource.clip = Cat;
+                effectAudioSource.Play();
+                break;
+            case "door_Bell":
+                ChangeVolumeForSoundEffect(0.5f);
+                effectAudioSource.clip = doorBell;
+                effectAudioSource.Play();
+                break;
+            case "brush":
+                effectAudioSource.clip = toothBrush;
+                effectAudioSource.Play();
+                break;
+            case "house_walk":
+                effectAudioSource.clip = walk;
+                effectAudioSource.Play();
+                break;
+            case "seal_sound":
+                effectAudioSource.clip = seal;
+                effectAudioSource.Play();
+                break;
+
+            default:
+                break;
+
+        }
+    }
+
     private void PlayEffectRandomly(string[] names)
     {
         var effect = names[Random.Range(0, names.Length)];
