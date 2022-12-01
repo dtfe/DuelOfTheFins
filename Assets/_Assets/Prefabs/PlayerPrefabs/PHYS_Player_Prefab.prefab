@@ -428,6 +428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef87f3988fced8843a234cc50b61e40f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  splash: {fileID: 2886304588136581509, guid: 159f1c4751be8384d87ae9614ec8bcd2, type: 3}
   noseProjectile: {fileID: 5220877082785094627, guid: 71e20be82cc91ff48bec7164d076f0ce, type: 3}
   playerMovement: {x: 0, y: 0}
   speed: 7.5
@@ -441,6 +442,7 @@ MonoBehaviour:
   isDead: 0
   isDashing: 0
   PM2D: {fileID: 6200000, guid: 7da955b888a865049b9170457da63bc8, type: 2}
+  deathSound: 
 --- !u!70 &2345561217131000453
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -4,10 +4,13 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEditor;
 
+// This is the PlayerController script. It handles the controls for the player. Handles taunt timers, nose status, etc. 
+
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb2d;
     private GameObject nose;
+    public GameObject splash;
     public GameObject noseProjectile;
 
     //Movement variables
@@ -258,6 +261,11 @@ public class PlayerController : MonoBehaviour
         {
             rb2d.velocity = rb2d.velocity / 2;
         }
+        if (FindObjectOfType<WaterLevel>() && rb2d.gravityScale != 0)
+        {
+            GameObject splashGO = Instantiate(splash, new Vector3(transform.position.x, FindObjectOfType<WaterLevel>().transform.position.y + 0.2f, transform.position.z), Quaternion.identity);
+            Destroy(splashGO, 3);
+        }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -286,6 +294,8 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                GameObject splashGO = Instantiate(splash, new Vector3(transform.position.x, FindObjectOfType<WaterLevel>().transform.position.y + 0.2f, transform.position.z), Quaternion.identity);
+                Destroy(splashGO, 3);
                 SoundManager.PlaySound("splashingwtr");
                 rb2d.gravityScale = 1f;
                 rb2d.drag = 1f;

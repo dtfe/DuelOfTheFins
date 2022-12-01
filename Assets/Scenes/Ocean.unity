@@ -3727,6 +3727,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: OceanBGEffects
       objectReference: {fileID: 0}
+    - target: {fileID: 3737196055557502328, guid: ca0854b2c92d8a543ac5037c53fc5215, type: 3}
+      propertyPath: prewarm
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3737196055794317777, guid: ca0854b2c92d8a543ac5037c53fc5215, type: 3}
+      propertyPath: prewarm
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4731869638375867800, guid: ca0854b2c92d8a543ac5037c53fc5215, type: 3}
+      propertyPath: prewarm
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca0854b2c92d8a543ac5037c53fc5215, type: 3}
 --- !u!1001 &4258962016510928914

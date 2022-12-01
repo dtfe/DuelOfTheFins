@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+// Manages player inputs and kills itself if theres a copy of it already existing. Also sends a list of the players to different scripts so they can differentiate the two players.
 public class PlayerManager : MonoBehaviour
 {
     public Transform[] spawnlocations;

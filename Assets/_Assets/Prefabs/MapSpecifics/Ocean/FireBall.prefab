@@ -107,6 +107,8 @@ MonoBehaviour:
   rotateOverTime: 1
   isHoming: 0
   looksInMoveDir: 1
+  startDirUp: 1
+  spawntime: 1
 --- !u!50 &5881408625376744813
 Rigidbody2D:
   serializedVersion: 4
