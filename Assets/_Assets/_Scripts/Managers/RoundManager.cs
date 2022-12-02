@@ -9,6 +9,7 @@ public class RoundManager : MonoBehaviour
 {
     private cameraController2 cam;
     private PlayerController player1, player2;
+    private PauseMenu pauseMenu;
     public Texture2D purpleScore, yellowScore, emptyScore, player1Banner, player2Banner;
     public GameObject UI, scorePoints, victoryScreen, countDownTimer, taunt;
     public string[] tauntTexts;
@@ -30,6 +31,7 @@ public class RoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        pauseMenu = FindObjectOfType<PauseMenu>();
         cam = FindObjectOfType<cameraController2>();
         GameObject roundCounter = UI.transform.Find("GameOverlay").transform.Find("RoundCounter").gameObject;
         scorePoints = roundCounter.transform.Find("ScorePoints").gameObject;
@@ -111,18 +113,22 @@ public class RoundManager : MonoBehaviour
 
     IEnumerator firstStartUp()
     {
+        pauseMenu.canPause(false);
         Time.timeScale = 0;
         GameObject cdTimerGO = Instantiate(countDownTimer);
         yield return new WaitForSecondsRealtime(3);
         Destroy(cdTimerGO);
         Time.timeScale = 1;
+        pauseMenu.canPause(true);
     }
 
     IEnumerator endGame()
     {
+        pauseMenu.canPause(false);
         yield return new WaitForSeconds(2);
         hasScored = false;
         Restart();
+        pauseMenu.canPause(true);
     }
     private void Restart()
     {
@@ -148,6 +154,7 @@ public class RoundManager : MonoBehaviour
 
     IEnumerator NextMap()
     {
+        pauseMenu.canPause(false);
         UI.SetActive(false);
         yield return new WaitForSeconds(7);
         Restart();
