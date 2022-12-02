@@ -8,28 +8,43 @@ public class PauseMenu : MonoBehaviour
 {
     PlayerControls controls;
     public GameObject PauseMenuUI;
+    private bool pauseActive;
+
     // Start is called before the first frame update
     private void Awake()
     {
         controls = new PlayerControls();
     }
+
+    public void canPause(bool state)
+    {
+        pauseActive = state;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        controls.UI.Pause.performed += ctx => Pause();
+        if (pauseActive)
+        {
+            controls.UI.Pause.performed += ctx => Pause();
+        }
     }
 
 private void Pause()
     {
         Debug.Log("Pause");
-        if (!PauseMenuUI.activeInHierarchy)
+        if (pauseActive)
         {
-            Time.timeScale = 0;
-            PauseMenuUI.SetActive(true);
-        } else
-        {
-            Time.timeScale = 1;
-            PauseMenuUI.SetActive(false);
+            if (!PauseMenuUI.activeInHierarchy)
+            {
+                Time.timeScale = 0;
+                PauseMenuUI.SetActive(true);
+            }
+            else
+            {
+                Time.timeScale = 1;
+                PauseMenuUI.SetActive(false);
+            }
         }
     }
 
